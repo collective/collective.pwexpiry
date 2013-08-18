@@ -1,0 +1,13 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser">
+
+  <browser:page
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      name="notification_email"
+      class=".emails.NotificationEmail"
+      template="templates/notification_email.pt"
+      permission="cmf.ManagePortal"
+      />
+
+</configure>

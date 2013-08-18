@@ -1,0 +1,8 @@
+<registry>
+    <record name="collective.pwexpiry.validity_period">
+        <field type="plone.registry.field.Int">
+            <title>Number od days for password validity</title>
+        </field>
+        <value>90</value>
+    </record>
+</registry>

@@ -1,0 +1,20 @@
+Imports and variables:
+
+    >>> import plone.testing.z2 as helpers
+    >>> from plone.app.testing import login, TEST_USER_NAME
+    >>> app = layer.get('app')
+    >>> portal = layer.get('portal')
+    >>> request = layer.get('request')
+    >>> portalURL = portal.absolute_url()
+    >>> browser = helpers.Browser(app)
+    >>> browser.handleErrors = False
+
+    
+The user visits the homepage with his browser
+    >>> portal.changeSkin('GdacSkin', request)
+    >>> browser.addHeader('plone_skin', 'GdacSkin')
+    >>> browser.open(portalURL)
+
+The top menu is displayed
+    >>> browser.contents
+    '...<ul id="portal-globalnavs">...'
