@@ -1,7 +1,9 @@
 HISTORY of collective.pwexpiry
 ===================
 
-0.0.1 (unreleased)
+0.2
 -------------------
+
+- correct pypi classifiers
 
 - initial code

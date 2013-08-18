@@ -8,12 +8,18 @@ version = read('collective', 'pwexpiry', 'version.txt').strip()
 
 setup(name='collective.pwexpiry',
       version=version,
-      description="",
+      description="Emulate Active Directory password complexity requirements in Plone",
       long_description=read("README.rst") + "\n" +
                        read("CHANGES.txt"),
       classifiers=[
         "Programming Language :: Python",
         "Topic :: Software Development :: Libraries :: Python Modules",
+        "Topic :: Security",
+        "Framework :: Plone",
+        "Framework :: Plone :: 4.1",
+        "Framework :: Plone :: 4.2", 
+        "Framework :: Plone :: 4.3",
+        "License :: OSI Approved :: Zope Public License",
         ],
       keywords='',
       author='Enfold Systems, Inc.',
