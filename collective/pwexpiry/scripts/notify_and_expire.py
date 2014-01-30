@@ -28,7 +28,7 @@ logger.addHandler(fh)
 # Read and validate input variables
 if len(sys.argv) < 2:
     raise ValueError('Missing portal_id parameter; Please specify your site\'s id.')
-portal_id = sys.argv[1]
+portal_id = sys.argv[-1]
 
 # Set site
 site = getattr(app, portal_id, None)
@@ -45,6 +45,9 @@ def notify_and_expire():
     portal = api.portal.get()
     registry = getUtility(IRegistry)
     validity_period = registry['collective.pwexpiry.validity_period']
+    notifications_to_use = set()
+    if 'collective.pwexpiry.notification_actions' in registry:
+        notifications_to_use = registry['collective.pwexpiry.notification_actions']
     current_time = portal.ZopeTime()
     local_tz = current_time.timezone()
     for user_id in portal.acl_users.source_users.getUserIds():
@@ -66,10 +69,15 @@ def notify_and_expire():
                                                        current_time.asdatetime())
             # Number of days before the user's password expires
             days_to_expire = validity_period - since_last_pw_reset
-            
+
             # Search for registered notifications and execute them
             notifications = getAdapters((portal,), IExpirationCheck)
             for notification_name, notification in notifications:
+                if notifications_to_use and notification_name not in notifications_to_use:
+                    msg = ("Skipping notification %s because it is not in "
+                            "registry['collective.pwexpiry.notification_actions']")
+                    logger.debug(msg % notification_name)
+                    continue
                 if notification(days_to_expire):
                     try:
                         # Protection of sending the expired notification email twice
@@ -98,7 +106,6 @@ def notify_and_expire():
                         logger.error('Error while performing notification: %s ' \
                                   'for user: %s: %s' % (notification_name, user_id, exc))
                         continue
-    
     # commit transaction
     import transaction
     transaction.commit()
