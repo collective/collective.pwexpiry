@@ -1,6 +1,6 @@
 import logging
 from zope.component import getAdapters
-from Products.CMFDefault.RegistrationTool import RegistrationTool
+from Products.CMFPlone.RegistrationTool import RegistrationTool
 from collective.pwexpiry.interfaces import ICustomPasswordValidator
 
 logger = logging.getLogger(__file__)
@@ -24,7 +24,6 @@ def extended_testPasswordValidity(self, password, confirm=None, data=None):
 
 RegistrationTool.testPasswordValidity = extended_testPasswordValidity
 logger.info("Patching Products.CMFDefault.RegistrationTool.testPasswordValidity")
-
 
 
 from zope.app.form.interfaces import WidgetInputError

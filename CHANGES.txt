@@ -1,6 +1,12 @@
 HISTORY of collective.pwexpiry
 ===================
 
+0.3 (Unreleased)
+----------------
+
+- Patch CMFPlone/RegistrationTool instead of CMFDefault/RegistrationTool
+  [frapell]
+
 0.2
 -------------------
 
