@@ -4,7 +4,8 @@ from Products.CMFCore.utils import getToolByName
 from Products.PlonePAS.Extensions.Install import activatePluginInterfaces
 from Products.PluggableAuthService.interfaces.plugins import IChallengePlugin
 
-from plugin import addPwExpiryPlugin
+from pwexpiry_plugin import addPwExpiryPlugin
+from pwdisable_plugin import addPwDisablePlugin
 
 logger = logging.getLogger('collective.pwexpiry')
 
@@ -24,3 +25,11 @@ def import_various(context):
             acl.plugins.movePluginsUp(IChallengePlugin, ['pwexpiry'])
     else:
         logger.info('pwexpiry already installed')
+
+    if 'pwdisable' not in installed:
+        addPwDisablePlugin(acl, 'pwdisable', 'PwDisable Plugin')
+        activatePluginInterfaces(portal, 'pwdisable')
+        for i in range(len(acl.plugins.listPluginIds(IChallengePlugin))):
+            acl.plugins.movePluginsUp(IChallengePlugin, ['pwdisable'])
+    else:
+        logger.info('pwdisable already installed')

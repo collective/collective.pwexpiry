@@ -1,5 +1,8 @@
+
+from zope.component.interfaces import IObjectEvent
 from zope.interface import Attribute
 from zope.interface import Interface
+
 
 class IExpirationCheck(Interface):
     """
@@ -41,3 +44,12 @@ class ICustomPasswordValidator(Interface):
         Validates password
         """
 
+
+class IValidPasswordEntered(IObjectEvent):
+    """
+    """
+
+
+class IInvalidPasswordEntered(IObjectEvent):
+    """
+    """

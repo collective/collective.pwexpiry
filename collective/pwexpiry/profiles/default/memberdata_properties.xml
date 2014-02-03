@@ -2,4 +2,7 @@
 <object name="portal_memberdata" meta_type="Plone Memberdata Tool">
     <property name="password_date" type="date">2000/01/01</property>
     <property name="last_notification_date" type="date">2000/01/01</property>
-</object> 
+    <property name="account_locked_date" type="date">2000/01/01</property>
+    <property name="account_locked" type="boolean">False</property>
+    <property name="password_tries" type="int">0</property>
+</object>

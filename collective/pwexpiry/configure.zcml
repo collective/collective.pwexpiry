@@ -5,10 +5,10 @@
     i18n_domain="collective.pwexpiry">
 
   <five:registerPackage package="." initialize=".initialize" />
-  
+
   <include package=".actions" />
   <include package=".browser" />
-  
+
   <genericsetup:registerProfile
       name="default"
       title="collective.pwexpiry"
@@ -16,5 +16,18 @@
       description='Adds the feature of password expiration control.'
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
+
+
+    <subscriber
+        for="Products.CMFCore.interfaces.IMemberData
+             .interfaces.IValidPasswordEntered"
+        handler=".subscriber.ValidPasswordEntered"
+        />
+
+    <subscriber
+        for="Products.CMFCore.interfaces.IMemberData
+             .interfaces.IInvalidPasswordEntered"
+        handler=".subscriber.InvalidPasswordEntered"
+        />
 
 </configure>

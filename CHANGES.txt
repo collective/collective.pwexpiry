@@ -4,7 +4,15 @@ HISTORY of collective.pwexpiry
 0.3 (Unreleased)
 ----------------
 
-- Patch CMFPlone/RegistrationTool instead of CMFDefault/RegistrationTool
+- Add member properties, registry keys, events subscribers, and a PAS plugin
+  to allow blocking a user if he enters too many incorrect passwords.
+  [frapell]
+
+- Patch ZODBUserManager.authenticateCredentials so it fires events when entering
+  valid or invalid credentials.
+  [frapell]
+
+- Patch CMFPlone/RegistrationTool instead of CMFDefault/RegistrationTool.
   [frapell]
 
 0.2

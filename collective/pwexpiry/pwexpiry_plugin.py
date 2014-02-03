@@ -56,7 +56,7 @@ class PwExpiryPlugin(BasePlugin):
         login = credentials.get('login')
         if not login:
             return None
-        
+
         self._invalidatePrincipalCache(login)
         user = api.user.get(username=login)
         if not user:
