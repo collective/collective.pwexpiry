@@ -52,10 +52,10 @@ def notify_and_expire():
     local_tz = current_time.timezone()
     for user_id in portal.acl_users.source_users.getUserIds():
         user = portal.portal_membership.getMemberById(user_id)
-        password_date = user.getProperty('password_date', '2000/01/01')
-        last_notification_date = user.getProperty('last_notification_date', '2000/01/01')
+        password_date = DateTime(user.getProperty('password_date', '2000/01/01'))
+        last_notification_date = DateTime(user.getProperty('last_notification_date', '2000/01/01'))
         last_notification_date = last_notification_date.toZone(local_tz)
-        if str(password_date) == '2000/01/01':
+        if str(password_date) == DateTime('2000/01/01'):
             # The user has not set the changed the password yet - the current time
             # is set as the initial value
             user.setMemberProperties({'password_date': current_time})
