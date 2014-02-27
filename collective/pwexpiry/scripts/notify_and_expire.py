@@ -55,7 +55,7 @@ def notify_and_expire():
         password_date = DateTime(user.getProperty('password_date', '2000/01/01'))
         last_notification_date = DateTime(user.getProperty('last_notification_date', '2000/01/01'))
         last_notification_date = last_notification_date.toZone(local_tz)
-        if str(password_date) == DateTime('2000/01/01'):
+        if password_date == DateTime('2000/01/01'):
             # The user has not set the changed the password yet - the current time
             # is set as the initial value
             user.setMemberProperties({'password_date': current_time})
