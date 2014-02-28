@@ -52,6 +52,10 @@ def InvalidPasswordEntered(user, event):
 
     # If we are here, means that the provided credentials were invalid
 
+    # If user is Manager, then ignore this and do not block
+    if user.has_role('Manager'):
+        return
+
     registry = queryUtility(IRegistry)
     if not registry:
         return
