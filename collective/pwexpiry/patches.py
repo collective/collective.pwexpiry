@@ -65,7 +65,7 @@ def extended_validate_registration(self, action, data):
     return original
 
 BaseRegistrationForm.validate_registration = extended_validate_registration
-logger.info("Patching Products.CMFDefault.RegistrationTool.testPasswordValidity")
+logger.info("Patching plone.app.users.browser.register.BaseRegistrationForm.validate_registration")
 
 
 ZODBUserManager.original_authenticateCredentials = ZODBUserManager.authenticateCredentials
