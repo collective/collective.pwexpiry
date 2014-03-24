@@ -17,6 +17,7 @@ from collective.pwexpiry.events import ValidPasswordEntered
 
 logger = logging.getLogger(__file__)
 
+
 original_testPasswordValidity = RegistrationTool.testPasswordValidity
 def extended_testPasswordValidity(self, password, confirm=None, data=None):
     """
@@ -70,14 +71,14 @@ logger.info("Patching plone.app.users.browser.register.BaseRegistrationForm.vali
 
 
 ZODBUserManager.original_authenticateCredentials = ZODBUserManager.authenticateCredentials
-def authenticateCredentials( self, credentials ):
+def authenticateCredentials(self, credentials):
         """ See IAuthenticationPlugin.
 
         o We expect the credentials to be those returned by
           ILoginPasswordExtractionPlugin.
         """
-        login = credentials.get( 'login' )
-        password = credentials.get( 'password' )
+        login = credentials.get('login')
+        password = credentials.get('password')
 
         if login is None or password is None:
             return None
@@ -104,13 +105,13 @@ def authenticateCredentials( self, credentials ):
             return None
 
         is_authenticated = False
-        if AuthEncoding.is_encrypted( reference ):
-            if AuthEncoding.pw_validate( reference, password ):
+        if AuthEncoding.is_encrypted(reference):
+            if AuthEncoding.pw_validate(reference, password):
                 is_authenticated = True
 
         if not is_authenticated:
             # Support previous naive behavior
-            digested = sha( password ).hexdigest()
+            digested = sha(password).hexdigest()
 
             if reference == digested:
                 is_authenticated = True
