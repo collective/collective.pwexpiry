@@ -1,7 +1,7 @@
 HISTORY of collective.pwexpiry
-===================
+==============================
 
-0.3 (Unreleased)
+0.4 (Unreleased)
 ----------------
 
 - Add member properties, registry keys, events subscribers, and a PAS plugin
@@ -15,8 +15,16 @@ HISTORY of collective.pwexpiry
 - Patch CMFPlone/RegistrationTool instead of CMFDefault/RegistrationTool.
   [frapell]
 
-0.2
--------------------
+
+0.3 (2014-09-10)
+----------------
+
+- Properly package
+  [frapell]
+
+
+0.2 (2013-08-18)
+----------------
 
 - correct pypi classifiers
 

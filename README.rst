@@ -6,8 +6,7 @@ Introduction
 
 The ``collective.pwexpiry`` package is an add-on Product for Plone that brings the 
 feature of controlling the password expiration in Plone. It is useful when there's 
-a need of forcing the portal's members to follow the specific password policy.  Created
-to emulate Active Directory password policies.
+a need of forcing the portal's members to follow the specific password policy.
 
 Features
 ========
@@ -19,6 +18,7 @@ Features
   The script checks for the user's passwords expiration dates and triggers the registered
   notification actions (i.e. sending email to the relevant users). 
 * Provides a protection mechanizm to avoid notifying given user twice the same day 
+* Possibility to lock an account if too many invalid password attemps were tried
 
 Installation
 ============
@@ -152,15 +152,37 @@ Here's an example of how the script can be executed from the command line::
     $ ./bin/instance run src/collective.pwexpiry/collective/pwexpiry/scripts/notify_and_expire.py ${your-plonesite-id}
 
 
+Locking out accounts if an invalid password is entered too many times
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When the package is installed, a new PAS plugin is included, which will count invalid password attempts when logging in.
+If the number of invalid attempts is higher than a configurable threshold, the account will be locked out for a certain amount of hours.
+If the account hasn't been locked yet, entering the password correctly will reset this counter to zero.
+An account can be re-activated by an administrator changing its password.
+
+
 Controlling the additional user's properties
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The ``collective.pwexpiry`` package creates new user's properties:
  * ``password_date`` - the date when the user has changed his passoword
  * ``last_notification_date`` - the date when the last notification action has been performed for the user
+ * ``account_locked_date`` - the date when the account was locked
+ * ``account_locked`` - boolean telling if the account was locked or not
+ * ``password_tries`` - the number of incorrect password attempts
 
 In order to be able to control manually the new user's properties manually - there's a
 control panel form available under url: ``/@@pwexpiry-controlpanel``.
+
+
+Setting how many tries before locking the account and for how much time
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This is managed with values in the registry:
+
+ * ``collective.pwexpiry.allowed_tries`` - Allows you to choose how many attempts are allowed
+ * ``collective.pwexpiry.disable_time`` - Allows you to specify for how many hours the user should be locked out
+
 
 TODO
 ====
@@ -172,7 +194,7 @@ Author & Contact
 ================
 
 :Author:
- * Enfold Systems ``info@enfoldsystems.com``
+ * Radosław Jankiewicz ``radoslaw.jankiewicz@stxnext.pl``
 
 License
 =======
