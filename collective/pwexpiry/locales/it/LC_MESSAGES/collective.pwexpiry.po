@@ -1,0 +1,80 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2014-09-12 14:06+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+
+#: ../utils.py:15
+msgid "${days} days left to password expiration"
+msgstr "${days} giorni rimasti per la scadenza della password"
+
+#: ../browser/preferences/pwexpirycontrolpanel.py:89
+msgid "Changes applied."
+msgstr "Modifiche applicate."
+
+#: ../profiles/default/controlpanel.xml
+msgid "Password expiration control panel"
+msgstr "Pannello di controllo della scadenza della password"
+
+#: ../browser/preferences/pwexpirycontrolpanel.pt:38
+msgid "User's password expiration panel"
+msgstr ""
+
+#: ../pwdisable_plugin.py:59
+msgid "Your account has been locked due to too many invalid attempts to login with a wrong password. Your account will remain blocked for the next %s hours. You can reset your password, or contact an administrator to unlock it, using the Contact form."
+msgstr "Il tuo account è stato bloccato a causa di troppi tentativi falliti di login con una password errata. Il tuo account rimarrà bloccato per le prossime %s ore. Puoi resettare la tua password oppure contattare l'amministratore del sito per sbloccarti, usando i form di contatti."
+
+#: ../pwexpiry_plugin.py:85
+msgid "Your password has expired."
+msgstr "La tua password è scaduta."
+
+#. Default: "View and manage user's password expiration properties"
+#: ../browser/preferences/pwexpirycontrolpanel.pt:50
+msgid "description_"
+msgstr "Visualizza e gestisci le proprietà di scadenza della password del utente"
+
+#. Default: "Show all search results"
+#: ../browser/preferences/pwexpirycontrolpanel.pt:161
+msgid "description_pas_show_all_search_results"
+msgstr "Mostra tutti i risultati di ricerca"
+
+#. Default: "The date of performing the last notification fot the user"
+#: ../userdataschema.py:31
+msgid "help_last_notification_date"
+msgstr "La dell'ultima notifica all'utente"
+
+#. Default: "The date of setting the password"
+#: ../userdataschema.py:24
+msgid "help_password_date"
+msgstr "La data di impostazione della password"
+
+#. Default: "Apply Changes"
+#: ../browser/preferences/pwexpirycontrolpanel.pt:173
+msgid "label_apply_changes"
+msgstr "Applica le modifiche"
+
+#. Default: "Last notification date"
+#: ../userdataschema.py:30
+msgid "label_last_notification_date"
+msgstr "Data di ultima notifica"
+
+#. Default: "Password date"
+#: ../userdataschema.py:23
+msgid "label_password_date"
+msgstr "Data della password"
+
+#. Default: "Users"
+#: ../browser/preferences/pwexpirycontrolpanel.pt:24
+msgid "label_users"
+msgstr "Utenti"
+

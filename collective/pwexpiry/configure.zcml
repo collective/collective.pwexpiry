@@ -5,6 +5,7 @@
     i18n_domain="collective.pwexpiry">
 
   <five:registerPackage package="." initialize=".initialize" />
+  <i18n:registerTranslations directory="locales" />
 
   <include package=".actions" />
   <include package=".browser" />
