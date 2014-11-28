@@ -1,7 +1,7 @@
 HISTORY of collective.pwexpiry
 ==============================
 
-0.5 (unreleased)
+0.5 (2014-11-28)
 ----------------
 
 - Add i18n and italian translation
