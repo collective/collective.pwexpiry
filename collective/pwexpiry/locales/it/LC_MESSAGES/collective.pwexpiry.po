@@ -24,16 +24,24 @@ msgid "Changes applied."
 msgstr "Modifiche applicate."
 
 #: ../profiles/default/controlpanel.xml
-msgid "Password expiration control panel"
-msgstr "Pannello di controllo della scadenza della password"
+msgid "Password expiration"
+msgstr "Scadenza della password"
 
 #: ../browser/preferences/pwexpirycontrolpanel.pt:38
 msgid "User's password expiration panel"
 msgstr ""
 
 #: ../pwdisable_plugin.py:59
-msgid "Your account has been locked due to too many invalid attempts to login with a wrong password. Your account will remain blocked for the next %s hours. You can reset your password, or contact an administrator to unlock it, using the Contact form."
-msgstr "Il tuo account è stato bloccato a causa di troppi tentativi falliti di login con una password errata. Il tuo account rimarrà bloccato per le prossime %s ore. Puoi resettare la tua password oppure contattare l'amministratore del sito per sbloccarti, usando i form di contatti."
+msgid ""
+"Your account has been locked due to too many invalid attempts to login with a "
+"wrong password. Your account will remain blocked for the next %s hours. You "
+"can reset your password, or contact an administrator to unlock it, using the "
+"Contact form."
+msgstr ""
+"Il tuo account è stato bloccato a causa di troppi tentativi falliti di login "
+"con una password errata. Il tuo account rimarrà bloccato per le prossime %s "
+"ore. Puoi resettare la tua password oppure contattare l'amministratore del "
+"sito per sbloccarti, usando i form di contatti."
 
 #: ../pwexpiry_plugin.py:85
 msgid "Your password has expired."
@@ -42,7 +50,8 @@ msgstr "La tua password è scaduta."
 #. Default: "View and manage user's password expiration properties"
 #: ../browser/preferences/pwexpirycontrolpanel.pt:50
 msgid "description_"
-msgstr "Visualizza e gestisci le proprietà di scadenza della password del utente"
+msgstr ""
+"Visualizza e gestisci le proprietà di scadenza della password del utente"
 
 #. Default: "Show all search results"
 #: ../browser/preferences/pwexpirycontrolpanel.pt:161
@@ -78,4 +87,5 @@ msgstr "Data della password"
 #: ../browser/preferences/pwexpirycontrolpanel.pt:24
 msgid "label_users"
 msgstr "Utenti"
+
 

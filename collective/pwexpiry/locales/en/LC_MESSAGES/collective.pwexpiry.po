@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-09-12 14:06+0000\n"
+"POT-Creation-Date: 2014-11-28 21:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,7 +23,7 @@ msgid "Changes applied."
 msgstr ""
 
 #: ../profiles/default/controlpanel.xml
-msgid "Password expiration control panel"
+msgid "Password expiration"
 msgstr ""
 
 #: ../browser/preferences/pwexpirycontrolpanel.pt:38
