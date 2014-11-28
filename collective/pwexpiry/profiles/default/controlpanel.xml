@@ -5,7 +5,7 @@
         i18n:domain="collective.pwexpiry">
 
     <configlet 
-        title="Password expiration control panel"
+        title="Password expiration"
         action_id="pwexpirycontrolpanel"
         appId="Pwexpiry"
         category="Products"

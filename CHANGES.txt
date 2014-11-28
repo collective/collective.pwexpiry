@@ -4,7 +4,11 @@ HISTORY of collective.pwexpiry
 0.5 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Add i18n and italian translation
+  [giacomos]
+
+- No need to include 'control panel' in the control panel title
+  [frapell]
 
 
 0.4 (2014-09-11)
