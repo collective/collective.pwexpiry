@@ -2,7 +2,7 @@ from itertools import chain
 
 from DateTime import DateTime
 from Acquisition import aq_inner
-
+from collective.pwexpiry.config import DATETIME_FORMATSTRING
 from zope.component import getMultiAdapter
 from plone.app.controlpanel.usergroups import UsersOverviewControlPanel
 from plone.protect import CheckAuthenticator
@@ -69,7 +69,6 @@ class PwExpiryControlPanel(UsersOverviewControlPanel):
 
             for user in users:
                 member = mtool.getMemberById(user.id)
-
                 password_date = member.getProperty('password_date', '2000/01/01')
                 new_password_date = DateTime(user.get('password'))
                 if password_date != new_password_date:
@@ -87,3 +86,6 @@ class PwExpiryControlPanel(UsersOverviewControlPanel):
                     )
 
             utils.addPortalMessage(_(u'Changes applied.'))
+
+    def formatDate(self, date):
+        return date.strftime(DATETIME_FORMATSTRING)

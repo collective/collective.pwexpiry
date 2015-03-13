@@ -4,7 +4,8 @@ HISTORY of collective.pwexpiry
 0.6 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Use a friendlier date format for the control panel
+  [frapell]
 
 
 0.5 (2014-11-28)

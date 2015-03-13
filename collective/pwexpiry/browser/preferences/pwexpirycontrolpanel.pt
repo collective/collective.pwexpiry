@@ -118,12 +118,12 @@
                                 
                                 
                                 <td>
-                                    <input style="width:180px" type="text" name="users.password:records" tal:attributes="value user/password_date" />
+                                    <input style="width:180px" type="text" name="users.password:records" tal:attributes="value python:view.formatDate(user.get('password_date'))" />
                                 </td>
                                 
                                 
                                 <td>
-                                    <input style="width:180px" type="text" name="users.notification:records" tal:attributes="value user/last_notification_date" />
+                                    <input style="width:180px" type="text" name="users.notification:records" tal:attributes="value  python:view.formatDate(user.get('last_notification_date'))" />
                                 </td>
 
                             </tr>
