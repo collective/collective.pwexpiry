@@ -27,13 +27,14 @@ logger.addHandler(fh)
 
 # Read and validate input variables
 if len(sys.argv) < 2:
-    raise ValueError('Missing portal_id parameter; Please specify your site\'s id.')
-portal_id = sys.argv[-1]
+    raise ValueError('Missing portal_path parameter; Please specify your site\'s path.')
+portal_path = sys.argv[-1]
 
 # Set site
-site = getattr(app, portal_id, None)
-if not site:
-    raise ValueError('Wrong portal_id parameter; Please specify an existing site\'s id.')
+try:
+    site = app.restrictedTraverse(portal_path)
+except Exception:
+    raise ValueError('Wrong portal_path parameter; Please specify an existing site\'s path.')
 setSite(site=site)
 
 def notify_and_expire():

@@ -5,7 +5,11 @@ HISTORY of collective.pwexpiry
 ----------------
 
 - Ignore case when checking for name and username in password.
-  [enfold-swampy]
+  [enfold-josh]
+
+- Change script to accept a path and use traversal to get plone site since it
+  may not always be in the application root.
+  [enfold-josh]
 
 
 0.6 (2015-03-13)
