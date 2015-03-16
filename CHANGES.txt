@@ -11,6 +11,9 @@ HISTORY of collective.pwexpiry
   may not always be in the application root.
   [enfold-josh]
 
+- Redirect to $portal_url/mail_password_form instead of just /mail_password_form
+  [enfold-josh]
+
 
 0.6 (2015-03-13)
 ----------------
