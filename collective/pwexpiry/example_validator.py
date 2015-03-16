@@ -42,8 +42,9 @@ class ADPasswordValidator(object):
 
         # Checking if the entered password doesn't contain
         # the user's username or any parts of his fullname
+        password_lower = password.lower()
         for name in data.get('fullname', '').split(' ') + [data.get('username', ''),]:
-            if name and name in password:
+            if name and name.lower() in password_lower:
                 return u'Your password cannot contain your account name (Username), '\
                        u'first name or last name.'
 

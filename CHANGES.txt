@@ -4,7 +4,8 @@ HISTORY of collective.pwexpiry
 0.7 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Ignore case when checking for name and username in password.
+  [enfold-swampy]
 
 
 0.6 (2015-03-13)
