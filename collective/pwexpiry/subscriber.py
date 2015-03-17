@@ -73,4 +73,3 @@ def InvalidPasswordEntered(user, event):
         current_time = portal.ZopeTime()
         user.setMemberProperties({'account_locked_date': current_time,
                                   'account_locked': True})
-        user.REQUEST.RESPONSE.setHeader('user_disabled', user.getId())

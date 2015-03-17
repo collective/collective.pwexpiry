@@ -4,6 +4,10 @@ HISTORY of collective.pwexpiry
 0.7 (unreleased)
 ----------------
 
+- Bugfix: If a wrong password was entered that goes over the limit, do not
+  add a response header. Only do it when entering correctly
+  [frapell]
+
 - When comparing dates, make sure both are timezone aware
   [frapell]
 
