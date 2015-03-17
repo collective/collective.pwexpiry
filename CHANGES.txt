@@ -4,6 +4,9 @@ HISTORY of collective.pwexpiry
 0.7 (unreleased)
 ----------------
 
+- When comparing dates, make sure both are timezone aware
+  [frapell]
+
 - Ignore case when checking for name and username in password.
   [enfold-josh]
 
