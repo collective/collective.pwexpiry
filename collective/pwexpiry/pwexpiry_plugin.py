@@ -61,6 +61,11 @@ class PwExpiryPlugin(BasePlugin):
         user = api.user.get(username=login)
         if not user:
             return None
+
+        # Ignore Managers
+        if user.has_role('Manager'):
+            return None
+
         password_date = user.getProperty('password_date', '2000/01/01')
         if str(password_date) != '2000/01/01':
             current_time = DateTime()
