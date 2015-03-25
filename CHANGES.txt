@@ -1,7 +1,7 @@
 HISTORY of collective.pwexpiry
 ==============================
 
-0.7 (unreleased)
+0.7 (2015-03-25)
 ----------------
 
 - Ignore Managers from password expiring
