@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from DateTime import DateTime
 from Globals import InitializeClass
 from AccessControl import ClassSecurityInfo

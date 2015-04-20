@@ -1,14 +1,19 @@
-from itertools import chain
+# -*- coding: utf-8 -*-
 
 from DateTime import DateTime
 from Acquisition import aq_inner
 from collective.pwexpiry.config import DATETIME_FORMATSTRING
-from zope.component import getMultiAdapter
+from collective.pwexpiry.events import UserUnlocked
 from plone.app.controlpanel.usergroups import UsersOverviewControlPanel
 from plone.protect import CheckAuthenticator
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.utils import normalizeString
 from Products.CMFPlone import PloneMessageFactory as _
+from zope.component import getMultiAdapter
+from zope.event import notify
+
+from itertools import chain
+
 
 class PwExpiryControlPanel(UsersOverviewControlPanel):
 
@@ -37,9 +42,21 @@ class PwExpiryControlPanel(UsersOverviewControlPanel):
         mtool = getToolByName(self, 'portal_membership')
         searchView = getMultiAdapter((aq_inner(self.context), self.request),
             name='pas_search')
-        explicit_users = searchView.merge(chain(
-                *[searchView.searchUsers(**{field: searchString}
-            ) for field in ['login', 'fullname', 'email']]), 'userid')
+
+        if searchString:
+            explicit_users = list()
+            for user in searchView.searchUsers(account_locked=True):
+                added = False
+                for field in ['login', 'fullname', 'email']:
+                    if not added:
+                        if searchString in user.get(field, '').lower():
+                            explicit_users.append(user)
+                            added = True
+        else:
+            explicit_users = searchView.searchUsers(account_locked=True)
+
+        explicit_users = searchView.merge(explicit_users, 'userid')
+
         results = []
         for user_info in explicit_users:
             userId = user_info['id']
@@ -67,25 +84,31 @@ class PwExpiryControlPanel(UsersOverviewControlPanel):
             mtool = getToolByName(context, 'portal_membership')
             utils = getToolByName(context, 'plone_utils')
 
+            unlocked = list()
             for user in users:
-                member = mtool.getMemberById(user.id)
-                password_date = member.getProperty('password_date', '2000/01/01')
-                new_password_date = DateTime(user.get('password'))
-                if password_date != new_password_date:
-                    member.setMemberProperties(
-                        {'password_date': new_password_date}
-                    )
+                if user['unlock']:
+                    member = mtool.getMemberById(user.id)
 
-                notification_date = member.getProperty(
-                    'last_notification_date', '2000/01/01'
+                    member.setMemberProperties(
+                        {'account_locked_date': DateTime('2000/01/01'),
+                         'account_locked': False,
+                         'password_tries': 0}
+                    )
+                    unlocked.append(user['id'])
+
+                    notify(UserUnlocked(member))
+
+            if unlocked:
+                utils.addPortalMessage(
+                    _(u'The following users were unlocked: %s'
+                        % ', '.join(unlocked))
                 )
-                new_notification = DateTime(user.get('notification'))
-                if notification_date != new_notification:
-                    member.setMemberProperties(
-                        {'last_notification_date': new_notification}
-                    )
-
-            utils.addPortalMessage(_(u'Changes applied.'))
+            else:
+                utils.addPortalMessage(_(u'No users were unlocked'))
 
     def formatDate(self, date):
-        return date.strftime(DATETIME_FORMATSTRING)
+        if date == DateTime('2000/01/01'):
+            result = _(u'Never')
+        else:
+            result = date.strftime(DATETIME_FORMATSTRING)
+        return result
