@@ -1,10 +1,7 @@
-# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
-# SOME DESCRIPTIVE TITLE.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-11-28 21:20+0000\n"
+"POT-Creation-Date: 2015-04-20 19:59+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,69 +12,72 @@ msgstr ""
 "Language-Code: en\n"
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
-"Domain: collective.pwexpiry\n"
+"Domain: DOMAIN\n"
 
-#: ../utils.py:15
+#: ./collective/pwexpiry/utils.py:18
 msgid "${days} days left to password expiration"
 msgstr ""
 
-#: ../browser/preferences/pwexpirycontrolpanel.py:89
-msgid "Changes applied."
+#: ./collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.py:111
+msgid "Never"
 msgstr ""
 
-#: ../profiles/default/controlpanel.xml
+#: ./collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.py:107
+msgid "No users were unlocked"
+msgstr ""
+
+#: ./collective/pwexpiry/profiles/default/controlpanel.xml
 msgid "Password expiration"
 msgstr ""
 
-#: ../browser/preferences/pwexpirycontrolpanel.pt:38
+#: ./collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.py:103
+msgid "The following users were unlocked: %s, "
+msgstr ""
+
+#: ./collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.pt:38
 msgid "User's password expiration panel"
 msgstr ""
 
-#: ../pwdisable_plugin.py:59
+#: ./collective/pwexpiry/pwdisable_plugin.py:61
 msgid "Your account has been locked due to too many invalid attempts to login with a wrong password. Your account will remain blocked for the next %s hours. You can reset your password, or contact an administrator to unlock it, using the Contact form."
 msgstr ""
 
-#: ../pwexpiry_plugin.py:85
+#: ./collective/pwexpiry/pwexpiry_plugin.py:93
 msgid "Your password has expired."
 msgstr ""
 
 #. Default: "View and manage user's password expiration properties"
-#: ../browser/preferences/pwexpirycontrolpanel.pt:50
+#: ./collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.pt:50
 msgid "description_"
 msgstr ""
 
 #. Default: "Show all search results"
-#: ../browser/preferences/pwexpirycontrolpanel.pt:161
+#: ./collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.pt:157
 msgid "description_pas_show_all_search_results"
 msgstr ""
 
 #. Default: "The date of performing the last notification fot the user"
-#: ../userdataschema.py:31
+#: ./collective/pwexpiry/userdataschema.py:31
 msgid "help_last_notification_date"
 msgstr ""
 
 #. Default: "The date of setting the password"
-#: ../userdataschema.py:24
+#: ./collective/pwexpiry/userdataschema.py:24
 msgid "help_password_date"
 msgstr ""
 
 #. Default: "Apply Changes"
-#: ../browser/preferences/pwexpirycontrolpanel.pt:173
+#: ./collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.pt:169
 msgid "label_apply_changes"
 msgstr ""
 
 #. Default: "Last notification date"
-#: ../userdataschema.py:30
+#: ./collective/pwexpiry/userdataschema.py:30
 msgid "label_last_notification_date"
 msgstr ""
 
 #. Default: "Password date"
-#: ../userdataschema.py:23
+#: ./collective/pwexpiry/userdataschema.py:23
 msgid "label_password_date"
-msgstr ""
-
-#. Default: "Users"
-#: ../browser/preferences/pwexpirycontrolpanel.pt:24
-msgid "label_users"
 msgstr ""
 

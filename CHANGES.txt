@@ -4,6 +4,9 @@ HISTORY of collective.pwexpiry
 0.8 (unreleased)
 ----------------
 
+- Update translations
+  [frapell]
+
 - Improve control panel tool to allow admins to unlock accounts
   [frapell]
 
