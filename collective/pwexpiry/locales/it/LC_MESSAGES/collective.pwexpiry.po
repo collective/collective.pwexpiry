@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "POT-Creation-Date: 2015-04-20 19:59+0000\n"
-"PO-Revision-Date: 2014-09-12 14:06+0000\n"
+"PO-Revision-Date: 2015-04-21 15:53+0000\n"
 "Last-Translator: Giacomo Spettoli <giacomo.spettoli@gmail.com>\n"
 "Language-Team: Plone Italian Translation Discussion <plone-italian-translation-discussion@lists.coactivate.org>\n"
 "MIME-Version: 1.0\n"
@@ -21,11 +21,11 @@ msgstr "${days} giorni rimasti per la scadenza della password"
 
 #: ./collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.py:111
 msgid "Never"
-msgstr ""
+msgstr "Mai"
 
 #: ./collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.py:107
 msgid "No users were unlocked"
-msgstr ""
+msgstr "Nessun utente è stato sbloccato"
 
 #: ./collective/pwexpiry/profiles/default/controlpanel.xml
 msgid "Password expiration"
@@ -33,11 +33,11 @@ msgstr "Scadenza della password"
 
 #: ./collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.py:103
 msgid "The following users were unlocked: %s, "
-msgstr ""
+msgstr "I seguenti utenti sono stati sbloccati: %s"
 
 #: ./collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.pt:38
 msgid "User's password expiration panel"
-msgstr ""
+msgstr "Pannello della scadenza della password degli utenti"
 
 #: ./collective/pwexpiry/pwdisable_plugin.py:61
 msgid "Your account has been locked due to too many invalid attempts to login with a wrong password. Your account will remain blocked for the next %s hours. You can reset your password, or contact an administrator to unlock it, using the Contact form."
