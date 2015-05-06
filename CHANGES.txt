@@ -4,7 +4,11 @@ HISTORY of collective.pwexpiry
 0.9 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Template typo
+  [frapell]
+
+- Update italian translation
+  [giacomos]
 
 
 0.8 (2015-04-20)

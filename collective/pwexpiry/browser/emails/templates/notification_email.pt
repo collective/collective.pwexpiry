@@ -5,6 +5,6 @@
     <span tal:condition="not:view/has_expired">There are <tal:username content="options/days" /> days left before your password expires!</span>
     <span tal:condition="view/has_expired">Your password has expired.</span>
     <br />
-    <span>Please ensure to reset your passsword before it's expired</span>
+    <span>Please ensure to reset your password before it's expired</span>
   </body>
 </html>
