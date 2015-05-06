@@ -1,8 +1,8 @@
 HISTORY of collective.pwexpiry
 ==============================
 
-0.9 (unreleased)
-----------------
+0.8.1 (2015-05-06)
+------------------
 
 - Template typo
   [frapell]
