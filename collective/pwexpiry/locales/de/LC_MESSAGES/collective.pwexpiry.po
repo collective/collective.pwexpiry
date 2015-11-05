@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2015-11-05 12:53+0000\n"
-"PO-Revision-Date: 2015-11-05 13:53+0100\n"
+"POT-Creation-Date: 2015-11-05 13:18+0000\n"
+"PO-Revision-Date: 2015-11-05 14:17+0100\n"
 "Last-Translator: Rene Jochum <info@smile4.at>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,7 @@ msgstr ""
 
 #: ../utils.py:18
 msgid "${days} days left to password expiration"
-msgstr "${days} Tage übrig bis das Passwort abläuft"
+msgstr "Passwort läuft in ${days} Tage ab"
 
 #: ../browser/preferences/pwexpirycontrolpanel.py:111
 msgid "Never"
@@ -30,7 +30,7 @@ msgstr "Keine Benutzer wurde entsperrt"
 
 #: ../profiles/default/controlpanel.xml
 msgid "Password expiration"
-msgstr "Passwort Gültigkeitsdauer"
+msgstr "Passwortablauf"
 
 #: ../example_validator.py:27
 msgid "Passwords must be at least 8 characters in length."
@@ -64,25 +64,25 @@ msgstr "Your password cannot contain your account name(Username), first name or 
 msgid "Your password has expired."
 msgstr "Ihr Passwort ist abgelaufen."
 
-#. Default: "View and manage user's password expiration properties"
-#: ../browser/preferences/pwexpirycontrolpanel.pt:50
-msgid "description_"
-msgstr "Zeige und administriere die Passwortablauf Einstellungen der Benutzer."
-
 #. Default: "Show all search results"
 #: ../browser/preferences/pwexpirycontrolpanel.pt:157
 msgid "description_pas_show_all_search_results"
 msgstr "Zeige alle Suchresultate"
 
+#. Default: "View and manage user's password expiration properties"
+#: ../browser/preferences/pwexpirycontrolpanel.pt:50
+msgid "description_password_expiration"
+msgstr "Zeige und administriere die Passwortablauf Einstellungen der Benutzer."
+
 #. Default: "The date of performing the last notification fot the user"
 #: ../userdataschema.py:31
 msgid "help_last_notification_date"
-msgstr "Das Datum wo der Benutzer das letzte mal Informiert wurde"
+msgstr "Das Datum wo der Benutzer das letzte mal informiert wurde"
 
 #. Default: "The date of setting the password"
 #: ../userdataschema.py:24
 msgid "help_password_date"
-msgstr "Datum wo das Passwort gesetzt wurde"
+msgstr "Datum an dem das Passwort gesetzt wurde"
 
 #. Default: "Apply Changes"
 #: ../browser/preferences/pwexpirycontrolpanel.pt:169
@@ -98,3 +98,4 @@ msgstr "Datum letzte Notifikation"
 #: ../userdataschema.py:23
 msgid "label_password_date"
 msgstr "Passwort Datum"
+

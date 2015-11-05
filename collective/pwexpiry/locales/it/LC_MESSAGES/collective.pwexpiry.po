@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2015-11-05 12:53+0000\n"
+"POT-Creation-Date: 2015-11-05 13:18+0000\n"
 "PO-Revision-Date: 2015-04-21 15:53+0000\n"
 "Last-Translator: Giacomo Spettoli <giacomo.spettoli@gmail.com>\n"
 "Language-Team: Plone Italian Translation Discussion <plone-italian-translation-discussion@lists.coactivate.org>\n"
@@ -63,15 +63,15 @@ msgstr ""
 msgid "Your password has expired."
 msgstr "La tua password è scaduta."
 
-#. Default: "View and manage user's password expiration properties"
-#: ../browser/preferences/pwexpirycontrolpanel.pt:50
-msgid "description_"
-msgstr "Visualizza e gestisci le proprietà di scadenza della password del utente"
-
 #. Default: "Show all search results"
 #: ../browser/preferences/pwexpirycontrolpanel.pt:157
 msgid "description_pas_show_all_search_results"
 msgstr "Mostra tutti i risultati di ricerca"
+
+#. Default: "View and manage user's password expiration properties"
+#: ../browser/preferences/pwexpirycontrolpanel.pt:50
+msgid "description_password_expiration"
+msgstr ""
 
 #. Default: "The date of performing the last notification fot the user"
 #: ../userdataschema.py:31
