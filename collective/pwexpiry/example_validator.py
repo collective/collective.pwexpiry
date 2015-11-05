@@ -3,7 +3,7 @@ from AccessControl import AuthEncoding
 from zope.interface import implementer
 from Products.CMFCore.utils import getToolByName
 from collective.pwexpiry.interfaces import ICustomPasswordValidator
-from . import _
+from .config import _
 
 
 @implementer(ICustomPasswordValidator)
