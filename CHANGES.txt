@@ -4,7 +4,8 @@ HISTORY of collective.pwexpiry
 0.9 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Update german translations and translate example_validator.
+  [pcdummy]
 
 
 0.8.1 (2015-05-06)
