@@ -4,6 +4,9 @@ HISTORY of collective.pwexpiry
 0.9 (unreleased)
 ----------------
 
+- Add password history check (not in last x passwords).
+  [pcdummy]
+
 - Enable the example_validator only when theres a browserlayer.
   [pcdummy]
 

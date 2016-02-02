@@ -58,11 +58,15 @@ class ADPasswordValidator(object):
         # Checking if the entered password doesn't contain
         # the user's username or any parts of his fullname
         password_lower = password.lower()
-        for name in data.get('fullname', '').split(' ') + \
+        for name in data.get('fullname', u'').split(' ') + \
                 [data.get('username', ''), ]:
-            if name and name.lower() in password_lower:
-                return _(u'Your password cannot contain your account name'
-                         u'(Username), first name or last name.')
+            if name:
+                if not isinstance(name, unicode):
+                    name = unicode(name.decode('utf-8'))
+
+                if name.lower() in password_lower:
+                    return _(u'Your password cannot contain your account name'
+                             u'(Username), first name or last name.')
 
         # Checking if the entered password is different than already set
         # for this existing user

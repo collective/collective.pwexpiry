@@ -24,4 +24,10 @@
         </field>
         <value>24</value>
     </record>
+    <record name="collective.pwexpiry.password_history">
+        <field type="plone.registry.field.Int">
+            <title>Number of passwords to save and block.</title>
+        </field>
+        <value>0</value>
+    </record>
 </registry>
