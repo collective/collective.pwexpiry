@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2015-04-20 19:59+0000\n"
+"POT-Creation-Date: 2015-11-05 13:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,70 +14,86 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ./collective/pwexpiry/utils.py:18
+#: ../utils.py:18
 msgid "${days} days left to password expiration"
 msgstr ""
 
-#: ./collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.py:111
+#: ../browser/preferences/pwexpirycontrolpanel.py:111
 msgid "Never"
 msgstr ""
 
-#: ./collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.py:107
+#: ../browser/preferences/pwexpirycontrolpanel.py:107
 msgid "No users were unlocked"
 msgstr ""
 
-#: ./collective/pwexpiry/profiles/default/controlpanel.xml
+#: ../profiles/default/controlpanel.xml
 msgid "Password expiration"
 msgstr ""
 
-#: ./collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.py:103
+#: ../example_validator.py:27
+msgid "Passwords must be at least 8 characters in length."
+msgstr ""
+
+#: ../example_validator.py:78
+msgid "Passwords must contain at least three of the following four character groups: Uppercase characters (A through Z), Lowercase characters (a through z), Numerals (0 through 9), Special characters such as !, $, #, %"
+msgstr ""
+
+#: ../browser/preferences/pwexpirycontrolpanel.py:103
 msgid "The following users were unlocked: %s, "
 msgstr ""
 
-#: ./collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.pt:38
+#: ../browser/preferences/pwexpirycontrolpanel.pt:38
 msgid "User's password expiration panel"
 msgstr ""
 
-#: ./collective/pwexpiry/pwdisable_plugin.py:61
+#: ../example_validator.py:60
+msgid "You have to change your password."
+msgstr ""
+
+#: ../pwdisable_plugin.py:61
 msgid "Your account has been locked due to too many invalid attempts to login with a wrong password. Your account will remain blocked for the next %s hours. You can reset your password, or contact an administrator to unlock it, using the Contact form."
 msgstr ""
 
-#: ./collective/pwexpiry/pwexpiry_plugin.py:93
+#: ../example_validator.py:52
+msgid "Your password cannot contain your account name(Username), first name or last name."
+msgstr ""
+
+#: ../pwexpiry_plugin.py:93
 msgid "Your password has expired."
 msgstr ""
 
-#. Default: "View and manage user's password expiration properties"
-#: ./collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.pt:50
-msgid "description_"
-msgstr ""
-
 #. Default: "Show all search results"
-#: ./collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.pt:157
+#: ../browser/preferences/pwexpirycontrolpanel.pt:157
 msgid "description_pas_show_all_search_results"
 msgstr ""
 
+#. Default: "View and manage user's password expiration properties"
+#: ../browser/preferences/pwexpirycontrolpanel.pt:50
+msgid "description_password_expiration"
+msgstr ""
+
 #. Default: "The date of performing the last notification fot the user"
-#: ./collective/pwexpiry/userdataschema.py:31
+#: ../userdataschema.py:31
 msgid "help_last_notification_date"
 msgstr ""
 
 #. Default: "The date of setting the password"
-#: ./collective/pwexpiry/userdataschema.py:24
+#: ../userdataschema.py:24
 msgid "help_password_date"
 msgstr ""
 
 #. Default: "Apply Changes"
-#: ./collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.pt:169
+#: ../browser/preferences/pwexpirycontrolpanel.pt:169
 msgid "label_apply_changes"
 msgstr ""
 
 #. Default: "Last notification date"
-#: ./collective/pwexpiry/userdataschema.py:30
+#: ../userdataschema.py:30
 msgid "label_last_notification_date"
 msgstr ""
 
 #. Default: "Password date"
-#: ./collective/pwexpiry/userdataschema.py:23
+#: ../userdataschema.py:23
 msgid "label_password_date"
 msgstr ""
 

@@ -47,7 +47,7 @@
                   Up to Site Setup
                 </a>
                 
-                <p i18n:translate="description_">
+                <p i18n:translate="description_password_expiration">
                   View and manage user's password expiration properties
                 </p>
 
