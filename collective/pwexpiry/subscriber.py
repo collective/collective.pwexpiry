@@ -1,18 +1,7 @@
 # -*- coding: utf-8 -*-
-
 from AccessControl import Unauthorized
-
-from collective.pwexpiry.events import InvalidPasswordEntered
-from collective.pwexpiry.events import ValidPasswordEntered
-
-from collective.pwexpiry.interfaces import IValidPasswordEntered
-from collective.pwexpiry.interfaces import IInvalidPasswordEntered
-
 from plone import api
-
 from plone.registry.interfaces import IRegistry
-
-from zope.component.interfaces import ObjectEvent
 from zope.component import queryUtility
 
 

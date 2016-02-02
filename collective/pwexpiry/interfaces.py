@@ -16,9 +16,12 @@ class IExpirationCheck(Interface):
     before password expiration.
     """
 
-    notify_on = Attribute('notify_on', 'The integer or tuple of integers defining the ' \
-                                       'numbers of days when the notification_action ' \
-                                       'will be triggered.')
+    notify_on = Attribute(
+        'notify_on',
+        'The integer or tuple of integers defining the '
+        'numbers of days when the notification_action '
+        'will be triggered.'
+    )
 
     def __call__(days_to_expire):
         """

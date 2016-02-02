@@ -1,27 +1,24 @@
 # -*- coding: utf-8 -*-
 
-from DateTime import DateTime
 from Globals import InitializeClass
 from AccessControl import ClassSecurityInfo
-from AccessControl import Unauthorized
-from AccessControl.SecurityManagement import noSecurityManager
 
-from zope.component import getUtility
 from zope.interface import implements
 from plone import api
-from plone.registry.interfaces import IRegistry
-from Products.PluggableAuthService.utils import classImplements
 from Products.PluggableAuthService.plugins.BasePlugin import BasePlugin
 from Products.PluggableAuthService.interfaces.plugins import IChallengePlugin
 from Products.PlonePAS.interfaces.plugins import IUserManagement
 from Products.PageTemplates.PageTemplateFile import PageTemplateFile
 from Products.statusmessages.interfaces import IStatusMessage
 
-from collective.pwexpiry.utils import days_since_event
 from collective.pwexpiry.config import _
 
-manage_addPwDisablePluginForm = PageTemplateFile('www/addPwDisablePlugin',
-    globals(), __name__='manage_addPwDisablePlugin')
+manage_addPwDisablePluginForm = PageTemplateFile(
+    'www/addPwDisablePlugin',
+    globals(),
+    __name__='manage_addPwDisablePlugin'
+)
+
 
 def addPwDisablePlugin(self, id, title='', REQUEST=None):
     """
@@ -31,9 +28,11 @@ def addPwDisablePlugin(self, id, title='', REQUEST=None):
     self._setObject(o.getId(), o)
 
     if REQUEST is not None:
-        REQUEST['RESPONSE'].redirect('%s/manage_main'
+        REQUEST['RESPONSE'].redirect(
+            '%s/manage_main'
             '?manage_tabs_message=PwDisable+Plugin+added.' %
-            self.absolute_url())
+            self.absolute_url()
+        )
 
 
 class PwDisablePlugin(BasePlugin):
@@ -59,11 +58,11 @@ class PwDisablePlugin(BasePlugin):
             user_disabled_time = response.getHeader('user_disabled_time')
             IStatusMessage(self.REQUEST).add(
                 _(u'Your account has been locked due to too many invalid '
-                   'attempts to login with a wrong password. Your account will '
-                   'remain blocked for the next %s hours. You can reset your '
-                   'password, or contact an administrator to unlock it, using '
-                   'the Contact form.' %
-                   user_disabled_time), type='error'
+                  'attempts to login with a wrong password. Your account will '
+                  'remain blocked for the next %s hours. You can reset your '
+                  'password, or contact an administrator to unlock it, using '
+                  'the Contact form.' %
+                  user_disabled_time), type='error'
             )
             response.redirect('login_form', lock=1)
             return 1

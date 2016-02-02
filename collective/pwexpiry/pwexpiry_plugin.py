@@ -4,15 +4,16 @@ from DateTime import DateTime
 from Globals import InitializeClass
 from AccessControl import ClassSecurityInfo
 from AccessControl import Unauthorized
-from AccessControl.SecurityManagement import noSecurityManager
 
 from zope.component import getUtility
 from zope.interface import implements
 from plone import api
 from plone.registry.interfaces import IRegistry
-from Products.PluggableAuthService.utils import classImplements
-from Products.PluggableAuthService.plugins.BasePlugin import BasePlugin
-from Products.PluggableAuthService.interfaces.plugins import IAuthenticationPlugin, \
+from Products.PluggableAuthService.plugins.BasePlugin import \
+    BasePlugin
+from Products.PluggableAuthService.interfaces.plugins import \
+    IAuthenticationPlugin
+from Products.PluggableAuthService.interfaces.plugins import \
     IChallengePlugin
 from Products.PlonePAS.interfaces.plugins import IUserManagement
 from Products.PageTemplates.PageTemplateFile import PageTemplateFile
@@ -21,8 +22,11 @@ from Products.statusmessages.interfaces import IStatusMessage
 from collective.pwexpiry.utils import days_since_event
 from collective.pwexpiry.config import _
 
-manage_addPwExpiryPluginForm = PageTemplateFile('www/addPwExpiryPlugin',
-    globals(), __name__='manage_addPwExpiryPlugin')
+manage_addPwExpiryPluginForm = PageTemplateFile(
+    'www/addPwExpiryPlugin',
+    globals(), __name__='manage_addPwExpiryPlugin'
+)
+
 
 def addPwExpiryPlugin(self, id, title='', REQUEST=None):
     """
@@ -32,9 +36,11 @@ def addPwExpiryPlugin(self, id, title='', REQUEST=None):
     self._setObject(o.getId(), o)
 
     if REQUEST is not None:
-        REQUEST['RESPONSE'].redirect('%s/manage_main'
+        REQUEST['RESPONSE'].redirect(
+            '%s/manage_main'
             '?manage_tabs_message=PwExpiry+Plugin+added.' %
-            self.absolute_url())
+            self.absolute_url()
+        )
 
 
 class PwExpiryPlugin(BasePlugin):
@@ -51,6 +57,7 @@ class PwExpiryPlugin(BasePlugin):
 
     # IAuthenticationPlugin implementation
     security.declarePrivate('authenticateCredentials')
+
     def authenticateCredentials(self, credentials):
         """
         Authenticate credentials
@@ -90,8 +97,13 @@ class PwExpiryPlugin(BasePlugin):
         user_expired = response.getHeader('user_expired')
         if user_expired:
             portal_url = api.portal.get_tool(name='portal_url')()
-            IStatusMessage(request).add(_(u'Your password has expired.'), type='warning')
-            response.redirect('%s/mail_password_form?userid=%s' % (portal_url, user_expired), lock=1)
+            IStatusMessage(request).add(
+                _(u'Your password has expired.'), type='warning'
+            )
+            response.redirect(
+                '%s/mail_password_form?userid=%s' % (portal_url, user_expired),
+                lock=1
+            )
             return 1
         return 0
 
