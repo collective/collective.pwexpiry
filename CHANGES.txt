@@ -4,6 +4,13 @@ HISTORY of collective.pwexpiry
 0.9 (unreleased)
 ----------------
 
+- Enable the example_validator only when theres a browserlayer.
+  [pcdummy]
+
+- Add a skins layer and remove the confusing > 5 chars message from
+  pwreset_form.
+  [pcdummy]
+
 - Update german translations and translate example_validator.
   [pcdummy]
 

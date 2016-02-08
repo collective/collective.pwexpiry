@@ -4,6 +4,7 @@ from zope.interface import implementer
 from Products.CMFCore.utils import getToolByName
 from collective.pwexpiry.interfaces import ICustomPasswordValidator
 from .config import _
+from .interfaces import ICollectivePWExpiryLayer
 
 
 @implementer(ICustomPasswordValidator)
@@ -20,6 +21,17 @@ class ADPasswordValidator(object):
         """
         Password validation method
         """
+
+        # Don't check the password if collective.pwexpiry hasn't
+        # been installed yet.
+        if not ICollectivePWExpiryLayer \
+                .providedBy(self.context.REQUEST):
+            return None
+
+        # Permit empty passwords here to allow registration links.
+        # Plone will force the user to set one.
+        if password is None:
+            return None
 
         # Checking if minimal length of the entered password
         # is greater than 8 chars
