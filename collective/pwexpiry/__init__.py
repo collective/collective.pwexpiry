@@ -1,8 +1,9 @@
 from AccessControl.Permissions import add_user_folders
-from Products.PluggableAuthService.PluggableAuthService import registerMultiPlugin
+from Products.PluggableAuthService.PluggableAuthService import \
+    registerMultiPlugin
 import pwexpiry_plugin
 import pwdisable_plugin
-import patches
+
 
 def initialize(context):
     """Initializer called when used as a Zope 2 product."""

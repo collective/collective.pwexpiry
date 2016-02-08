@@ -9,6 +9,7 @@ from pwdisable_plugin import addPwDisablePlugin
 
 logger = logging.getLogger('collective.pwexpiry')
 
+
 def import_various(context):
     """
     Install the PwExpiryPlugin

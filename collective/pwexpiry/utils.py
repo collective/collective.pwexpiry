@@ -10,21 +10,26 @@ from collective.pwexpiry.config import _
 import pytz
 
 
-def send_notification_email(user, days_to_expire, email_view='notification_email'):
+def send_notification_email(user, days_to_expire,
+                            email_view='notification_email'):
     """
     """
     request = TestRequest()
     recipient = user.getProperty('email')
     subject = _('${days} days left to password expiration',
-                mapping={ u"days" : days_to_expire})
+                mapping={u"days": days_to_expire})
+
     subject = translate(subject)
-    email_template = getMultiAdapter((api.portal.get(), request), name=email_view)
-    body = email_template(**{'username' : user.getProperty('fullname'),
-                             'days' : days_to_expire})
+    email_template = getMultiAdapter(
+        (api.portal.get(), request), name=email_view
+    )
+    body = email_template(**{'username': user.getProperty('fullname'),
+                             'days': days_to_expire})
     api.portal.send_email(recipient=recipient,
                           subject=subject,
                           body=MIMEText(body, 'html'))
-    
+
+
 def days_since_event(event_date, current_date):
     """
     Returns the number of days difference
