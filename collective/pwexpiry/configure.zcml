@@ -48,4 +48,11 @@
       replacement=".patches.extended_testPasswordValidity"
       />
 
+  <adapter
+      name="your_package_password_history"
+      factory="collective.pwexpiry.password_history_validator.PasswordHistoryValidator"
+      provides="collective.pwexpiry.interfaces.ICustomPasswordValidator"
+      for="zope.interface.Interface"
+      />
+
 </configure>

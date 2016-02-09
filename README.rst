@@ -59,7 +59,7 @@ in your custom pakage's gereric setup profile containing the configuration code:
 Last X Passwords check
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Its possible to check if the new password is in the password history and block reusing of them.
+It's possible to check if the new password has already been used (a history of the last n password hashes is kept).
 You need to manualy activate that feature with a registry record in registry.xml.
 
     <registry>
@@ -71,14 +71,6 @@ You need to manualy activate that feature with a registry record in registry.xml
         </record>
     </registry>
 
-And then you need to register the "password_history_validator" in your configure.zcml.
-
-    <adapter
-        name="your_package_password_history"
-        factory="collective.pwexpiry.password_history_validator.PasswordHistoryValidator"
-        provides="collective.pwexpiry.interfaces.ICustomPasswordValidator"
-        for="zope.interface.Interface"
-        />
 
 Defining notification actions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

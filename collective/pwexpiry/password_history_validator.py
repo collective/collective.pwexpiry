@@ -1,14 +1,16 @@
 from AccessControl import AuthEncoding
+from collective.pwexpiry.interfaces import ICustomPasswordValidator
 from plone import api
 from zope.interface import implementer
-from collective.pwexpiry.interfaces import ICustomPasswordValidator
+
 from .config import _
 from .interfaces import ICollectivePWExpiryLayer
 
 
 @implementer(ICustomPasswordValidator)
 class PasswordHistoryValidator(object):
-    """ Validator for a password history.
+    """ Checks if the password has already been used
+    by iterating over the memberdata property password_history_size.
     """
 
     def __init__(self, context):
@@ -35,7 +37,7 @@ class PasswordHistoryValidator(object):
             return None
 
         max_history_pws = api.portal.get_registry_record(
-            'collective.pwexpiry.password_history'
+            'collective.pwexpiry.password_history_size'
         )
         if max_history_pws == 0:
             # max_history_pws has been disabled.

@@ -1,27 +1,20 @@
 # -*- coding: utf-8 -*-
 
+from AccessControl import AuthEncoding, ClassSecurityInfo, Unauthorized
+from collective.pwexpiry.config import _
+from collective.pwexpiry.utils import days_since_event
 from DateTime import DateTime
 from Globals import InitializeClass
-from AccessControl import AuthEncoding
-from AccessControl import ClassSecurityInfo
-from AccessControl import Unauthorized
-
-from zope.component import getUtility
-from zope.interface import implements
 from plone import api
 from plone.registry.interfaces import IRegistry
-from Products.PluggableAuthService.plugins.BasePlugin import \
-    BasePlugin
-from Products.PluggableAuthService.interfaces.plugins import \
-    IAuthenticationPlugin
-from Products.PluggableAuthService.interfaces.plugins import \
-    IChallengePlugin
-from Products.PlonePAS.interfaces.plugins import IUserManagement
 from Products.PageTemplates.PageTemplateFile import PageTemplateFile
+from Products.PlonePAS.interfaces.plugins import IUserManagement
+from Products.PluggableAuthService.interfaces.plugins import (IAuthenticationPlugin,
+                                                              IChallengePlugin)
+from Products.PluggableAuthService.plugins.BasePlugin import BasePlugin
 from Products.statusmessages.interfaces import IStatusMessage
-
-from collective.pwexpiry.utils import days_since_event
-from collective.pwexpiry.config import _
+from zope.component import getUtility
+from zope.interface import implements
 
 manage_addPwExpiryPluginForm = PageTemplateFile(
     'www/addPwExpiryPlugin',
@@ -122,7 +115,7 @@ class PwExpiryPlugin(BasePlugin):
 
         # Remember passwords here
         max_history_pws = api.portal.get_registry_record(
-            'collective.pwexpiry.password_history'
+            'collective.pwexpiry.password_history_size'
         )
 
         if max_history_pws == 0:
