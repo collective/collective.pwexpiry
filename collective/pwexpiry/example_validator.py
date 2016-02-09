@@ -1,8 +1,10 @@
 import re
+
 from AccessControl import AuthEncoding
-from zope.interface import implementer
-from Products.CMFCore.utils import getToolByName
 from collective.pwexpiry.interfaces import ICustomPasswordValidator
+from Products.CMFCore.utils import getToolByName
+from zope.interface import implementer
+
 from .config import _
 from .interfaces import ICollectivePWExpiryLayer
 

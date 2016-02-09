@@ -3,9 +3,8 @@ import logging
 from Products.CMFCore.utils import getToolByName
 from Products.PlonePAS.Extensions.Install import activatePluginInterfaces
 from Products.PluggableAuthService.interfaces.plugins import IChallengePlugin
-
-from pwexpiry_plugin import addPwExpiryPlugin
 from pwdisable_plugin import addPwDisablePlugin
+from pwexpiry_plugin import addPwExpiryPlugin
 
 logger = logging.getLogger('collective.pwexpiry')
 

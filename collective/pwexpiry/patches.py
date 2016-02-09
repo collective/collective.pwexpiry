@@ -1,22 +1,24 @@
 import logging
+
+from AccessControl import AuthEncoding
+from collective.pwexpiry.events import (InvalidPasswordEntered,
+                                        ValidPasswordEntered)
+from collective.pwexpiry.interfaces import ICustomPasswordValidator
+from plone import api
+from plone.app.users.browser.register import BaseRegistrationForm
+from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone.RegistrationTool import RegistrationTool
+from Products.PluggableAuthService.plugins.ZODBUserManager import \
+    ZODBUserManager
+from zope.app.form.interfaces import WidgetInputError
+from zope.component import getAdapters
+from zope.event import notify
+
 try:
     from hashlib import sha1 as sha
 except:
     from sha import sha
 
-from AccessControl import AuthEncoding
-from zope.component import getAdapters
-from zope.event import notify
-from Products.CMFPlone.RegistrationTool import RegistrationTool
-from Products.PluggableAuthService.plugins.ZODBUserManager import \
-    ZODBUserManager
-from plone import api
-from collective.pwexpiry.interfaces import ICustomPasswordValidator
-from collective.pwexpiry.events import InvalidPasswordEntered
-from collective.pwexpiry.events import ValidPasswordEntered
-from zope.app.form.interfaces import WidgetInputError
-from Products.CMFCore.utils import getToolByName
-from plone.app.users.browser.register import BaseRegistrationForm
 
 
 logger = logging.getLogger(__file__)

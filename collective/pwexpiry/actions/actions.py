@@ -1,6 +1,7 @@
-from zope.interface import implements
 from collective.pwexpiry.interfaces import IExpirationCheck
 from collective.pwexpiry.utils import send_notification_email
+from zope.interface import implements
+
 
 class BaseExpiration(object):
     implements(IExpirationCheck)
@@ -28,4 +29,3 @@ class BaseExpiration(object):
 class FifteenDaysBeforeExpiration(BaseExpiration):
 
     notify_on = 15
-

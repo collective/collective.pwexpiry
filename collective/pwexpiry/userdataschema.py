@@ -1,9 +1,8 @@
-from zope.interface import implements
-from zope import schema
-
-from plone.app.users.userdataschema import IUserDataSchemaProvider
-from plone.app.users.userdataschema import IUserDataSchema
 from collective.pwexpiry.config import _
+from plone.app.users.userdataschema import (IUserDataSchema,
+                                            IUserDataSchemaProvider)
+from zope import schema
+from zope.interface import implements
 
 
 class UserDataSchemaProvider(object):

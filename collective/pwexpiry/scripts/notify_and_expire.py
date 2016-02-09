@@ -1,18 +1,17 @@
-import os
 import logging
+import os
 import sys
 
 import Globals
-from DateTime import DateTime
-from plone.registry.interfaces import IRegistry
-from plone import api
-from zope.component.hooks import setSite
-from zope.component import getAdapters, getUtility
-
 from collective.pwexpiry import utils
 from collective.pwexpiry.config import _
 from collective.pwexpiry.interfaces import IExpirationCheck
 from collective.pwexpiry.utils import days_since_event
+from DateTime import DateTime
+from plone import api
+from plone.registry.interfaces import IRegistry
+from zope.component import getAdapters, getUtility
+from zope.component.hooks import setSite
 
 # Logging configuration
 logfile = 'pwexpiry.log'

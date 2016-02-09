@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
 
+from collective.pwexpiry.interfaces import (IInvalidPasswordEntered,
+                                            IUserUnlocked,
+                                            IValidPasswordEntered)
 from zope.component.interfaces import ObjectEvent
 from zope.interface import implements
-
-from collective.pwexpiry.interfaces import IValidPasswordEntered
-from collective.pwexpiry.interfaces import IInvalidPasswordEntered
-from collective.pwexpiry.interfaces import IUserUnlocked
 
 
 class ValidPasswordEntered(ObjectEvent):
@@ -27,4 +26,3 @@ class UserUnlocked(object):
 
     def __init__(self, user):
         self.user = user
-

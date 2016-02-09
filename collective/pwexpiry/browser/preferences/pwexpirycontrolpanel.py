@@ -1,18 +1,18 @@
 # -*- coding: utf-8 -*-
 
-from DateTime import DateTime
+from itertools import chain
+
 from Acquisition import aq_inner
 from collective.pwexpiry.config import DATETIME_FORMATSTRING
 from collective.pwexpiry.events import UserUnlocked
+from DateTime import DateTime
 from plone.app.controlpanel.usergroups import UsersOverviewControlPanel
 from plone.protect import CheckAuthenticator
 from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.utils import normalizeString
 from Products.CMFPlone import PloneMessageFactory as _
+from Products.CMFPlone.utils import normalizeString
 from zope.component import getMultiAdapter
 from zope.event import notify
-
-from itertools import chain
 
 
 class PwExpiryControlPanel(UsersOverviewControlPanel):

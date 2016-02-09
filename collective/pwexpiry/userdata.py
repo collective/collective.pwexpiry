@@ -20,4 +20,3 @@ class EnhancedUserDataPanelAdapter(UserDataPanelAdapter):
         )
     last_notification_date = property(get_last_notification_date,
                                       set_last_notification_date)
-

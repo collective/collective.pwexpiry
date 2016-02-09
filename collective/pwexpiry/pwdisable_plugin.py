@@ -1,17 +1,15 @@
 # -*- coding: utf-8 -*-
 
-from Globals import InitializeClass
 from AccessControl import ClassSecurityInfo
-
-from zope.interface import implements
-from plone import api
-from Products.PluggableAuthService.plugins.BasePlugin import BasePlugin
-from Products.PluggableAuthService.interfaces.plugins import IChallengePlugin
-from Products.PlonePAS.interfaces.plugins import IUserManagement
-from Products.PageTemplates.PageTemplateFile import PageTemplateFile
-from Products.statusmessages.interfaces import IStatusMessage
-
 from collective.pwexpiry.config import _
+from Globals import InitializeClass
+from plone import api
+from Products.PageTemplates.PageTemplateFile import PageTemplateFile
+from Products.PlonePAS.interfaces.plugins import IUserManagement
+from Products.PluggableAuthService.interfaces.plugins import IChallengePlugin
+from Products.PluggableAuthService.plugins.BasePlugin import BasePlugin
+from Products.statusmessages.interfaces import IStatusMessage
+from zope.interface import implements
 
 manage_addPwDisablePluginForm = PageTemplateFile(
     'www/addPwDisablePlugin',
