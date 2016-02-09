@@ -4,20 +4,22 @@ collective.pwexpiry
 Introduction
 ============
 
-The ``collective.pwexpiry`` package is an add-on Product for Plone that brings the 
-feature of controlling the password expiration in Plone. It is useful when there's 
+The ``collective.pwexpiry`` package is an add-on Product for Plone that brings the
+feature of controlling the password expiration in Plone. It is useful when there's
 a need of forcing the portal's members to follow the specific password policy.
 
 Features
 ========
 * Possibility to register and define custom password validation methods
 * Possibility to define user's passwords period of validity
+* Possibility to check if the password has been used in the last x variants. And disallow
+  reuse.
 * Possibility to register custom notification actions to be triggered when the password's
   period of validity is getting closer
 * Provides a script that can be periodically executed from the command line (i.e. by cron).
   The script checks for the user's passwords expiration dates and triggers the registered
-  notification actions (i.e. sending email to the relevant users). 
-* Provides a protection mechanizm to avoid notifying given user twice the same day 
+  notification actions (i.e. sending email to the relevant users).
+* Provides a protection mechanizm to avoid notifying given user twice the same day
 * Possibility to lock an account if too many invalid password attemps were tried
 
 Installation
@@ -54,6 +56,22 @@ in your custom pakage's gereric setup profile containing the configuration code:
     </registry>
 
 
+Last X Passwords check
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+It's possible to check if the new password has already been used (a history of the last n password hashes is kept).
+You need to manualy activate that feature with a registry record in registry.xml.
+
+    <registry>
+        <record name="collective.pwexpiry.password_history">
+            <field type="plone.registry.field.Int">
+                <title>Number of passwords to save and block.</title>
+            </field>
+            <value>10</value>
+        </record>
+    </registry>
+
+
 Defining notification actions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -75,7 +93,7 @@ To register your own notification action you need to::
      </configure>
 
  2. Implement the adapter's ``__call__`` and ``notification_action`` methods::
-    
+
       class LastFewDaysBeforeExpiration(object):
           implements(IExpirationCheck)
 
@@ -130,7 +148,7 @@ To register your own notification action you need to::
      </configure>
 
  2. Implement the adapter's ``__call__`` and ``notification_action`` methods::
-    
+
       class MyPasswordValidator(object):
           implements(ICustomPasswordValidator)
 

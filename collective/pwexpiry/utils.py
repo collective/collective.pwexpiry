@@ -1,13 +1,11 @@
 from email.mime.text import MIMEText
 
+import pytz
+from collective.pwexpiry.config import _
+from plone import api
 from zope.component import getMultiAdapter
 from zope.i18n import translate
 from zope.publisher.browser import TestRequest
-from plone import api
-
-from collective.pwexpiry.config import _
-
-import pytz
 
 
 def send_notification_email(user, days_to_expire,

@@ -1,10 +1,10 @@
 import doctest
+
 import unittest2 as unittest
-
-from Testing import ZopeTestCase as ztc
-from plone.testing import layered
-
 from collective.pwexpiry.tests import base
+from plone.testing import layered
+from Testing import ZopeTestCase as ztc
+
 
 def test_suite():
     suite = unittest.TestSuite()
