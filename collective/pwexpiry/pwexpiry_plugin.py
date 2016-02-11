@@ -54,7 +54,8 @@ class PwExpiryPlugin(BasePlugin):
 
     def authenticateCredentials(self, credentials):
         """
-        Authenticate credentials
+        Check if the user.password_date is older than validity_period.
+        If validity_period is 0, skip the check
         """
         login = credentials.get('login')
         if not login:
@@ -65,6 +66,11 @@ class PwExpiryPlugin(BasePlugin):
         if not user:
             return None
 
+        registry = getUtility(IRegistry)
+        validity_period = registry['collective.pwexpiry.validity_period']
+        if validity_period == 0:
+            return None
+
         # Ignore Managers
         if user.has_role('Manager'):
             return None
@@ -72,8 +78,6 @@ class PwExpiryPlugin(BasePlugin):
         password_date = user.getProperty('password_date', '2000/01/01')
         if str(password_date) != '2000/01/01':
             current_time = DateTime()
-            registry = getUtility(IRegistry)
-            validity_period = registry['collective.pwexpiry.validity_period']
             since_last_pw_reset = days_since_event(password_date.asdatetime(),
                                                    current_time.asdatetime())
             # Password has expired

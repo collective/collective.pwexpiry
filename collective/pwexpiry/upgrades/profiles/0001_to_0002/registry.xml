@@ -1,7 +1,7 @@
 <registry>
     <record name="collective.pwexpiry.password_history_size">
         <field type="plone.registry.field.Int">
-            <title>Number of passwords to save and block.</title>
+            <title>Number of already chosen passwords that must not be re-used (set to 0 to disable).</title>
         </field>
         <value>0</value>
     </record>

@@ -48,25 +48,23 @@ in your custom pakage's gereric setup profile containing the configuration code:
 
     <registry>
         <record name="collective.pwexpiry.validity_period">
-            <field type="plone.registry.field.Int">
-                <title>Number od days for password validity</title>
-            </field>
-            <value>90</value>
+            <value>360</value>
         </record>
     </registry>
 
+To disable password expiration, set `validity_period` to `0`.
 
 Last X Passwords check
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
 
-It's possible to check if the new password has already been used (a history of the last n password hashes is kept).
-You need to manualy activate that feature with a registry record in registry.xml.
+It's possible to check if the new password has already been used (a history of the last `password_history_size` password hashes is kept).
+
+`password_history_size` defaults to 0, which means: there is no active check for re-used passwords.
+
+You need to manualy activate that feature with a registry record in registry.xml::
 
     <registry>
-        <record name="collective.pwexpiry.password_history">
-            <field type="plone.registry.field.Int">
-                <title>Number of passwords to save and block.</title>
-            </field>
+        <record name="collective.pwexpiry.password_history_size">
             <value>10</value>
         </record>
     </registry>
@@ -161,6 +159,7 @@ To register your own notification action you need to::
 
 Executing the notification script
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 The notification script should be executed **once a day** to check the user's passwords
 expiration dates and trigger relevant notification actions.
 

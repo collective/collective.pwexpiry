@@ -41,10 +41,15 @@ def notify_and_expire():
     For each registered user check all the conditions and execute
     the notification action
     """
-    
+
     portal = api.portal.get()
     registry = getUtility(IRegistry)
     validity_period = registry['collective.pwexpiry.validity_period']
+
+    if validity_period == 0:
+        # do not do any notifications, if password expiration has been disabled
+        return
+
     notifications_to_use = set()
     if 'collective.pwexpiry.notification_actions' in registry:
         notifications_to_use = registry['collective.pwexpiry.notification_actions']
@@ -86,13 +91,13 @@ def notify_and_expire():
                         if pwres_to_notif > validity_period:
                             logger.warning('Omitting notification for user: \'%s\' ' \
                                            'because the expiration email has already ' \
-                                           'been sent once.'% (user_id))
+                                           'been sent once.' % (user_id))
                             break
                         # Protection of sending the notification email twice
                         if since_last_notification < 1:
                             logger.warning('Omitting notification for user: \'%s\' ' \
                                            'because the notification has been already ' \
-                                           'sent today.'% (user_id))
+                                           'sent today.' % (user_id))
                             break
 
                         # Executing the notification action and updating user's property
@@ -112,5 +117,5 @@ def notify_and_expire():
     app._p_jar.sync()
 
 if __name__ == '__main__':
-    logger.info('*'*8 + 'Executing notify_an_expire script' + '*'*8)
+    logger.info('*' * 8 + 'Executing notify_an_expire script' + '*' * 8)
     notify_and_expire()
