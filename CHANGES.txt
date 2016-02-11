@@ -4,6 +4,9 @@ HISTORY of collective.pwexpiry
 0.9 (unreleased)
 ----------------
 
+- Do not exipre passwords if `validity_period` is set to 0
+  [fRiSi]
+
 - Add password history check (not in last x passwords).
   [pcdummy]
 
