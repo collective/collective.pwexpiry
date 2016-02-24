@@ -49,4 +49,7 @@ setup(name='collective.pwexpiry',
       [z3c.autoinclude.plugin]
       target = plone
       """,
+      scripts=[
+          'collective/pwexpiry/scripts/notify_and_expire.py',
+      ]
       )
