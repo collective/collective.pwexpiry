@@ -76,7 +76,7 @@ class PwExpiryPlugin(BasePlugin):
             return None
 
         password_date = user.getProperty('password_date', '2000/01/01')
-        if str(password_date) != '2000/01/01':
+        if password_date != DateTime('2000/01/01'):
             current_time = DateTime()
             since_last_pw_reset = days_since_event(password_date.asdatetime(),
                                                    current_time.asdatetime())
