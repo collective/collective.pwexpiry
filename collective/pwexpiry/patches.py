@@ -8,6 +8,7 @@ from plone import api
 from plone.app.users.browser.register import BaseRegistrationForm
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.RegistrationTool import RegistrationTool
+from Products.membrane.plugins.usermanager import MembraneUserManager
 from Products.PluggableAuthService.plugins.ZODBUserManager import \
     ZODBUserManager
 from zope.app.form.interfaces import WidgetInputError
@@ -150,3 +151,45 @@ def authenticateCredentials(self, credentials):
 ZODBUserManager.authenticateCredentials = authenticateCredentials
 logger.info("Patching Products.PluggableAuthService.plugins.ZODBUserManager."
             "ZODBUserManager.authenticateCredentials")
+
+
+MembraneUserManager.original_authenticateCredentials = MembraneUserManager.authenticateCredentials
+
+
+def mAuthenticateCredentials(self, credentials):
+    """ See IAuthenticationPlugin.
+
+    o We expect the credentials to be those returned by
+      ILoginPasswordExtractionPlugin.
+    """
+    login = credentials.get('login')
+    password = credentials.get('password')
+
+    if login is None or password is None:
+        return None
+
+    is_authenticated = self.original_authenticateCredentials(credentials)
+
+    if is_authenticated:
+        try:
+            user = api.user.get(username=login)
+        except:
+            return is_authenticated
+
+        event = ValidPasswordEntered(user)
+        notify(event)
+        return is_authenticated
+    else:
+        try:
+            user = api.user.get(username=login)
+        except:
+            return None
+
+        event = InvalidPasswordEntered(user)
+        notify(event)
+        return None
+
+MembraneUserManager.authenticateCredentials = mAuthenticateCredentials
+logger.info("Patching"
+            "Products.membrane.plugins.usermanager.MembraneUserManager."
+            "MembraneUserManager.authenticateCredentials")
