@@ -4,6 +4,9 @@ HISTORY of collective.pwexpiry
 0.9 (unreleased)
 ----------------
 
+- Update german translations.
+  [pcdummy]
+
 - Do not exipre passwords if `validity_period` is set to 0
   [fRiSi]
 

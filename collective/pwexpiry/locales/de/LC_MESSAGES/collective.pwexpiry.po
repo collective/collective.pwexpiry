@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2015-11-05 13:18+0000\n"
-"PO-Revision-Date: 2015-11-05 14:17+0100\n"
+"POT-Creation-Date: 2016-02-29 13:24+0000\n"
+"PO-Revision-Date: 2016-02-29 14:24+0100\n"
 "Last-Translator: Rene Jochum <info@smile4.at>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -14,9 +14,9 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 "Language: de\n"
-"X-Generator: Poedit 1.7.5\n"
+"X-Generator: Poedit 1.8.4\n"
 
-#: ../utils.py:18
+#: ../utils.py:17
 msgid "${days} days left to password expiration"
 msgstr "Passwort läuft in ${days} Tage ab"
 
@@ -32,11 +32,11 @@ msgstr "Keine Benutzer wurde entsperrt"
 msgid "Password expiration"
 msgstr "Passwortablauf"
 
-#: ../example_validator.py:27
+#: ../example_validator.py:41
 msgid "Passwords must be at least 8 characters in length."
 msgstr "Passwörter müssen aus mindestens 8 Zeichen bestehen."
 
-#: ../example_validator.py:78
+#: ../example_validator.py:96
 msgid "Passwords must contain at least three of the following four character groups: Uppercase characters (A through Z), Lowercase characters (a through z), Numerals (0 through 9), Special characters such as !, $, #, %"
 msgstr "Passwörter müssen mindestens 3 der folgenden Zeichengruppen enthalten: Großbuchstaben (A - Z), Kleinbuchstaben (a - z), Nummern (0 - 9), Spezial Schriftzeichen wie !, $, #, %<"
 
@@ -48,19 +48,19 @@ msgstr "Die folgenden Benutzer wurden entsperrt: %s,"
 msgid "User's password expiration panel"
 msgstr "Passwortablauf Einstellungen des Benutzers\t"
 
-#: ../example_validator.py:60
+#: ../example_validator.py:78
 msgid "You have to change your password."
 msgstr "Sie müssen Ihr Passwort ändern."
 
-#: ../pwdisable_plugin.py:61
+#: ../pwdisable_plugin.py:58
 msgid "Your account has been locked due to too many invalid attempts to login with a wrong password. Your account will remain blocked for the next %s hours. You can reset your password, or contact an administrator to unlock it, using the Contact form."
 msgstr "Ihre Konto wurde gesperrt aufgrund von zu vielen ungültigen Anmeldungen. Ihr Konto bleibt gesperrt für die nächsten %s Stunden. Sie können Ihr Passwort zurücksetzen oder einen Administrator über das Kontakt Formular kontaktieren um es zu entsperren."
 
-#: ../example_validator.py:52
+#: ../example_validator.py:70
 msgid "Your password cannot contain your account name(Username), first name or last name."
 msgstr "Your password cannot contain your account name(Username), first name or last name."
 
-#: ../pwexpiry_plugin.py:93
+#: ../pwexpiry_plugin.py:99
 msgid "Your password has expired."
 msgstr "Ihr Passwort ist abgelaufen."
 
@@ -80,9 +80,14 @@ msgid "help_last_notification_date"
 msgstr "Das Datum wo der Benutzer das letzte mal informiert wurde"
 
 #. Default: "The date of setting the password"
-#: ../userdataschema.py:24
+#: ../userdataschema.py:23
 msgid "help_password_date"
 msgstr "Datum an dem das Passwort gesetzt wurde"
+
+#. Default: "This password has been used already."
+#: ../password_history_validator.py:51
+msgid "info_reused_pw"
+msgstr "Dieses Passwort wurde schon einmal verwendet."
 
 #. Default: "Apply Changes"
 #: ../browser/preferences/pwexpirycontrolpanel.pt:169
@@ -90,12 +95,11 @@ msgid "label_apply_changes"
 msgstr "Änderungen übernehmen"
 
 #. Default: "Last notification date"
-#: ../userdataschema.py:30
+#: ../userdataschema.py:29
 msgid "label_last_notification_date"
 msgstr "Datum letzte Notifikation"
 
 #. Default: "Password date"
-#: ../userdataschema.py:23
+#: ../userdataschema.py:22
 msgid "label_password_date"
 msgstr "Passwort Datum"
-
