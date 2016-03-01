@@ -4,6 +4,9 @@ HISTORY of collective.pwexpiry
 0.9 (unreleased)
 ----------------
 
+- Show status message "your account has expired" in login popup.
+  [pcdummy]
+
 - Update german translations.
   [pcdummy]
 

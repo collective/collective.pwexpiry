@@ -1,10 +1,17 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:five="http://namespaces.zope.org/five"
+    xmlns:browser="http://namespaces.zope.org/browser"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     i18n_domain="collective.pwexpiry">
 
   <include package=".emails" />
   <include package=".preferences" />
+
+  <browser:resource
+      name="collective.pwexpiry.fix_login_popup.js"
+      file="js/fix_login_popup.js"
+      layer="..interfaces.ICollectivePWExpiryLayer"
+      />
 
 </configure>

@@ -25,4 +25,25 @@
         run_deps="True"/>
 
   </gs:upgradeSteps>
+
+  <gs:registerProfile
+      name="0002_to_0003"
+      title="Show status message 'your account has expired' in login popup."
+      directory="profiles/0002_to_0003"
+      description=""
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+      />
+
+  <gs:upgradeSteps
+      source="0002"
+      destination="0003"
+      profile="collective.pwexpiry:default">
+
+    <gs:upgradeDepends
+        title="Show status message 'your account has expired' in login popup."
+        import_profile="collective.pwexpiry.upgrades:0002_to_0003"
+        run_deps="True"/>
+
+  </gs:upgradeSteps>
 </configure>
