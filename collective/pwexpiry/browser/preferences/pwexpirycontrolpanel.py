@@ -86,7 +86,7 @@ class PwExpiryControlPanel(UsersOverviewControlPanel):
 
             unlocked = list()
             for user in users:
-                if user['unlock']:
+                if user.get('unlock'):
                     member = mtool.getMemberById(user.id)
 
                     member.setMemberProperties(
