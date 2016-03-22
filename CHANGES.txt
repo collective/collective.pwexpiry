@@ -6,6 +6,9 @@ HISTORY of collective.pwexpiry
 - Fix javascripts with Plone 4.3.8, theres no more "ieversion()" function.
   [pcdummy]
 
+- Change the notification e-mail to a translated text e-mail.
+  [pcdummy]
+
 - Show status message "your account has expired" in login popup.
   [pcdummy]
 

@@ -5,7 +5,6 @@
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     i18n_domain="collective.pwexpiry">
 
-  <include package=".emails" />
   <include package=".preferences" />
 
   <browser:resource
