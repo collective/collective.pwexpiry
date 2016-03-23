@@ -44,7 +44,7 @@ else
 fi
 
 # Rebuild .pot
-$I18NDUDE rebuild-pot --pot $ROOT_DIR/locales/$CATALOGNAME.pot $MERGE --create $CATALOGNAME $ROOT_DIR
+$I18NDUDE rebuild-pot --wrap --pot $ROOT_DIR/locales/$CATALOGNAME.pot $MERGE --create $CATALOGNAME $ROOT_DIR
 
 
 # Compile po files
@@ -59,7 +59,7 @@ for lang in $(find $ROOT_DIR/locales -mindepth 1 -maxdepth 1 -type d); do
 
         # Sync po file
         echo "Syncing $PO"
-        $I18NDUDE sync --pot $ROOT_DIR/locales/$CATALOGNAME.pot $PO
+        $I18NDUDE sync --wrap --pot $ROOT_DIR/locales/$CATALOGNAME.pot $PO
 #
 #
 #        # Plone 3.3 and onwards do not need manual .po -> .mo compilation,
