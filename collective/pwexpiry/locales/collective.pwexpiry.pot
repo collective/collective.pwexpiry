@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2016-03-23 09:51+0000\n"
+"POT-Creation-Date: 2016-03-23 21:26+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -52,9 +52,9 @@ msgstr ""
 #: ../pwdisable_plugin.py:58
 msgid ""
 "Your account has been locked due to too many invalid attempts to login with "
-"a wrong password. Your account will remain blocked for the next %s hours. "
-"You can reset your password, or contact an administrator to unlock it, using "
-"the Contact form."
+"a wrong password. Your account will remain blocked for the next ${hrs} "
+"hours. You can reset your password, or contact an administrator to unlock "
+"it, using the Contact form."
 msgstr ""
 
 #: ../example_validator.py:70

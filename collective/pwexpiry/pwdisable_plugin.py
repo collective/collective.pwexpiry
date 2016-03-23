@@ -57,10 +57,11 @@ class PwDisablePlugin(BasePlugin):
             IStatusMessage(self.REQUEST).add(
                 _(u'Your account has been locked due to too many invalid '
                   'attempts to login with a wrong password. Your account will '
-                  'remain blocked for the next %s hours. You can reset your '
+                  'remain blocked for the next ${hrs} hours. You can reset your '
                   'password, or contact an administrator to unlock it, using '
-                  'the Contact form.' %
-                  user_disabled_time), type='error'
+                  'the Contact form.',
+                  mapping={'hrs': user_disabled_time}),
+                type='error'
             )
             response.redirect('login_form', lock=1)
             return 1
