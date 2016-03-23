@@ -5,16 +5,19 @@ from plone import api
 from zope.i18n import translate
 
 
-template_subject = _('${days} days left to password expiration')
+template_subject = _(
+    "email_subject",
+    default='${days} days left to password expiration'
+)
 
-template_email_text = _("""Hello ${username},
+template_email_text = _("email_text", default="""Hello ${username},
 
 There are ${days} days left before your password expires!
 
 Please ensure to reset your password before it's expired.
 """)
 
-template_email_text_expired = _("""Hello ${username},
+template_email_text_expired = _("email_text_expired", default="""Hello ${username},
 
 Your password has expired.
 

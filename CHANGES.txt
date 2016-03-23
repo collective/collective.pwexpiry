@@ -4,6 +4,9 @@ HISTORY of collective.pwexpiry
 0.9 (unreleased)
 ----------------
 
+- Update german translations.
+  [pcdummy]
+
 - Change the notification e-mail to a translated text e-mail.
   [pcdummy]
 
