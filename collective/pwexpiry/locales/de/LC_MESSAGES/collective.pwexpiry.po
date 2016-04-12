@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2016-02-29 13:24+0000\n"
-"PO-Revision-Date: 2016-02-29 14:24+0100\n"
+"POT-Creation-Date: 2016-03-23 09:51+0000\n"
+"PO-Revision-Date: 2016-03-23 10:50+0100\n"
 "Last-Translator: Rene Jochum <info@smile4.at>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -15,10 +15,6 @@ msgstr ""
 "Domain: DOMAIN\n"
 "Language: de\n"
 "X-Generator: Poedit 1.8.4\n"
-
-#: ../utils.py:17
-msgid "${days} days left to password expiration"
-msgstr "Passwort läuft in ${days} Tage ab"
 
 #: ../browser/preferences/pwexpirycontrolpanel.py:111
 msgid "Never"
@@ -37,8 +33,14 @@ msgid "Passwords must be at least 8 characters in length."
 msgstr "Passwörter müssen aus mindestens 8 Zeichen bestehen."
 
 #: ../example_validator.py:96
-msgid "Passwords must contain at least three of the following four character groups: Uppercase characters (A through Z), Lowercase characters (a through z), Numerals (0 through 9), Special characters such as !, $, #, %"
-msgstr "Passwörter müssen mindestens 3 der folgenden Zeichengruppen enthalten: Großbuchstaben (A - Z), Kleinbuchstaben (a - z), Nummern (0 - 9), Spezial Schriftzeichen wie !, $, #, %<"
+msgid ""
+"Passwords must contain at least three of the following four character "
+"groups: Uppercase characters (A through Z), Lowercase characters (a through "
+"z), Numerals (0 through 9), Special characters such as !, $, #, %"
+msgstr ""
+"Passwörter müssen mindestens 3 der folgenden Zeichengruppen enthalten: "
+"Großbuchstaben (A - Z), Kleinbuchstaben (a - z), Nummern (0 - 9), Spezial "
+"Schriftzeichen wie !, $, #, %<"
 
 #: ../browser/preferences/pwexpirycontrolpanel.py:103
 msgid "The following users were unlocked: %s, "
@@ -53,12 +55,24 @@ msgid "You have to change your password."
 msgstr "Sie müssen Ihr Passwort ändern."
 
 #: ../pwdisable_plugin.py:58
-msgid "Your account has been locked due to too many invalid attempts to login with a wrong password. Your account will remain blocked for the next %s hours. You can reset your password, or contact an administrator to unlock it, using the Contact form."
-msgstr "Ihre Konto wurde gesperrt aufgrund von zu vielen ungültigen Anmeldungen. Ihr Konto bleibt gesperrt für die nächsten %s Stunden. Sie können Ihr Passwort zurücksetzen oder einen Administrator über das Kontakt Formular kontaktieren um es zu entsperren."
+msgid ""
+"Your account has been locked due to too many invalid attempts to login with "
+"a wrong password. Your account will remain blocked for the next %s hours. "
+"You can reset your password, or contact an administrator to unlock it, using "
+"the Contact form."
+msgstr ""
+"Ihre Konto wurde gesperrt aufgrund von zu vielen ungültigen Anmeldungen. Ihr "
+"Konto bleibt gesperrt für die nächsten %s Stunden. Sie können Ihr Passwort "
+"zurücksetzen oder einen Administrator über das Kontakt Formular kontaktieren "
+"um es zu entsperren."
 
 #: ../example_validator.py:70
-msgid "Your password cannot contain your account name(Username), first name or last name."
-msgstr "Your password cannot contain your account name(Username), first name or last name."
+msgid ""
+"Your password cannot contain your account name(Username), first name or last "
+"name."
+msgstr ""
+"Your password cannot contain your account name(Username), first name or last "
+"name."
 
 #: ../pwexpiry_plugin.py:99
 msgid "Your password has expired."
@@ -73,6 +87,31 @@ msgstr "Zeige alle Suchresultate"
 #: ../browser/preferences/pwexpirycontrolpanel.pt:50
 msgid "description_password_expiration"
 msgstr "Zeige und administriere die Passwortablauf Einstellungen der Benutzer."
+
+#. Default: "${days} days left to password expiration"
+#: ../utils.py:8
+msgid "email_subject"
+msgstr "${days} Tage übrig bis Ihr Passwort abläuft"
+
+#. Default: "Hello ${username},\n\nThere are ${days} days left before your password expires!\n\nPlease ensure to reset your password before it's expired.\n"
+#: ../utils.py:13
+msgid "email_text"
+msgstr ""
+"Hallo ${username},\n"
+"\n"
+"Es sind ${days} Tage übrig bevor Ihr Passwort abläuft!\n"
+"\n"
+"Bitte ändern Sie Ihr Passwort bevor es abläuft."
+
+#. Default: "Hello ${username},\n\nYour password has expired.\n\nPlease ensure to reset your password before it's expired.\n"
+#: ../utils.py:20
+msgid "email_text_expired"
+msgstr ""
+"Hallo ${username},\n"
+"\n"
+"Ihr Passwort ist abgelaufen.\n"
+"\n"
+"Bitte ändern Sie Ihr Passwort bevor es abläuft."
 
 #. Default: "The date of performing the last notification fot the user"
 #: ../userdataschema.py:31
@@ -103,3 +142,4 @@ msgstr "Datum letzte Notifikation"
 #: ../userdataschema.py:22
 msgid "label_password_date"
 msgstr "Passwort Datum"
+

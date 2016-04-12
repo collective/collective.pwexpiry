@@ -1,31 +1,62 @@
-from email.mime.text import MIMEText
-
+# -*- coding: utf-8 -*-
 import pytz
 from collective.pwexpiry.config import _
 from plone import api
-from zope.component import getMultiAdapter
 from zope.i18n import translate
-from zope.publisher.browser import TestRequest
 
 
-def send_notification_email(user, days_to_expire,
-                            email_view='notification_email'):
+def send_notification_email(user, days_to_expire):
     """
     """
-    request = TestRequest()
+
+    language = api.portal.get_default_language()
+    if user.getProperty('language'):
+        language = user.getProperty('language')
+
     recipient = user.getProperty('email')
-    subject = _('${days} days left to password expiration',
-                mapping={u"days": days_to_expire})
 
-    subject = translate(subject)
-    email_template = getMultiAdapter(
-        (api.portal.get(), request), name=email_view
+    msg_mapping = {
+        u"username": user.getProperty('fullname'),
+        u"days": days_to_expire,
+    }
+    if days_to_expire > 0:
+        msg = translate(
+            _('email_text',
+              default="""Hello ${username},
+
+There are ${days} days left before your password expires!
+
+Please ensure to reset your password before it's expired.
+""",
+              mapping=msg_mapping,
+            ),
+            target_language=language
+        )
+    else:
+        msg = translate(
+            _('email_text_expired',
+              default="""Hello ${username},
+
+Your password has expired.
+
+Please ensure to reset your password before it's expired.
+""",
+              mapping=msg_mapping,
+            ),
+            target_language=language
+        )
+
+    subject = translate(
+        _('email_subject',
+          default=u"${days} days left to password expiration",
+          mapping={'days': days_to_expire},
+          ),
+        target_language=language
     )
-    body = email_template(**{'username': user.getProperty('fullname'),
-                             'days': days_to_expire})
+
     api.portal.send_email(recipient=recipient,
                           subject=subject,
-                          body=MIMEText(body, 'html'))
+                          body=msg)
 
 
 def days_since_event(event_date, current_date):
