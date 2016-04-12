@@ -3,6 +3,8 @@ HISTORY of collective.pwexpiry
 
 0.9 (unreleased)
 ----------------
+- Fix javascripts with Plone 4.3.8, theres no more "ieversion()" function.
+  [pcdummy]
 
 - Show status message "your account has expired" in login popup.
   [pcdummy]

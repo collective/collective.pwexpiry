@@ -1,6 +1,6 @@
 jQuery(function($){
 
-    if (msieversion() > 0 && msieversion() < 7) {
+    if (jQuery.browser.msie && parseInt(jQuery.browser.version, 10) < 7) {
         // it's not realistic to think we can deal with all the bugs
         // of IE 6 and lower. Fortunately, all this is just progressive
         // enhancement.
