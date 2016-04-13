@@ -8,7 +8,6 @@ from plone import api
 from plone.app.users.browser.register import BaseRegistrationForm
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.RegistrationTool import RegistrationTool
-from Products.membrane.plugins.usermanager import MembraneUserManager
 from Products.PluggableAuthService.plugins.ZODBUserManager import \
     ZODBUserManager
 from zope.app.form.interfaces import WidgetInputError
@@ -19,7 +18,6 @@ try:
     from hashlib import sha1 as sha
 except:
     from sha import sha
-
 
 
 logger = logging.getLogger(__file__)
@@ -79,9 +77,6 @@ def extended_validate_registration(self, action, data):
 BaseRegistrationForm.validate_registration = extended_validate_registration
 logger.info(
     "Patching plone.app.users.browser.register.BaseRegistrationForm.validate_registration")
-
-
-ZODBUserManager.original_authenticateCredentials = ZODBUserManager.authenticateCredentials
 
 
 def authenticateCredentials(self, credentials):
@@ -148,13 +143,6 @@ def authenticateCredentials(self, credentials):
         notify(event)
         return None
 
-ZODBUserManager.authenticateCredentials = authenticateCredentials
-logger.info("Patching Products.PluggableAuthService.plugins.ZODBUserManager."
-            "ZODBUserManager.authenticateCredentials")
-
-
-MembraneUserManager.original_authenticateCredentials = MembraneUserManager.authenticateCredentials
-
 
 def mAuthenticateCredentials(self, credentials):
     """ See IAuthenticationPlugin.
@@ -189,7 +177,16 @@ def mAuthenticateCredentials(self, credentials):
         notify(event)
         return None
 
-MembraneUserManager.authenticateCredentials = mAuthenticateCredentials
-logger.info("Patching"
-            "Products.membrane.plugins.usermanager.MembraneUserManager."
-            "MembraneUserManager.authenticateCredentials")
+
+try:
+    from Products.membrane.plugins.usermanager import MembraneUserManager
+    MembraneUserManager.original_authenticateCredentials = MembraneUserManager.authenticateCredentials
+    MembraneUserManager.authenticateCredentials = mAuthenticateCredentials
+    logger.info("Patching"
+                "Products.membrane.plugins.usermanager.MembraneUserManager."
+                "MembraneUserManager.authenticateCredentials")
+except ImportError:
+    ZODBUserManager.original_authenticateCredentials = ZODBUserManager.authenticateCredentials
+    ZODBUserManager.authenticateCredentials = authenticateCredentials
+    logger.info("Patching Products.PluggableAuthService.plugins.ZODBUserManager."
+                "ZODBUserManager.authenticateCredentials")
