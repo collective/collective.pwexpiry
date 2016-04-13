@@ -55,7 +55,7 @@ def notify_and_expire():
         notifications_to_use = registry['collective.pwexpiry.notification_actions']
     current_time = portal.ZopeTime()
     local_tz = current_time.timezone()
-    for user_id in portal.acl_users.source_users.getUserIds():
+    for user_id in portal.acl_users.getUserIds():
         user = portal.portal_membership.getMemberById(user_id)
         password_date = DateTime(user.getProperty('password_date', '2000/01/01'))
         last_notification_date = DateTime(user.getProperty('last_notification_date', '2000/01/01'))
