@@ -3,6 +3,9 @@ HISTORY of collective.pwexpiry
 
 0.9 (unreleased)
 ----------------
+- Fix an encoding problem with usernames in notify_and_expire.
+  [pcdummy]
+
 - Fix javascripts with Plone 4.3.8, theres no more "ieversion()" function.
   [pcdummy]
 
