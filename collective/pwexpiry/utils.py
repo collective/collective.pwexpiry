@@ -3,10 +3,13 @@ import pytz
 from collective.pwexpiry.config import _
 from plone import api
 from Products.CMFPlone.utils import safe_unicode
+from zope.component import getMultiAdapter
 from zope.i18n import translate
+from zope.publisher.browser import TestRequest
 
 
-def send_notification_email(user, days_to_expire):
+def send_notification_email(user, days_to_expire,
+                            email_view='notification_email'):
     """
     """
 
@@ -16,36 +19,15 @@ def send_notification_email(user, days_to_expire):
 
     recipient = user.getProperty('email')
 
-    msg_mapping = {
+    email_template = getMultiAdapter(
+        (api.portal.get(), TestRequest()), name=email_view
+    )
+
+    body = email_template(**{
         'username': safe_unicode(user.getProperty('fullname')),
         'days': days_to_expire,
-    }
-    if days_to_expire > 0:
-        msg = translate(
-            _('email_text',
-              default=u"""Hello ${username},
-
-There are ${days} days left before your password expires!
-
-Please ensure to reset your password before it's expired.
-""",
-              mapping=msg_mapping,
-              ),
-            target_language=language
-        )
-    else:
-        msg = translate(
-            _('email_text_expired',
-              default=u"""Hello ${username},
-
-Your password has expired.
-
-Please ensure to reset your password before it's expired.
-""",
-              mapping=msg_mapping,
-              ),
-            target_language=language
-        )
+        'language': language,
+    })
 
     subject = translate(
         _('email_subject',
@@ -57,7 +39,7 @@ Please ensure to reset your password before it's expired.
 
     api.portal.send_email(recipient=recipient,
                           subject=subject,
-                          body=msg)
+                          body=body)
 
 
 def days_since_event(event_date, current_date):

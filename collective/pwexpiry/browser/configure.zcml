@@ -6,6 +6,7 @@
     i18n_domain="collective.pwexpiry">
 
   <include package=".preferences" />
+  <include package=".emails" />
 
   <browser:resource
       name="collective.pwexpiry.fix_login_popup.js"

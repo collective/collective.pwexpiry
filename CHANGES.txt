@@ -3,6 +3,9 @@ HISTORY of collective.pwexpiry
 
 0.9 (unreleased)
 ----------------
+- Change the E-Mail Template to use a customizeable view.
+  [pcdummy]
+
 - Fix an encoding problem with usernames in notify_and_expire.
   [pcdummy]
 
