@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2016-02-29 13:24+0000\n"
+"POT-Creation-Date: 2016-03-23 21:40+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13,10 +13,6 @@ msgstr ""
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
-
-#: ../utils.py:17
-msgid "${days} days left to password expiration"
-msgstr ""
 
 #: ../browser/preferences/pwexpirycontrolpanel.py:111
 msgid "Never"
@@ -35,7 +31,10 @@ msgid "Passwords must be at least 8 characters in length."
 msgstr ""
 
 #: ../example_validator.py:96
-msgid "Passwords must contain at least three of the following four character groups: Uppercase characters (A through Z), Lowercase characters (a through z), Numerals (0 through 9), Special characters such as !, $, #, %"
+msgid ""
+"Passwords must contain at least three of the following four character "
+"groups: Uppercase characters (A through Z), Lowercase characters (a through "
+"z), Numerals (0 through 9), Special characters such as !, $, #, %"
 msgstr ""
 
 #: ../browser/preferences/pwexpirycontrolpanel.py:103
@@ -51,11 +50,17 @@ msgid "You have to change your password."
 msgstr ""
 
 #: ../pwdisable_plugin.py:58
-msgid "Your account has been locked due to too many invalid attempts to login with a wrong password. Your account will remain blocked for the next %s hours. You can reset your password, or contact an administrator to unlock it, using the Contact form."
+msgid ""
+"Your account has been locked due to too many invalid attempts to login with "
+"a wrong password. Your account will remain blocked for the next ${hrs} "
+"hours. You can reset your password, or contact an administrator to unlock "
+"it, using the Contact form."
 msgstr ""
 
 #: ../example_validator.py:70
-msgid "Your password cannot contain your account name(Username), first name or last name."
+msgid ""
+"Your password cannot contain your account name(Username), first name or last "
+"name."
 msgstr ""
 
 #: ../pwexpiry_plugin.py:99
@@ -70,6 +75,21 @@ msgstr ""
 #. Default: "View and manage user's password expiration properties"
 #: ../browser/preferences/pwexpirycontrolpanel.pt:50
 msgid "description_password_expiration"
+msgstr ""
+
+#. Default: "${days} days left to password expiration"
+#: ../utils.py:8
+msgid "email_subject"
+msgstr ""
+
+#. Default: "Hello ${username},\n\nThere are ${days} days left before your password expires!\n\nPlease ensure to reset your password before it's expired.\n"
+#: ../utils.py:13
+msgid "email_text"
+msgstr ""
+
+#. Default: "Hello ${username},\n\nYour password has expired.\n\nPlease ensure to reset your password before it's expired.\n"
+#: ../utils.py:20
+msgid "email_text_expired"
 msgstr ""
 
 #. Default: "The date of performing the last notification fot the user"

@@ -3,7 +3,23 @@ HISTORY of collective.pwexpiry
 
 0.9 (unreleased)
 ----------------
+- Change the E-Mail Template to use a customizeable view.
+  [pcdummy]
+
+- Fix an encoding problem with usernames in notify_and_expire.
+  [pcdummy]
+
 - Fix javascripts with Plone 4.3.8, theres no more "ieversion()" function.
+  [pcdummy]
+
+- Fix translations for "password disabled" statusmessage
+  (this fixes #11)
+  [fRiSi]
+
+- Update german translations.
+  [pcdummy]
+
+- Change the notification e-mail to a translated text e-mail.
   [pcdummy]
 
 - Show status message "your account has expired" in login popup.

@@ -5,8 +5,8 @@
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     i18n_domain="collective.pwexpiry">
 
-  <include package=".emails" />
   <include package=".preferences" />
+  <include package=".emails" />
 
   <browser:resource
       name="collective.pwexpiry.fix_login_popup.js"
