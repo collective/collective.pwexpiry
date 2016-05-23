@@ -40,7 +40,7 @@ Configuration and customization
 ===============================
 
 Password period of validity
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------
 
 The password's period of validity is set in the configuration registry tool, and have
 a default value of 90 days. It can be easily customized by creating a registry.xml file
@@ -55,7 +55,7 @@ in your custom pakage's gereric setup profile containing the configuration code:
 To disable password expiration, set `validity_period` to `0`.
 
 Last X Passwords check
-~~~~~~~~~~~~~~~~~~~~~~
+----------------------
 
 It's possible to check if the new password has already been used (a history of the last `password_history_size` password hashes is kept).
 
@@ -71,7 +71,7 @@ You need to manualy activate that feature with a registry record in registry.xml
 
 
 Defining notification actions
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------------
 
 By default - there is a notification action defined that sends the notification email
 to the user when his password period of validity is going to end in 15 days.
@@ -125,7 +125,7 @@ To register your own notification action you need to::
 
 
 Defining custom password validation methods
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------------------
 
 The package allows to define your own password valdation methods
 executed when the user set his initial password on registration or
@@ -158,7 +158,7 @@ To register your own notification action you need to::
                   return _(u'Passwords must be at least 8 characters in length.')
 
 Executing the notification script
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------------
 
 The notification script should be executed **once a day** to check the user's passwords
 expiration dates and trigger relevant notification actions.
@@ -170,7 +170,7 @@ Here's an example of how the script can be executed from the command line::
 
 
 Locking out accounts if an invalid password is entered too many times
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------------------------------------------------
 
 When the package is installed, a new PAS plugin is included, which will count invalid password attempts when logging in.
 If the number of invalid attempts is higher than a configurable threshold, the account will be locked out for a certain amount of hours.
@@ -179,7 +179,7 @@ An account can be re-activated by an administrator changing its password.
 
 
 Controlling the additional user's properties
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------------------------
 
 The ``collective.pwexpiry`` package creates new user's properties:
  * ``password_date`` - the date when the user has changed his passoword
@@ -193,7 +193,7 @@ control panel form available under url: ``/@@pwexpiry-controlpanel``.
 
 
 Setting how many tries before locking the account and for how much time
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------------------------------------------------------
 
 This is managed with values in the registry:
 
@@ -205,7 +205,7 @@ TODO
 ====
 
 Write tests!
-~~~~~~~~~~~~
+------------
 
 Author & Contact
 ================
