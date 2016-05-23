@@ -1,7 +1,7 @@
 HISTORY of collective.pwexpiry
 ==============================
 
-0.9 (unreleased)
+0.9 (2016-05-23)
 ----------------
 - Change the E-Mail Template to use a customizeable view.
   [pcdummy]
@@ -34,7 +34,7 @@ HISTORY of collective.pwexpiry
 - Add password history check (not in last x passwords).
   [pcdummy]
 
-- Enable the example_validator only when theres a browserlayer.
+- Enable the example_validator only when there is a browserlayer.
   [pcdummy]
 
 - Add a skins layer and remove the confusing > 5 chars message from
