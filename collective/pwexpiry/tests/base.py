@@ -1,6 +1,6 @@
 import os
 
-import unittest2 as unittest
+import unittest
 from plone.app.testing import (PLONE_FIXTURE, TEST_USER_ID, TEST_USER_NAME,
                                FunctionalTesting, IntegrationTesting,
                                PloneSandboxLayer, applyProfile, login,
