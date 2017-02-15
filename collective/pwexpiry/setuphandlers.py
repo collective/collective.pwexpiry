@@ -1,3 +1,9 @@
+# -*- coding: utf-8 -*-
+try:
+    from Products.CMFPlone import __version__ as plone_version
+except:
+    plone_version = '4'
+
 import logging
 
 from Products.CMFCore.utils import getToolByName
@@ -13,7 +19,10 @@ def import_various(context):
     """
     Install the PwExpiryPlugin
     """
+    if context.readDataFile('collective_pwexpiry_default.txt') is None:
+        return
     portal = context.getSite()
+    ps = portal.portal_setup
 
     acl = getToolByName(portal, 'acl_users')
     installed = acl.objectIds()
@@ -33,3 +42,7 @@ def import_various(context):
             acl.plugins.movePluginsUp(IChallengePlugin, ['pwdisable'])
     else:
         logger.info('pwdisable already installed')
+
+    if plone_version.startswith('4'):
+        profile = 'profile-collective.pwexpiry:plone4'
+        ps.runAllImportStepsFromProfile(profile)

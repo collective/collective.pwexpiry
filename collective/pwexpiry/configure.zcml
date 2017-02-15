@@ -28,6 +28,13 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
+  <genericsetup:registerProfile
+      name="plone4"
+      title="collective.pwexpiry: Plone 4 only profile"
+      directory="profiles/plone4"
+      description='Profile intended only in Plone 4 (No need to manually run it, default install profile should do it).'
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
 
     <subscriber
         for="Products.CMFCore.interfaces.IMemberData
