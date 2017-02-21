@@ -1,6 +1,12 @@
 HISTORY of collective.pwexpiry
 ==============================
 
+0.11 (unreleased)
+-----------------
+
+- Nothing changed yet.
+
+
 0.10 (2017-02-21)
 -----------------
 
