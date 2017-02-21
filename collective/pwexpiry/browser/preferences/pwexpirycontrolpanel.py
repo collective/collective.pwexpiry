@@ -6,7 +6,9 @@ from Acquisition import aq_inner
 from collective.pwexpiry.config import DATETIME_FORMATSTRING
 from collective.pwexpiry.events import UserUnlocked
 from DateTime import DateTime
-from plone.app.controlpanel.usergroups import UsersOverviewControlPanel
+from Products.CMFPlone.controlpanel.browser.usergroups import \
+    UsersGroupsControlPanelView
+
 from plone.protect import CheckAuthenticator
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone import PloneMessageFactory as _
@@ -15,7 +17,7 @@ from zope.component import getMultiAdapter
 from zope.event import notify
 
 
-class PwExpiryControlPanel(UsersOverviewControlPanel):
+class PwExpiryControlPanel(UsersGroupsControlPanelView):
 
     def __call__(self):
 

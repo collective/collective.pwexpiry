@@ -4,7 +4,11 @@ HISTORY of collective.pwexpiry
 0.10 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Product now works on Plone 5
+  [enfold-josh]
+
+- Javascript for login popup is only needed for Plone 4
+  [frapell]
 
 
 0.9.1 (2016-05-23)

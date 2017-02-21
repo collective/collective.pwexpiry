@@ -5,19 +5,13 @@ from collective.pwexpiry.events import (InvalidPasswordEntered,
                                         ValidPasswordEntered)
 from collective.pwexpiry.interfaces import ICustomPasswordValidator
 from plone import api
-from plone.app.users.browser.register import BaseRegistrationForm
-from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.RegistrationTool import RegistrationTool
 from Products.PluggableAuthService.plugins.ZODBUserManager import \
     ZODBUserManager
-from zope.app.form.interfaces import WidgetInputError
 from zope.component import getAdapters
 from zope.event import notify
 
-try:
-    from hashlib import sha1 as sha
-except:
-    from sha import sha
+from hashlib import sha1 as sha
 
 
 
@@ -48,37 +42,6 @@ RegistrationTool.testPasswordValidity = extended_testPasswordValidity
 logger.info(
     "Patching Products.CMFDefault.RegistrationTool.testPasswordValidity"
 )
-
-original_validate_registration = BaseRegistrationForm.validate_registration
-
-
-def extended_validate_registration(self, action, data):
-    """
-    Patching the standard Plone's validate_registration method to
-    add validating the password given in the registration process against
-    the testPasswordValidity method.
-    (This will be added to Plone 4.3 according to https://dev.plone.org/ticket/10959)
-    """
-    original = original_validate_registration(self, action, data)
-    pw_error = self.widgets['password'].error
-    if isinstance(pw_error, str):
-        return original
-    elif callable(pw_error):
-        registration = getToolByName(self.context, 'portal_registration')
-        password = data.get('password')
-        confirm = data.get('password_ctl')
-        error = registration.testPasswordValidity(password, confirm, data)
-        if error:
-            original.append(
-                WidgetInputError('password', u'label_password', error)
-            )
-            self.widgets['password'].error = error
-    return original
-
-BaseRegistrationForm.validate_registration = extended_validate_registration
-logger.info(
-    "Patching plone.app.users.browser.register.BaseRegistrationForm.validate_registration")
-
 
 ZODBUserManager.original_authenticateCredentials = ZODBUserManager.authenticateCredentials
 
