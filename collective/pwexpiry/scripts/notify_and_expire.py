@@ -66,7 +66,12 @@ def notify_and_expire():
     current_time = portal.ZopeTime()
     local_tz = current_time.timezone()
 
+    whitelisted = registry.get('collective.pwexpiry.whitelisted_users')
     for user_id in portal.acl_users.source_users.getUserIds():
+        # Ignore whitelisted
+        if user_id in whitelisted:
+            continue
+
         user = portal.portal_membership.getMemberById(user_id)
         password_date = DateTime(user.getProperty(
             'password_date', '2000/01/01'

@@ -75,6 +75,13 @@ class PwExpiryPlugin(BasePlugin):
         if user.has_role('Manager'):
             return None
 
+        # Ignore whitelisted
+        whitelisted = api.portal.get_registry_record(
+            'collective.pwexpiry.whitelisted_users'
+        )
+        if user.getId() in whitelisted:
+            return None
+
         password_date = user.getProperty('password_date', '2000/01/01')
         if str(password_date) != '2000/01/01':
             current_time = DateTime()

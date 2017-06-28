@@ -12,6 +12,13 @@
             <value_type type="plone.registry.field.TextLine"/>
         </field>
     </record>
+    <record name="collective.pwexpiry.whitelisted_users">
+        <field type="plone.registry.field.Set">
+            <title>Whitelisted users</title>
+            <description>A list of userids that would not get their password disabled, nor locked after too many attempts.</description>
+            <value_type type="plone.registry.field.TextLine"/>
+        </field>
+    </record>
     <record name="collective.pwexpiry.allowed_tries">
         <field type="plone.registry.field.Int">
             <title>Number of incorrect password tries, before locking the account.</title>

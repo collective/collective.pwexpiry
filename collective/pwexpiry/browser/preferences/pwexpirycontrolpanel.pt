@@ -177,6 +177,30 @@
                   <input tal:replace="structure context/@@authenticator/authenticator" />
 
                 </form>
+
+                <form action=""
+                      class="enableAutoFocus"
+                      name="users_whitelist"
+                      method="post"
+                      tal:attributes="action string:$portal_url/$template_id"
+                      tal:define="whitelisted view/getWhitelisted">
+
+                  <input type="hidden" name="form.whitelist_submitted" value="1" />
+                  <span tal:omit-tag="" i18n:translate="label_whitelist_users">Users whitelisted</span>:
+                  <p><span>List here the users, one per line, that you want to avoid having their password expired, or being locked out for too many attempts</span></p>
+
+                  <textarea name="form.whitelisted_users" tal:attributes="value whitelisted" tal:content="whitelisted" />
+
+                  <input class="context"
+                      type="submit"
+                      name="form.button.SaveWhitelist"
+                      value="Save whitelist"
+                      i18n:attributes="value label_save_whitelist;"
+                      />
+
+                  <input tal:replace="structure context/@@authenticator/authenticator" />
+
+                </form>
             </div>
         </div>
     </div>

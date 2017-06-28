@@ -10,19 +10,41 @@ from Products.CMFPlone.controlpanel.browser.usergroups import \
     UsersGroupsControlPanelView
 
 from plone.protect import CheckAuthenticator
+from plone.registry.interfaces import IRegistry
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone import PloneMessageFactory as _
 from Products.CMFPlone.utils import normalizeString
 from zope.component import getMultiAdapter
+from zope.component import getUtility
 from zope.event import notify
 
 
 class PwExpiryControlPanel(UsersGroupsControlPanelView):
 
+    def getWhitelisted(self):
+        if self.whitelisted:
+            return "\r\n".join(self.whitelisted)
+
     def __call__(self):
 
         form = self.request.form
+        registry = getUtility(IRegistry)
+        self.whitelisted = registry.get('collective.pwexpiry.whitelisted_users')
+
         submitted = form.get('form.submitted', False)
+        whitelist_submitted = form.get('form.whitelist_submitted', False)
+
+        if whitelist_submitted:
+            users_to_whitelist = form.get('form.whitelisted_users', "").split('\r\n')
+            self.whitelisted = filtered_users_to_whitelist = list()
+
+            for userid in users_to_whitelist:
+                # XXX: Should we do some checks here?
+                if userid:
+                    filtered_users_to_whitelist.append(unicode(userid))
+
+            registry['collective.pwexpiry.whitelisted_users'] = set(filtered_users_to_whitelist)
+
         search = form.get('form.button.Search', None) is not None
         findAll = form.get('form.button.FindAll', None) is not None
         self.searchString = not findAll and form.get('searchstring', '') or ''

@@ -50,6 +50,11 @@ def InvalidPasswordEntered(user, event):
     if not registry:
         return
 
+    whitelisted = registry.get('collective.pwexpiry.whitelisted_users')
+    if user.getId() in whitelisted:
+        return
+
+
     allowed_tries = registry['collective.pwexpiry.allowed_tries']
     current_tries = user.getProperty('password_tries', 0)
 
@@ -57,7 +62,6 @@ def InvalidPasswordEntered(user, event):
     # limit allowed
     current_tries += 1
     user.setMemberProperties({'password_tries': current_tries})
-
     if current_tries >= allowed_tries:
         portal = api.portal.get()
         current_time = portal.ZopeTime()
