@@ -2,9 +2,13 @@
 *.pyc
 *.mo
 .installed.cfg
+pip-selfcheck.json
 bin/
 develop-eggs/
 include/
 lib/
 parts/
 var/
+.idea/
+local/
+share/
