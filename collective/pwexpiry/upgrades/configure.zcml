@@ -46,4 +46,25 @@
         run_deps="True"/>
 
   </gs:upgradeSteps>
+
+  <gs:registerProfile
+      name="0003_to_0004"
+      title="Include the new whitelisted_users in the registry"
+      directory="profiles/0003_to_0004"
+      description=""
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+      />
+
+  <gs:upgradeSteps
+      source="0003"
+      destination="0004"
+      profile="collective.pwexpiry:default">
+
+    <gs:upgradeDepends
+        title="Include the new whitelisted_users in the registry"
+        import_profile="collective.pwexpiry.upgrades:0003_to_0004"
+        run_deps="True"/>
+
+  </gs:upgradeSteps>
 </configure>
