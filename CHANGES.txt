@@ -1,8 +1,8 @@
 HISTORY of collective.pwexpiry
 ==============================
 
-0.12 (unreleased)
------------------
+0.11.1 (2017-07-31)
+-------------------
 
 - Re-release
   [frapell]
