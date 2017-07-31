@@ -69,7 +69,7 @@ def notify_and_expire():
     whitelisted = registry.get('collective.pwexpiry.whitelisted_users')
     for user_id in portal.acl_users.source_users.getUserIds():
         # Ignore whitelisted
-        if user_id in whitelisted:
+        if whitelisted and user_id in whitelisted:
             continue
 
         user = portal.portal_membership.getMemberById(user_id)
