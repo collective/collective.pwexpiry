@@ -1,12 +1,12 @@
-import re
-
+from .config import _
+from .interfaces import ICollectivePWExpiryLayer
 from AccessControl import AuthEncoding
 from collective.pwexpiry.interfaces import ICustomPasswordValidator
 from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone.utils import safe_unicode
 from zope.interface import implementer
 
-from .config import _
-from .interfaces import ICollectivePWExpiryLayer
+import re
 
 
 @implementer(ICustomPasswordValidator)
@@ -40,6 +40,9 @@ class ADPasswordValidator(object):
         if len(password) < 8:
             return _(u'Passwords must be at least 8 characters in length.')
 
+        # password is compared to unicode values
+        password = safe_unicode(password)
+
         if not data:
             # setting password not from the registration form
             # we can obtain the existing user's properties instead of
@@ -59,14 +62,13 @@ class ADPasswordValidator(object):
 
         # Checking if the entered password doesn't contain
         # the user's username or any parts of his fullname
-        password_lower = password.lower()
         for name in data.get('fullname', u'').split(' ') + \
                 [data.get('username', ''), ]:
             if name:
                 if not isinstance(name, unicode):
                     name = unicode(name.decode('utf-8'))
 
-                if name.lower() in password_lower:
+                if name.lower() in password.lower():
                     return _(u'Your password cannot contain your account name'
                              u'(Username), first name or last name.')
 
