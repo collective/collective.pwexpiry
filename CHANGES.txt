@@ -1,11 +1,11 @@
 HISTORY of collective.pwexpiry
 ==============================
 
-0.11.3 (unreleased)
+0.11.3 (2017-12-06)
 -------------------
 
 - Password validation does not raise UnicodeDecodeError if password
-  contains non-ascii characters
+  contains non-ascii characters [fRiSi]
 
 
 0.11.2 (2017-07-31)
