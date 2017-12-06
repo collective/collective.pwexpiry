@@ -5,7 +5,7 @@ import os
 def read(*rnames):
     return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
 
-version = '0.11.3'
+version = '0.11.4.dev0'
 
 setup(name='collective.pwexpiry',
       version=version,
