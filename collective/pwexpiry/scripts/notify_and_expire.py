@@ -2,46 +2,22 @@
 import logging
 import os
 import sys
+import transaction
 
+from DateTime import DateTime
 import Globals
+
+from AccessControl.SecurityManagement import newSecurityManager
+from AccessControl.User import system
 from collective.pwexpiry.interfaces import IExpirationCheck
 from collective.pwexpiry.utils import days_since_event
-from DateTime import DateTime
 from plone import api
 from plone.registry.interfaces import IRegistry
+from Products.CMFPlone.interfaces.siteroot import IPloneSiteRoot
+from Testing.makerequest import makerequest
 from zope.component import getAdapters, getUtility
 from zope.component.hooks import setSite
-
-app = globals()["app"]  # for pep8
-
-# Logging configuration
-logfile = 'pwexpiry.log'
-logs_dir = os.path.join(os.path.split(Globals.data_dir)[0], 'log', logfile)
-logger = logging.getLogger('collective.pwexpiry')
-logger.setLevel(logging.INFO)
-fh = logging.FileHandler(logs_dir)
-fh.setLevel(logging.INFO)
-formatter = logging.Formatter(
-    '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-)
-fh.setFormatter(formatter)
-logger.addHandler(fh)
-
-# Read and validate input variables
-if len(sys.argv) < 2:
-    raise ValueError(
-        'Missing portal_path parameter; Please specify your site\'s path.'
-    )
-portal_path = sys.argv[-1]
-
-# Set site
-try:
-    site = app.restrictedTraverse(portal_path)
-except Exception:
-    raise ValueError(
-        'Wrong portal_path parameter; Please specify an existing site\'s path.'
-    )
-setSite(site=site)
+from zope.globalrequest import setRequest
 
 
 def notify_and_expire():
@@ -49,6 +25,8 @@ def notify_and_expire():
     For each registered user check all the conditions and execute
     the notification action
     """
+    logger = logging.getLogger('collective.pwexpiry')
+    logger.info('*' * 8 + 'Executing notify_an_expire script' + '*' * 8)
 
     portal = api.portal.get()
     registry = getUtility(IRegistry)
@@ -108,7 +86,6 @@ def notify_and_expire():
                        "registry['collective.pwexpiry.notification_actions']")
                 logger.debug(msg % notification_name)
                 continue
-
             if notification(days_to_expire):
                 try:
                     # Protection of sending the
@@ -147,11 +124,55 @@ def notify_and_expire():
                         'for user: %s: %s' % (notification_name, user_id, exc))
                     continue
 
+
+def entrypoint(app, args):
+
+    # Logging configuration
+    logfile = 'pwexpiry.log'
+    logs_dir = os.path.join(os.path.split(Globals.data_dir)[0], 'log', logfile)
+    logger = logging.getLogger('collective.pwexpiry')
+    logger.setLevel(logging.INFO)
+    fh = logging.FileHandler(logs_dir)
+    fh.setLevel(logging.INFO)
+    formatter = logging.Formatter(
+        '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    )
+    fh.setFormatter(formatter)
+    logger.addHandler(fh)
+
+    app = makerequest(app)
+    newSecurityManager(None, system)
+    # Read and validate input variables
+    if len(args) < 3:
+        raise ValueError(
+            'Missing portal_path parameter; Please specify your site\'s path.'
+        )
+    portal_path = sys.argv[-1]
+
+    # Set site
+    try:
+        site = app.restrictedTraverse(portal_path)
+    except Exception:
+        raise ValueError(
+            'Wrong portal_path parameter; Please specify an existing site\'s path.'
+        )
+
+    setSite(site=site)
+    site.REQUEST['PARENTS'] = [site]
+    site.REQUEST.setVirtualRoot('/')
+
+    if os.getenv('SERVER_NAME'):
+        site.REQUEST['SERVER_NAME'] = os.getenv('SERVER_NAME')
+    if os.getenv('SERVER_URL'):
+        site.REQUEST['SERVER_URL'] = os.getenv('SERVER_URL')
+
+    setRequest(site.REQUEST)
+    notify_and_expire()
     # commit transaction
-    import transaction
     transaction.commit()
     app._p_jar.sync()
 
+
 if __name__ == '__main__':
-    logger.info('*' * 8 + 'Executing notify_an_expire script' + '*' * 8)
-    notify_and_expire()
+    app = globals()["app"]  # for pep8
+    entrypoint(app, sys.argv[1:])

@@ -45,6 +45,8 @@ setup(name='collective.pwexpiry',
       },
       entry_points="""
       # -*- Entry points: -*-
+      [zopectl.command]
+      notify_and_expire = collective.pwexpiry.scripts.notify_and_expire:entrypoint
 
       [z3c.autoinclude.plugin]
       target = plone

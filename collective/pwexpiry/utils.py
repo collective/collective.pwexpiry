@@ -18,13 +18,15 @@ def send_notification_email(user, days_to_expire,
         language = user.getProperty('language')
 
     recipient = user.getProperty('email')
+    portal = api.portal.get()
 
     email_template = getMultiAdapter(
-        (api.portal.get(), TestRequest()), name=email_view
+        (portal, portal.REQUEST), name=email_view
     )
 
     body = email_template(**{
-        'username': safe_unicode(user.getProperty('fullname')),
+        'username': user.getUserId(),
+        'fullname': safe_unicode(user.getProperty('fullname')),
         'days': days_to_expire,
         'language': language,
     })
