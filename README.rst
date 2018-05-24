@@ -163,10 +163,28 @@ Executing the notification script
 The notification script should be executed **once a day** to check the user's passwords
 expiration dates and trigger relevant notification actions.
 
+For convenience, a new command called ``notify_and_expire`` was added to zopectl,
+you only need to provide the absolute path to your Plone instance as only argument.
+
 Here's an example of how the script can be executed from the command line::
 
     $ cd ${buildoout:directory}
-    $ ./bin/instance run src/collective.pwexpiry/collective/pwexpiry/scripts/notify_and_expire.py ${your-plonesite-id}
+    $ ./bin/instance notify_and_expire /Plone
+
+This assuming your Plone site id is ``Plone`` and lives at the Zope root.
+
+
+Provide SERVER_URL and SERVER_NAME environment variables
+--------------------------------------------------------
+
+The email template will try to get the server URL and server NAME from the request,
+and the notification script already puts them in there if it can find it as
+environment variables. So if you want to provide users with a better email,
+which includes links to reset or change the password, and a message detailing
+where the email is coming from, you need to define ``SERVER_URL`` and ``SERVER_NAME``
+environment variables.
+In order to do this in buildout, you need to set your ``environment-vars`` in your
+``[instance]`` section.
 
 
 Locking out accounts if an invalid password is entered too many times
