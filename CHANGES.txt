@@ -7,6 +7,9 @@ HISTORY of collective.pwexpiry
 - Refactor the notify_and_expire script so it can be added as a zopectl command
   [frapell]
 
+- Use SERVER_URL and SERVER_NAME for including additional info in emails
+  [frapell]
+
 
 0.11.3 (2017-12-06)
 -------------------
