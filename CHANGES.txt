@@ -1,7 +1,7 @@
 HISTORY of collective.pwexpiry
 ==============================
 
-0.11.4 (unreleased)
+0.12.0 (2018-05-30)
 -------------------
 
 - Update german translations
