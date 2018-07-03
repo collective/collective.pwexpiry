@@ -51,7 +51,7 @@ def InvalidPasswordEntered(user, event):
         return
 
     whitelisted = registry.get('collective.pwexpiry.whitelisted_users')
-    if user.getId() in whitelisted:
+    if whitelisted and user.getId() in whitelisted:
         return
 
 
