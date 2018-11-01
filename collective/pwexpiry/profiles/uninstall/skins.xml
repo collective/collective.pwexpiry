@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<object name="portal_skins">
+  <object
+      remove="true"
+      name="pwexpiry"
+      directory="collective.pwexpiry:skins/pwexpiry"
+      />
+  <skin-path name="*">
+    <layer remove="true" name="pwexpiry" />
+  </skin-path>
+</object>

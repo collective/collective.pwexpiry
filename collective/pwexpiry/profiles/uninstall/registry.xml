@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<registry>
+  <record name="collective.pwexpiry.validity_period" remove="true" />
+  <record name="collective.pwexpiry.notification_actions" remove="true" />
+  <record name="collective.pwexpiry.whitelisted_users" remove="true" />
+  <record name="collective.pwexpiry.allowed_tries" remove="true" />
+  <record name="collective.pwexpiry.disable_time" remove="true" />
+  <record name="collective.pwexpiry.password_history_size" remove="true" />
+</registry>
