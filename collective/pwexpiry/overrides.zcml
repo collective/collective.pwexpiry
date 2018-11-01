@@ -1,0 +1,11 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:zcml="http://namespaces.zope.org/zcml">
+
+  <adapter zcml:condition="not-have plone-5"
+      provides=".userdataschema.IEnhancedUserDataSchema"
+      for="Products.CMFCore.interfaces.ISiteRoot"
+      factory=".userdata.EnhancedUserDataPanelAdapter"
+      />
+
+</configure>

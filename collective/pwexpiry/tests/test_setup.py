@@ -58,7 +58,7 @@ class UninstallTestCase(unittest.TestCase):
     @unittest.skipIf(IS_PLONE_5, 'Plone 4.3 only')
     def test_jsregistry_removed(self):
         resource_ids = self.portal.portal_javascripts.getResourceIds()
-        self.assertIn(JS, resource_ids)
+        self.assertNotIn(JS, resource_ids)
 
     def test_skin_removed(self):
         skins = self.portal['portal_skins']

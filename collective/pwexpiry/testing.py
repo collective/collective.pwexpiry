@@ -26,7 +26,7 @@ class PwExpiryLayer(PloneSandboxLayer):
         # Load ZCML
         import collective.pwexpiry
         self.loadZCML(package=collective.pwexpiry)
-        # self.loadZCML(package=collective.pwexpiry, name='overrides.zcml')
+        self.loadZCML(package=collective.pwexpiry, name='overrides.zcml')
 
         from OFS.Application import install_package
         install_package(app, collective.pwexpiry, collective.pwexpiry.initialize)
