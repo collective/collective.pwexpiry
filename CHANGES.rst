@@ -4,6 +4,9 @@ Changelog
 1.0.0 (unreleased)
 ------------------
 
+- Deprecate Plone 4.1, Plone 4.2 and Python 2.6.
+  [hvelarde]
+
 - Avoids ``TypeError`` on ``InvalidPasswordEntered`` subscriber when the list of whitelisted users has not being set.
   [csanahuja]
 
