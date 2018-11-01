@@ -20,5 +20,11 @@ before_script:
 - sh -e /etc/init.d/xvfb start
 script:
 - bin/test
+after_script:
+- pip install coverage
+- coverage run bin/test
+# Coveralls
+- pip install coveralls
+- coveralls
 notifications:
   irc: irc.freenode.org#plone-testing
