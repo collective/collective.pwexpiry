@@ -1,10 +1,11 @@
-HISTORY of collective.pwexpiry
-==============================
+Changelog
+=========
 
-0.12.1 (unreleased)
--------------------
+1.0.0 (unreleased)
+------------------
 
-- Nothing changed yet.
+- Add uninstall profile and tests.
+  [hvelarde]
 
 
 0.12.0 (2018-05-30)

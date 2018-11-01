@@ -5,13 +5,13 @@ import os
 def read(*rnames):
     return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
 
-version = '0.12.1.dev0'
+version = '1.0.0.dev0'
 
 setup(name='collective.pwexpiry',
       version=version,
       description="Emulate Active Directory password complexity requirements \
                   in Plone",
-      long_description=read("README.rst") + "\n" + read("CHANGES.txt"),
+      long_description=read("README.rst") + "\n" + read("CHANGES.rst"),
       classifiers=[
           "Programming Language :: Python",
           "Topic :: Software Development :: Libraries :: Python Modules",

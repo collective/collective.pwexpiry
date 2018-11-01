@@ -36,6 +36,16 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
+  <genericsetup:registerProfile
+      name="uninstall"
+      title="collective.pwexpiry: uninstall"
+      directory="profiles/uninstall"
+      description="Uninstalls collective.pwexpiry."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <utility factory=".setuphandlers.HiddenProfiles" name="collective.pwexpiry" />
+
     <subscriber
         for="Products.CMFCore.interfaces.IMemberData
              .interfaces.IValidPasswordEntered"

@@ -1,18 +1,28 @@
 # -*- coding: utf-8 -*-
-try:
-    from Products.CMFPlone import __version__ as plone_version
-except:
-    plone_version = '4'
+from collective.pwexpiry.config import IS_PLONE_5
+from collective.pwexpiry.pwdisable_plugin import addPwDisablePlugin
+from collective.pwexpiry.pwexpiry_plugin import addPwExpiryPlugin
+from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone.interfaces import INonInstallable
+from Products.PlonePAS.Extensions.Install import activatePluginInterfaces
+from Products.PluggableAuthService.interfaces.plugins import IChallengePlugin
+from zope.interface import implementer
 
 import logging
 
-from Products.CMFCore.utils import getToolByName
-from Products.PlonePAS.Extensions.Install import activatePluginInterfaces
-from Products.PluggableAuthService.interfaces.plugins import IChallengePlugin
-from pwdisable_plugin import addPwDisablePlugin
-from pwexpiry_plugin import addPwExpiryPlugin
 
 logger = logging.getLogger('collective.pwexpiry')
+
+
+@implementer(INonInstallable)
+class HiddenProfiles(object):  # pragma: no cover
+
+    def getNonInstallableProfiles(self):
+        """Do not show on Plone's list of installable profiles."""
+        return [
+            u'collective.pwexpiry:plone4',
+            u'collective.pwexpiry:uninstall',
+        ]
 
 
 def import_various(context):
@@ -43,6 +53,6 @@ def import_various(context):
     else:
         logger.info('pwdisable already installed')
 
-    if plone_version.startswith('4'):
+    if not IS_PLONE_5:
         profile = 'profile-collective.pwexpiry:plone4'
         ps.runAllImportStepsFromProfile(profile)
