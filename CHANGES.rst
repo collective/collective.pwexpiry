@@ -4,6 +4,9 @@ Changelog
 1.0.0 (unreleased)
 ------------------
 
+- Restore compatibility with Plone 4.3.
+  [hvelarde]
+
 - Add uninstall profile and tests.
   [hvelarde]
 

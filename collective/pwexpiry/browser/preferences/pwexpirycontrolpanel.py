@@ -1,14 +1,8 @@
 # -*- coding: utf-8 -*-
-
-from itertools import chain
-
 from Acquisition import aq_inner
 from collective.pwexpiry.config import DATETIME_FORMATSTRING
 from collective.pwexpiry.events import UserUnlocked
 from DateTime import DateTime
-from Products.CMFPlone.controlpanel.browser.usergroups import \
-    UsersGroupsControlPanelView
-
 from plone.protect import CheckAuthenticator
 from plone.registry.interfaces import IRegistry
 from Products.CMFCore.utils import getToolByName
@@ -17,6 +11,11 @@ from Products.CMFPlone.utils import normalizeString
 from zope.component import getMultiAdapter
 from zope.component import getUtility
 from zope.event import notify
+
+try:
+    from Products.CMFPlone.controlpanel.browser.usergroups import UsersGroupsControlPanelView  # noqa: E501
+except ImportError:  # Plone 4.3
+    from plone.app.controlpanel.usergroups import UsersOverviewControlPanel as UsersGroupsControlPanelView  # noqa: E501
 
 
 class PwExpiryControlPanel(UsersGroupsControlPanelView):

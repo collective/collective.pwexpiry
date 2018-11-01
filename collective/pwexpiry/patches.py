@@ -1,18 +1,17 @@
-import logging
-
+# -*- coding: utf-8 -*-
 from AccessControl import AuthEncoding
-from collective.pwexpiry.events import (InvalidPasswordEntered,
-                                        ValidPasswordEntered)
+from collective.pwexpiry.config import IS_PLONE_5
+from collective.pwexpiry.events import InvalidPasswordEntered
+from collective.pwexpiry.events import ValidPasswordEntered
 from collective.pwexpiry.interfaces import ICustomPasswordValidator
 from plone import api
 from Products.CMFPlone.RegistrationTool import RegistrationTool
-from Products.PluggableAuthService.plugins.ZODBUserManager import \
-    ZODBUserManager
+from Products.PluggableAuthService.plugins.ZODBUserManager import ZODBUserManager  # noqa: E501
 from zope.component import getAdapters
 from zope.event import notify
 
-from hashlib import sha1 as sha
-
+import hashlib
+import logging
 
 
 logger = logging.getLogger(__file__)
@@ -38,10 +37,46 @@ def extended_testPasswordValidity(self, password, confirm=None, data=None):
 
     return None
 
+
 RegistrationTool.testPasswordValidity = extended_testPasswordValidity
 logger.info(
     "Patching Products.CMFDefault.RegistrationTool.testPasswordValidity"
 )
+
+
+if not IS_PLONE_5:
+    # XXX: according to the comment below, this may be unnecessary
+    from plone.app.users.browser.register import BaseRegistrationForm
+    from Products.CMFCore.utils import getToolByName
+    from zope.app.form.interfaces import WidgetInputError
+
+    original_validate_registration = BaseRegistrationForm.validate_registration
+
+    def extended_validate_registration(self, action, data):
+        """Patching the standard Plone's validate_registration method to
+        add validating the password given in the registration process against
+        the testPasswordValidity method.
+        (This will be added to Plone 4.3 according to https://dev.plone.org/ticket/10959)
+        """
+        original = original_validate_registration(self, action, data)
+        pw_error = self.widgets['password'].error
+        if isinstance(pw_error, str):
+            return original
+        elif callable(pw_error):
+            registration = getToolByName(self.context, 'portal_registration')
+            password = data.get('password')
+            confirm = data.get('password_ctl')
+            error = registration.testPasswordValidity(password, confirm, data)
+            if error:
+                original.append(
+                    WidgetInputError('password', u'label_password', error)
+                )
+                self.widgets['password'].error = error
+        return original
+
+    BaseRegistrationForm.validate_registration = extended_validate_registration
+    logger.info(
+        'Patching plone.app.users.browser.register.BaseRegistrationForm.validate_registration')  # noqa: E501
 
 ZODBUserManager.original_authenticateCredentials = ZODBUserManager.authenticateCredentials
 
@@ -86,7 +121,7 @@ def authenticateCredentials(self, credentials):
 
     if not is_authenticated:
         # Support previous naive behavior
-        digested = sha(password).hexdigest()
+        digested = hashlib.sha1(password).hexdigest()
 
         if reference == digested:
             is_authenticated = True
@@ -109,6 +144,7 @@ def authenticateCredentials(self, credentials):
         event = InvalidPasswordEntered(user)
         notify(event)
         return None
+
 
 ZODBUserManager.authenticateCredentials = authenticateCredentials
 logger.info("Patching Products.PluggableAuthService.plugins.ZODBUserManager."
