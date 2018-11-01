@@ -1,11 +1,15 @@
-import os
+# -*- coding: utf-8 -*-
+from plone.app.testing import applyProfile
+from plone.app.testing import FunctionalTesting
+from plone.app.testing import IntegrationTesting
+from plone.app.testing import login
+from plone.app.testing import PLONE_FIXTURE
+from plone.app.testing import PloneSandboxLayer
+from plone.app.testing import setRoles
+from plone.app.testing import TEST_USER_ID
+from plone.app.testing import TEST_USER_NAME
 
 import unittest
-from plone.app.testing import (PLONE_FIXTURE, TEST_USER_ID, TEST_USER_NAME,
-                               FunctionalTesting, IntegrationTesting,
-                               PloneSandboxLayer, applyProfile, login,
-                               setRoles)
-from Products.CMFCore.utils import getToolByName
 
 
 class PwExpiryLayer(PloneSandboxLayer):
@@ -22,7 +26,7 @@ class PwExpiryLayer(PloneSandboxLayer):
         # Load ZCML
         import collective.pwexpiry
         self.loadZCML(package=collective.pwexpiry)
-        self.loadZCML(package=collective.pwexpiry, name='overrides.zcml')
+        # self.loadZCML(package=collective.pwexpiry, name='overrides.zcml')
 
         from OFS.Application import install_package
         install_package(app, collective.pwexpiry, collective.pwexpiry.initialize)
@@ -45,6 +49,7 @@ class PwExpiryLayer(PloneSandboxLayer):
         """
         pass
 
+
 FIXTURE = PwExpiryLayer()
 INTEGRATION_TESTING = IntegrationTesting(
     bases=(FIXTURE,), name="PwExpiryLayer:Integration")
@@ -56,6 +61,7 @@ class IntegrationTestCase(unittest.TestCase):
     """Base class for integration tests."""
 
     layer = INTEGRATION_TESTING
+
 
 class FunctionalTestCase(unittest.TestCase):
     """Base class for functional tests."""
