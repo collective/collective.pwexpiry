@@ -1,9 +1,9 @@
-import doctest
-
-import unittest
-from collective.pwexpiry.tests import base
+# -*- coding: utf-8 -*-
+from collective.pwexpiry.testing import INTEGRATION_TESTING
 from plone.testing import layered
-from Testing import ZopeTestCase as ztc
+
+import doctest
+import unittest
 
 
 def test_suite():
@@ -11,9 +11,8 @@ def test_suite():
     suite.addTests([
         layered(doctest.DocFileSuite(
                 'tests/test.txt',
-#                'tests/test2.txt',
                 package='collective.pwexpiry',
                 optionflags=doctest.NORMALIZE_WHITESPACE | doctest.ELLIPSIS),
-                layer=base.INTEGRATION_TESTING),
-        ])
+                layer=INTEGRATION_TESTING),
+    ])
     return suite
