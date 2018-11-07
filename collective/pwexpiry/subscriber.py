@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from AccessControl import Unauthorized
+from collective.pwexpiry.logger import logger
 from plone import api
 from plone.registry.interfaces import IRegistry
 from zope.component import queryUtility
@@ -25,11 +26,14 @@ def ValidPasswordEntered(user, event):
             # Enough time has elapsed
             user.setMemberProperties({'account_locked': False,
                                       'password_tries': 0})
+            msg = 'User {0} logged in after lock time; account is now unlocked'
+            logger.info(msg.format(user))
         else:
+            user_disabled_time = disable_time - (delta.seconds / 3600)
             user.REQUEST.RESPONSE.setHeader('user_disabled', user.getId())
-            user.REQUEST.RESPONSE.setHeader(
-                'user_disabled_time', (disable_time - (delta.seconds / 3600))
-            )
+            user.REQUEST.RESPONSE.setHeader('user_disabled_time', user_disabled_time)
+            msg = 'User {0} tried to log in but account is locked for {1} hours'
+            logger.warn(msg.format(user, user_disabled_time))
             raise Unauthorized
 
     else:
@@ -54,7 +58,6 @@ def InvalidPasswordEntered(user, event):
     if whitelisted and user.getId() in whitelisted:
         return
 
-
     allowed_tries = registry['collective.pwexpiry.allowed_tries']
     current_tries = user.getProperty('password_tries', 0)
 
@@ -67,3 +70,5 @@ def InvalidPasswordEntered(user, event):
         current_time = portal.ZopeTime()
         user.setMemberProperties({'account_locked_date': current_time,
                                   'account_locked': True})
+        msg = 'User {0} has tried to access {1} times with an invalid password; account is locked'  # noqa: E501
+        logger.warn(msg.format(user, current_tries))
