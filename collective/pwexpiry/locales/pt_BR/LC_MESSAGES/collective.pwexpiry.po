@@ -1,0 +1,175 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2018-11-07 18:36+0000\n"
+"PO-Revision-Date: 2018-11-07 18:32-0200\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: pt_BR\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+#: collective/pwexpiry/configure.zcml:29
+msgid "Adds the feature of password expiration control."
+msgstr "Adiciona controle de expiração de senhas."
+
+#: collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.py:134
+msgid "Never"
+msgstr "Nunca"
+
+#: collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.py:130
+msgid "No users were unlocked"
+msgstr "Não existem usuários bloqueados"
+
+#: collective/pwexpiry/profiles/default/controlpanel.xml
+msgid "Password expiration"
+msgstr "Expiração de senha"
+
+#: collective/pwexpiry/example_validator.py:41
+msgid "Passwords must be at least 8 characters in length."
+msgstr "As senhas devem ter pelo menos 8 caracteres."
+
+#: collective/pwexpiry/example_validator.py:98
+msgid "Passwords must contain at least three of the following four character groups: Uppercase characters (A through Z), Lowercase characters (a through z), Numerals (0 through 9), Special characters such as !, $, #, %"
+msgstr "As senhas devem ter pelo menos 3 dos seguintes 4 grupos de caracteres: letras maiúsculas (A-Z), letras minúsculas (a-z), números (0-9) e caracteres especiais como !, $, #, %."
+
+#: collective/pwexpiry/configure.zcml:37
+msgid "Profile intended only in Plone 4 (No need to manually run it, default install profile should do it)."
+msgstr ""
+
+#: collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.py:126
+msgid "The following users were unlocked: %s, "
+msgstr "Os seguintes usuários foram desbloqueados: %s, "
+
+#: collective/pwexpiry/configure.zcml:45
+msgid "Uninstalls collective.pwexpiry."
+msgstr "Desinstala collective.pwexpiry."
+
+#: collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.pt:38
+msgid "User's password expiration panel"
+msgstr "Painel de expiração das senhas dos usuários"
+
+#: collective/pwexpiry/example_validator.py:80
+msgid "You have to change your password."
+msgstr "Você precisa modificar sua senha."
+
+#: collective/pwexpiry/pwdisable_plugin.py:58
+msgid "Your account has been locked due to too many invalid attempts to login with a wrong password. Your account will remain blocked for the next ${hrs} hours. You can reset your password, or contact an administrator to unlock it, using the Contact form."
+msgstr "Sua conta foi bloqueada devido a um número repetido de tentativas de acesso com uma senha inválida. Sua conta continuará bloqueada pelas próximas ${hrs} horas. Você pode alterar sua senha, ou entrar em contato com um administrador para desbloqueá-la, usando o formulário de contato."
+
+#: collective/pwexpiry/example_validator.py:72
+msgid "Your password cannot contain your account name(Username), first name or last name."
+msgstr "Sua senha não pode conter seu nome de usuário, seu nome, nem seu sobrenome."
+
+#: collective/pwexpiry/pwexpiry_plugin.py:106
+msgid "Your password has expired."
+msgstr "Sua senha expirou."
+
+#. Default: "\n\nIn order to change your password, please visit ${server_url}/@@change-password"
+#: collective/pwexpiry/browser/emails/emails.py:63
+msgid "change_password_email_text"
+msgstr "Para alterar sua senha por favor visite ${server_url}/@@change-password"
+
+#: collective/pwexpiry/configure.zcml:29
+msgid "collective.pwexpiry"
+msgstr ""
+
+#: collective/pwexpiry/configure.zcml:37
+msgid "collective.pwexpiry: Plone 4 only profile"
+msgstr ""
+
+#: collective/pwexpiry/configure.zcml:45
+msgid "collective.pwexpiry: uninstall"
+msgstr ""
+
+#. Default: "Show all search results"
+#: collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.pt:157
+msgid "description_pas_show_all_search_results"
+msgstr "Mostrar todos os resultados da busca"
+
+#. Default: "View and manage user's password expiration properties"
+#: collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.pt:50
+msgid "description_password_expiration"
+msgstr "Ver e gerenciar as propriedades de expiração das senhas dos usuários"
+
+#. Default: "${days} days left to password expiration"
+#: collective/pwexpiry/utils.py:35
+msgid "email_subject"
+msgstr "Sua senha vai expirar em ${days} dias"
+
+#. Default: "Hello ${fullname},\n\nThere are ${days} days left before your password expires!\n\nPlease ensure to reset your password before it's expired."
+#: collective/pwexpiry/browser/emails/emails.py:51
+msgid "email_text"
+msgstr ""
+"Olá ${fullname},\n"
+"\n"
+"Sua senha vai expirar em ${days}.\n"
+"\n"
+"Por favor altere sua senha antes que isso ocorra."
+
+#. Default: "Hello ${fullname},\n\nYour password has expired.\n\nPlease ensure to reset your password before it's expired."
+#: collective/pwexpiry/browser/emails/emails.py:71
+msgid "email_text_expired"
+msgstr ""
+"Olá ${fullname},\n"
+"\n"
+"Sua senha expirou.\n"
+"\n"
+"Por favor defina uma nova senha."
+
+#. Default: "The date of performing the last notification for the user"
+#: collective/pwexpiry/userdataschema.py:32
+msgid "help_last_notification_date"
+msgstr "A data da última notificação ao usuário"
+
+#. Default: "The date of setting the password"
+#: collective/pwexpiry/userdataschema.py:22
+msgid "help_password_date"
+msgstr "A data em que a senha foi alterada"
+
+#. Default: "This password has been used already."
+#: collective/pwexpiry/password_history_validator.py:51
+msgid "info_reused_pw"
+msgstr "Essa senha já foi usada."
+
+#. Default: "Apply Changes"
+#: collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.pt:169
+msgid "label_apply_changes"
+msgstr "Aplicar mudanças"
+
+#. Default: "Last notification date"
+#: collective/pwexpiry/userdataschema.py:29
+msgid "label_last_notification_date"
+msgstr "Data da última notificação"
+
+#. Default: "Password date"
+#: collective/pwexpiry/userdataschema.py:21
+msgid "label_password_date"
+msgstr "Data da senha"
+
+#. Default: "Save whitelist"
+#: collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.pt:194
+msgid "label_save_whitelist"
+msgstr "Guardar lista de ignorados"
+
+#. Default: "Users whitelisted"
+#: collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.pt:189
+msgid "label_whitelist_users"
+msgstr "Usuários ignorados"
+
+#. Default: "\n\nIn order to reset your password, please visit ${server_url}/mail_password_form?userid=${username}"
+#: collective/pwexpiry/browser/emails/emails.py:83
+msgid "reset_password_email_text"
+msgstr "Para alterar sua senha visite ${server_url}/mail_password_form?userid=${username}"
+
+#. Default: "\n\nThis email was sent from ${server_name}"
+#: collective/pwexpiry/browser/emails/emails.py:92
+msgid "server_name_email_text"
+msgstr "Esta mensagem foi enviada desde ${server_name}"
