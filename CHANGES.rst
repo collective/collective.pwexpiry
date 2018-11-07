@@ -4,6 +4,9 @@ Changelog
 1.0.0 (unreleased)
 ------------------
 
+- Avoids ``TypeError`` on ``InvalidPasswordEntered`` subscriber when the list of whitelisted users has not being set.
+  [csanahuja]
+
 - Restore compatibility with Plone 4.3.
   [hvelarde]
 
