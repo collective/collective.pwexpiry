@@ -7,8 +7,8 @@ Changelog
 - Deprecate Plone 4.1, Plone 4.2 and Python 2.6.
   [hvelarde]
 
-- Avoids ``TypeError`` on ``InvalidPasswordEntered`` subscriber when the list of whitelisted users has not being set.
-  [csanahuja]
+- Avoid ``TypeError`` on Password Expiry plugin and ``InvalidPasswordEntered`` subscriber when the list of whitelisted users has not being set.
+  [csanahuja, hvelarde]
 
 - Restore compatibility with Plone 4.3.
   [hvelarde]
