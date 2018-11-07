@@ -5,7 +5,7 @@ import os
 def read(*rnames):
     return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
 
-version = '1.0.0.dev0'
+version = '1.0b1.dev0'
 
 setup(name='collective.pwexpiry',
       version=version,
@@ -13,6 +13,7 @@ setup(name='collective.pwexpiry',
                   in Plone",
       long_description=read("README.rst") + "\n" + read("CHANGES.rst"),
       classifiers=[
+          'Development Status :: 4 - Beta',
           "Programming Language :: Python",
           "Programming Language :: Python :: 2.7",
           "Topic :: Software Development :: Libraries :: Python Modules",
