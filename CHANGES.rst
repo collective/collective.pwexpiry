@@ -4,6 +4,9 @@ Changelog
 1.0.0 (unreleased)
 ------------------
 
+- Update i18n and add Brazilian Portuguese and Spanish translations.
+  [hvelarde]
+
 - Deprecate Plone 4.1, Plone 4.2 and Python 2.6.
   [hvelarde]
 
