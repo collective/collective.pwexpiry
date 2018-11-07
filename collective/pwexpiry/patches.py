@@ -4,6 +4,7 @@ from collective.pwexpiry.config import IS_PLONE_5
 from collective.pwexpiry.events import InvalidPasswordEntered
 from collective.pwexpiry.events import ValidPasswordEntered
 from collective.pwexpiry.interfaces import ICustomPasswordValidator
+from collective.pwexpiry.logger import logger
 from plone import api
 from Products.CMFPlone.RegistrationTool import RegistrationTool
 from Products.PluggableAuthService.plugins.ZODBUserManager import ZODBUserManager  # noqa: E501
@@ -11,10 +12,6 @@ from zope.component import getAdapters
 from zope.event import notify
 
 import hashlib
-import logging
-
-
-logger = logging.getLogger(__file__)
 
 
 original_testPasswordValidity = RegistrationTool.testPasswordValidity

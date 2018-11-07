@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from collective.pwexpiry.config import IS_PLONE_5
+from collective.pwexpiry.logger import logger
 from collective.pwexpiry.pwdisable_plugin import addPwDisablePlugin
 from collective.pwexpiry.pwexpiry_plugin import addPwExpiryPlugin
 from Products.CMFCore.utils import getToolByName
@@ -7,11 +8,6 @@ from Products.CMFPlone.interfaces import INonInstallable
 from Products.PlonePAS.Extensions.Install import activatePluginInterfaces
 from Products.PluggableAuthService.interfaces.plugins import IChallengePlugin
 from zope.interface import implementer
-
-import logging
-
-
-logger = logging.getLogger('collective.pwexpiry')
 
 
 @implementer(INonInstallable)
