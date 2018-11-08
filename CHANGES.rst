@@ -1,8 +1,8 @@
 Changelog
 =========
 
-1.0.0 (unreleased)
-------------------
+0.13.0 (2018-11-08)
+-------------------
 
 - Update i18n and add Brazilian Portuguese and Spanish translations.
   [hvelarde]
