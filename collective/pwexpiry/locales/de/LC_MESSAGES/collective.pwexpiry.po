@@ -4,9 +4,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2018-11-15 21:09+0000\n"
-"PO-Revision-Date: 2018-11-15 18:29-0300\n"
-"Last-Translator: Franco Pellegrini <franco.pellegrini@enfoldsystems.com>\n"
-"Language-Team: German <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2018-11-15 23:17+0100\n"
+"Last-Translator: Harald Frießnegger <harald@webmeisterei.com>\n"
+"Language-Team: German <kde-i18n-de@kde.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -29,7 +29,6 @@ msgid "Email address not known."
 msgstr "E-Mail-Adresse unbekannt"
 
 #: ./collective/pwexpiry/pwdisable_plugin.py:64
-#, fuzzy
 #: ./collective/pwexpiry/skins/pwexpiry/logged_in.cpy:26
 #: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:81
 msgid ""
@@ -38,11 +37,11 @@ msgid ""
 " account might be locked."
 msgstr ""
 "Anmeldung fehlgeschlagen. Sowohl bei der E-Mail-Adresse als auch beim"
-" Passwort wird Groß- und Kleinschreibung berücksichtigt. Stellen Sie sicher,"
-" dass die Feststelltaste nicht eingerastet ist."
+" Passwort wird zwischen Groß- und Kleinschreibung unterschieden. Stellen Sie"
+" sicher, dass die Feststelltaste nicht eingerastet ist. Wenn Sie ihr Passwort"
+" korrekt eingegeben haben könnte ihr Konto gesperrt sein."
 
 #: ./collective/pwexpiry/pwdisable_plugin.py:72
-#, fuzzy
 #: ./collective/pwexpiry/skins/pwexpiry/logged_in.cpy:33
 #: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:88
 msgid ""
@@ -52,7 +51,8 @@ msgid ""
 msgstr ""
 "Anmeldung fehlgeschlagen. Sowohl bei Benutzername als auch beim Passwort wird"
 " zwischen Groß- und Kleinschreibung unterschieden. Stellen Sie sicher, dass"
-" die Feststelltaste nicht aktiviert ist."
+" die Feststelltaste nicht eingerastet ist. Wenn Sie ihr Passwort korrekt"
+" eingegeben haben könnte ihr Konto gesperrt sein."
 
 #: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:72
 msgid "Login name not found."
@@ -175,7 +175,6 @@ msgstr "Ihr Passwort läuft in ${days} Tagen ab"
 
 #. Default: "Hello ${fullname},\n\nThere are ${days} days left before your password expires!\n\nPlease ensure to reset your password before it's expired."
 #: ./collective/pwexpiry/browser/emails/emails.py:51
-#, fuzzy
 msgid "email_text"
 msgstr ""
 "Hallo ${username},\n"
