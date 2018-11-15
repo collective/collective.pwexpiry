@@ -53,17 +53,30 @@ class PwDisablePlugin(BasePlugin):
         """
         user_disabled = response.getHeader('user_disabled')
         if user_disabled:
-            user_disabled_time = response.getHeader('user_disabled_time')
-            IStatusMessage(self.REQUEST).add(
-                _(u'Your account has been locked due to too many invalid '
-                  'attempts to login with a wrong password. Your account will '
-                  'remain blocked for the next ${hrs} hours. You can reset your '
-                  'password, or contact an administrator to unlock it, using '
-                  'the Contact form.',
-                  mapping={'hrs': user_disabled_time}),
-                type='error'
-            )
-            response.redirect('login_form', lock=1)
+            if 'plone.use_email_as_login' in self.portal_registry:
+                email_login = self.portal_registry.get('plone.use_email_as_login', False)
+            else:
+                props = self.portal_properties.site_properties
+                email_login = props.getProperty('use_email_as_login')
+
+            if email_login:
+                IStatusMessage(self.REQUEST).add(
+                    _(u'Login failed. Both email address and password are case '
+                      u'sensitive, check that caps lock is not enabled. If you '
+                      u'have entered your password correctly, your account might '
+                      u'be locked.'),
+                    type='error'
+                )
+            else:
+                IStatusMessage(self.REQUEST).add(
+                    _(u'Login failed. Both login name and password are case '
+                      u'sensitive, check that caps lock is not enabled. If you '
+                      u'have entered your password correctly, your account might '
+                      u'be locked.'),
+                    type='error'
+                )
+
+            response.redirect('login_failed', lock=1)
             return 1
         return 0
 
