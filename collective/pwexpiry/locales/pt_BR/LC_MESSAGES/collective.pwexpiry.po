@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2018-11-15 21:09+0000\n"
+"POT-Creation-Date: 2018-11-16 14:09+0000\n"
 "PO-Revision-Date: 2018-11-15 18:31-0300\n"
 "Last-Translator: Franco Pellegrini <franco.pellegrini@enfoldsystems.com>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -23,35 +23,23 @@ msgstr "Adiciona controle de expiração de senhas."
 
 #: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:67
 msgid "Email address not known."
-msgstr "E-mail desconhecido."
+msgstr ""
 
 #: ./collective/pwexpiry/pwdisable_plugin.py:64
-#, fuzzy
 #: ./collective/pwexpiry/skins/pwexpiry/logged_in.cpy:26
 #: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:81
-msgid ""
-"Login failed. Both email address and password are case sensitive, check that"
-" caps lock is not enabled. If you have entered your password correctly, your"
-" account might be locked."
+msgid "Login failed. Both email address and password are case sensitive, check that caps lock is not enabled. If you have entered your password correctly, your account might be locked. You can reset your password, or contact an administrator to unlock it, using the Contact form."
 msgstr ""
-"Autenticação falhou. Tanto e-mail como a senha são sensíveis a letras"
-" maiúsculas e minúsculas, verifique se a tecla Caps Lock não está ativa."
 
-#: ./collective/pwexpiry/pwdisable_plugin.py:72
-#, fuzzy
-#: ./collective/pwexpiry/skins/pwexpiry/logged_in.cpy:33
-#: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:88
-msgid ""
-"Login failed. Both login name and password are case sensitive, check that"
-" caps lock is not enabled. If you have entered your password correctly, your"
-" account might be locked."
+#: ./collective/pwexpiry/pwdisable_plugin.py:73
+#: ./collective/pwexpiry/skins/pwexpiry/logged_in.cpy:34
+#: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:89
+msgid "Login failed. Both login name and password are case sensitive, check that caps lock is not enabled. If you have entered your password correctly, your account might be locked. You can reset your password, or contact an administrator to unlock it, using the Contact form."
 msgstr ""
-"Falha no acesso. Tanto o nome de usuário como a senha são sensíveis a letras"
-" maiúsculas e minúsculas, verifique se a tecla Caps Lock não está ativa."
 
 #: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:72
 msgid "Login name not found."
-msgstr "Nome de usuário não encontrado."
+msgstr ""
 
 #: ./collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.py:134
 msgid "Never"
@@ -67,38 +55,30 @@ msgstr "Expiração de senha"
 
 #: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:77
 msgid "Password incorrect."
-msgstr "Senha incorreta."
+msgstr ""
 
 #: ./collective/pwexpiry/example_validator.py:41
 msgid "Passwords must be at least 8 characters in length."
 msgstr "As senhas devem ter pelo menos 8 caracteres."
 
 #: ./collective/pwexpiry/example_validator.py:98
-msgid ""
-"Passwords must contain at least three of the following four character groups:"
-" Uppercase characters (A through Z), Lowercase characters (a through z),"
-" Numerals (0 through 9), Special characters such as !, $, #, %"
-msgstr ""
-"As senhas devem ter pelo menos 3 dos seguintes 4 grupos de caracteres: letras"
-" maiúsculas (A-Z), letras minúsculas (a-z), números (0-9) e caracteres"
-" especiais como !, $, #, %."
+msgid "Passwords must contain at least three of the following four character groups: Uppercase characters (A through Z), Lowercase characters (a through z), Numerals (0 through 9), Special characters such as !, $, #, %"
+msgstr "As senhas devem ter pelo menos 3 dos seguintes 4 grupos de caracteres: letras maiúsculas (A-Z), letras minúsculas (a-z), números (0-9) e caracteres especiais como !, $, #, %."
 
 #: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:48
 msgid "Please enter your email address."
-msgstr "Por favor insira seu e-mail."
+msgstr ""
 
 #: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:53
 msgid "Please enter your login name."
-msgstr "Por favor, informe seu nome de usuário."
+msgstr ""
 
 #: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:58
 msgid "Please enter your password."
-msgstr "Por favor, informe sua senha."
+msgstr ""
 
 #: ./collective/pwexpiry/configure.zcml:37
-msgid ""
-"Profile intended only in Plone 4 (No need to manually run it, default install"
-" profile should do it)."
+msgid "Profile intended only in Plone 4 (No need to manually run it, default install profile should do it)."
 msgstr ""
 
 #: ./collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.py:126
@@ -119,14 +99,11 @@ msgstr "Você precisa modificar sua senha."
 
 #: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:22
 msgid "You must enable cookies before you can log in."
-msgstr "Você precisa habilitar os cookies antes de poder acessar."
+msgstr ""
 
 #: ./collective/pwexpiry/example_validator.py:72
-msgid ""
-"Your password cannot contain your account name(Username), first name or last"
-" name."
-msgstr ""
-"Sua senha não pode conter seu nome de usuário, seu nome, nem seu sobrenome."
+msgid "Your password cannot contain your account name(Username), first name or last name."
+msgstr "Sua senha não pode conter seu nome de usuário, seu nome, nem seu sobrenome."
 
 #: ./collective/pwexpiry/pwexpiry_plugin.py:106
 msgid "Your password has expired."
@@ -135,8 +112,7 @@ msgstr "Sua senha expirou."
 #. Default: "\n\nIn order to change your password, please visit ${server_url}/@@change-password"
 #: ./collective/pwexpiry/browser/emails/emails.py:63
 msgid "change_password_email_text"
-msgstr ""
-"Para alterar sua senha por favor visite ${server_url}/@@change-password"
+msgstr "Para alterar sua senha por favor visite ${server_url}/@@change-password"
 
 #: ./collective/pwexpiry/configure.zcml:29
 msgid "collective.pwexpiry"
@@ -228,12 +204,9 @@ msgstr "Usuários ignorados"
 #. Default: "\n\nIn order to reset your password, please visit ${server_url}/mail_password_form?userid=${username}"
 #: ./collective/pwexpiry/browser/emails/emails.py:83
 msgid "reset_password_email_text"
-msgstr ""
-"Para alterar sua senha visite ${server_url}/mail_password_form?userid=${userna"
-"me}"
+msgstr "Para alterar sua senha visite ${server_url}/mail_password_form?userid=${username}"
 
 #. Default: "\n\nThis email was sent from ${server_name}"
 #: ./collective/pwexpiry/browser/emails/emails.py:92
 msgid "server_name_email_text"
 msgstr "Esta mensagem foi enviada desde ${server_name}"
-

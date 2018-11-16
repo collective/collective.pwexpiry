@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-11-15 21:09+0000\n"
+"POT-Creation-Date: 2018-11-16 14:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,13 +25,13 @@ msgstr ""
 #: ./collective/pwexpiry/pwdisable_plugin.py:64
 #: ./collective/pwexpiry/skins/pwexpiry/logged_in.cpy:26
 #: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:81
-msgid "Login failed. Both email address and password are case sensitive, check that caps lock is not enabled. If you have entered your password correctly, your account might be locked."
+msgid "Login failed. Both email address and password are case sensitive, check that caps lock is not enabled. If you have entered your password correctly, your account might be locked. You can reset your password, or contact an administrator to unlock it, using the Contact form."
 msgstr ""
 
-#: ./collective/pwexpiry/pwdisable_plugin.py:72
-#: ./collective/pwexpiry/skins/pwexpiry/logged_in.cpy:33
-#: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:88
-msgid "Login failed. Both login name and password are case sensitive, check that caps lock is not enabled. If you have entered your password correctly, your account might be locked."
+#: ./collective/pwexpiry/pwdisable_plugin.py:73
+#: ./collective/pwexpiry/skins/pwexpiry/logged_in.cpy:34
+#: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:89
+msgid "Login failed. Both login name and password are case sensitive, check that caps lock is not enabled. If you have entered your password correctly, your account might be locked. You can reset your password, or contact an administrator to unlock it, using the Contact form."
 msgstr ""
 
 #: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:72

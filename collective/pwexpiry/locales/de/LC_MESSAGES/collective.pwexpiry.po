@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2018-11-15 21:09+0000\n"
+"POT-Creation-Date: 2018-11-16 14:09+0000\n"
 "PO-Revision-Date: 2018-11-15 23:17+0100\n"
 "Last-Translator: Harald Frießnegger <harald@webmeisterei.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -20,43 +20,27 @@ msgstr ""
 
 #: ./collective/pwexpiry/configure.zcml:29
 msgid "Adds the feature of password expiration control."
-msgstr ""
-"Ermöglicht es Passworte ablaufen zu lassen und Qualitätskriterien von"
-" Passworten zu prüfen."
+msgstr "Ermöglicht es Passworte ablaufen zu lassen und Qualitätskriterien von Passworten zu prüfen."
 
 #: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:67
 msgid "Email address not known."
-msgstr "E-Mail-Adresse unbekannt"
+msgstr ""
 
 #: ./collective/pwexpiry/pwdisable_plugin.py:64
 #: ./collective/pwexpiry/skins/pwexpiry/logged_in.cpy:26
 #: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:81
-msgid ""
-"Login failed. Both email address and password are case sensitive, check that"
-" caps lock is not enabled. If you have entered your password correctly, your"
-" account might be locked."
+msgid "Login failed. Both email address and password are case sensitive, check that caps lock is not enabled. If you have entered your password correctly, your account might be locked. You can reset your password, or contact an administrator to unlock it, using the Contact form."
 msgstr ""
-"Anmeldung fehlgeschlagen. Sowohl bei der E-Mail-Adresse als auch beim"
-" Passwort wird zwischen Groß- und Kleinschreibung unterschieden. Stellen Sie"
-" sicher, dass die Feststelltaste nicht eingerastet ist. Wenn Sie ihr Passwort"
-" korrekt eingegeben haben könnte ihr Konto gesperrt sein."
 
-#: ./collective/pwexpiry/pwdisable_plugin.py:72
-#: ./collective/pwexpiry/skins/pwexpiry/logged_in.cpy:33
-#: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:88
-msgid ""
-"Login failed. Both login name and password are case sensitive, check that"
-" caps lock is not enabled. If you have entered your password correctly, your"
-" account might be locked."
+#: ./collective/pwexpiry/pwdisable_plugin.py:73
+#: ./collective/pwexpiry/skins/pwexpiry/logged_in.cpy:34
+#: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:89
+msgid "Login failed. Both login name and password are case sensitive, check that caps lock is not enabled. If you have entered your password correctly, your account might be locked. You can reset your password, or contact an administrator to unlock it, using the Contact form."
 msgstr ""
-"Anmeldung fehlgeschlagen. Sowohl bei Benutzername als auch beim Passwort wird"
-" zwischen Groß- und Kleinschreibung unterschieden. Stellen Sie sicher, dass"
-" die Feststelltaste nicht eingerastet ist. Wenn Sie ihr Passwort korrekt"
-" eingegeben haben könnte ihr Konto gesperrt sein."
 
 #: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:72
 msgid "Login name not found."
-msgstr "Benutzername wurde nicht gefunden."
+msgstr ""
 
 #: ./collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.py:134
 msgid "Never"
@@ -72,38 +56,30 @@ msgstr "Passwortablauf"
 
 #: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:77
 msgid "Password incorrect."
-msgstr "Passwort ist falsch."
+msgstr ""
 
 #: ./collective/pwexpiry/example_validator.py:41
 msgid "Passwords must be at least 8 characters in length."
 msgstr "Passwörter müssen aus mindestens 8 Zeichen bestehen."
 
 #: ./collective/pwexpiry/example_validator.py:98
-msgid ""
-"Passwords must contain at least three of the following four character groups:"
-" Uppercase characters (A through Z), Lowercase characters (a through z),"
-" Numerals (0 through 9), Special characters such as !, $, #, %"
-msgstr ""
-"Passwörter müssen mindestens 3 der folgenden Zeichengruppen enthalten:"
-" Großbuchstaben (A - Z), Kleinbuchstaben (a - z), Nummern (0 - 9), Spezial"
-" Schriftzeichen wie !, $, #, %"
+msgid "Passwords must contain at least three of the following four character groups: Uppercase characters (A through Z), Lowercase characters (a through z), Numerals (0 through 9), Special characters such as !, $, #, %"
+msgstr "Passwörter müssen mindestens 3 der folgenden Zeichengruppen enthalten: Großbuchstaben (A - Z), Kleinbuchstaben (a - z), Nummern (0 - 9), Spezial Schriftzeichen wie !, $, #, %"
 
 #: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:48
 msgid "Please enter your email address."
-msgstr "Bitte tragen Sie Ihre E-Mail-Adresse ein."
+msgstr ""
 
 #: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:53
 msgid "Please enter your login name."
-msgstr "Bitte geben Sie Ihren Benutzernamen ein."
+msgstr ""
 
 #: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:58
 msgid "Please enter your password."
-msgstr "Bitte geben Sie Ihr Passwort ein."
+msgstr ""
 
 #: ./collective/pwexpiry/configure.zcml:37
-msgid ""
-"Profile intended only in Plone 4 (No need to manually run it, default install"
-" profile should do it)."
+msgid "Profile intended only in Plone 4 (No need to manually run it, default install profile should do it)."
 msgstr ""
 
 #: ./collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.py:126
@@ -124,15 +100,11 @@ msgstr "Sie müssen Ihr Passwort ändern."
 
 #: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:22
 msgid "You must enable cookies before you can log in."
-msgstr "Sie müssen Cookies erlauben, bevor Sie sich anmelden können."
+msgstr ""
 
 #: ./collective/pwexpiry/example_validator.py:72
-msgid ""
-"Your password cannot contain your account name(Username), first name or last"
-" name."
-msgstr ""
-"Ihr Passwort darf weder ihren Benutzer- noch ihren Nach- oder Vornamen"
-" enthalten."
+msgid "Your password cannot contain your account name(Username), first name or last name."
+msgstr "Ihr Passwort darf weder ihren Benutzer- noch ihren Nach- oder Vornamen enthalten."
 
 #: ./collective/pwexpiry/pwexpiry_plugin.py:106
 msgid "Your password has expired."
@@ -240,8 +212,7 @@ msgid "reset_password_email_text"
 msgstr ""
 "\n"
 "\n"
-"Um Ihr Passwort zurückzusetzen, rufen Sie bitte"
-" ${server_url}/mail_password_form?userid=${username} auf"
+"Um Ihr Passwort zurückzusetzen, rufen Sie bitte ${server_url}/mail_password_form?userid=${username} auf"
 
 #. Default: "\n\nThis email was sent from ${server_name}"
 #: ./collective/pwexpiry/browser/emails/emails.py:92
@@ -250,5 +221,3 @@ msgstr ""
 "\n"
 "\n"
 "Diese Email wurde von ${server_name} versendet."
-
-

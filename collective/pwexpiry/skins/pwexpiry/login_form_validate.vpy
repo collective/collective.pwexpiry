@@ -81,14 +81,16 @@ if mt.isAnonymousUser():
                 _(u'Login failed. Both email address and password are case '
                   u'sensitive, check that caps lock is not enabled. If you '
                   u'have entered your password correctly, your account might '
-                  u'be locked.'),
+                  u'be locked. You can reset your password, or contact an '
+                  u'administrator to unlock it, using the Contact form.'),
                 'error')
         else:
             context.plone_utils.addPortalMessage(
                 _(u'Login failed. Both login name and password are case '
                   u'sensitive, check that caps lock is not enabled. If you '
                   u'have entered your password correctly, your account might '
-                  u'be locked.'),
+                  u'be locked. You can reset your password, or contact an '
+                  u'administrator to unlock it, using the Contact form.'),
                 'error')
         state.set(status='failure')
     else:  # no javascript - do low tech login failure
@@ -97,14 +99,16 @@ if mt.isAnonymousUser():
                 _(u'Login failed. Both email address and password are case '
                   u'sensitive, check that caps lock is not enabled. If you '
                   u'have entered your password correctly, your account might '
-                  u'be locked.'),
+                  u'be locked. You can reset your password, or contact an '
+                  u'administrator to unlock it, using the Contact form.'),
                 'error')
         else:
             context.plone_utils.addPortalMessage(
                 _(u'Login failed. Both login name and password are case '
                   u'sensitive, check that caps lock is not enabled. If you '
                   u'have entered your password correctly, your account might '
-                  u'be locked.'),
+                  u'be locked. You can reset your password, or contact an '
+                  u'administrator to unlock it, using the Contact form.'),
                 'error')
         state.set(status='failure_page')
 

@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2018-11-15 21:09+0000\n"
+"POT-Creation-Date: 2018-11-16 14:09+0000\n"
 "PO-Revision-Date: 2018-11-15 18:27-0300\n"
 "Last-Translator: Franco Pellegrini <franco.pellegrini@enfoldsystems.com>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -24,36 +24,23 @@ msgstr ""
 
 #: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:67
 msgid "Email address not known."
-msgstr "Indirizzo email sconosciuto."
+msgstr ""
 
 #: ./collective/pwexpiry/pwdisable_plugin.py:64
-#, fuzzy
 #: ./collective/pwexpiry/skins/pwexpiry/logged_in.cpy:26
 #: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:81
-msgid ""
-"Login failed. Both email address and password are case sensitive, check that"
-" caps lock is not enabled. If you have entered your password correctly, your"
-" account might be locked."
+msgid "Login failed. Both email address and password are case sensitive, check that caps lock is not enabled. If you have entered your password correctly, your account might be locked. You can reset your password, or contact an administrator to unlock it, using the Contact form."
 msgstr ""
-"Login fallito. L'email e la password tengono conto del maiuscolo/minuscolo,"
-" controlla che il blocco delle maiuscole non sia attivato."
 
-#: ./collective/pwexpiry/pwdisable_plugin.py:72
-#, fuzzy
-#: ./collective/pwexpiry/skins/pwexpiry/logged_in.cpy:33
-#: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:88
-msgid ""
-"Login failed. Both login name and password are case sensitive, check that"
-" caps lock is not enabled. If you have entered your password correctly, your"
-" account might be locked."
+#: ./collective/pwexpiry/pwdisable_plugin.py:73
+#: ./collective/pwexpiry/skins/pwexpiry/logged_in.cpy:34
+#: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:89
+msgid "Login failed. Both login name and password are case sensitive, check that caps lock is not enabled. If you have entered your password correctly, your account might be locked. You can reset your password, or contact an administrator to unlock it, using the Contact form."
 msgstr ""
-"Riconoscimento fallito. Sia il nome utente che la password tengono conto del"
-" maiuscolo/minuscolo, controlla che il blocco delle maiuscole non sia"
-" attivato."
 
 #: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:72
 msgid "Login name not found."
-msgstr "Nome utente non trovato."
+msgstr ""
 
 #: ./collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.py:134
 msgid "Never"
@@ -69,35 +56,30 @@ msgstr "Scadenza della password"
 
 #: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:77
 msgid "Password incorrect."
-msgstr "Password non corretta."
+msgstr ""
 
 #: ./collective/pwexpiry/example_validator.py:41
 msgid "Passwords must be at least 8 characters in length."
 msgstr ""
 
 #: ./collective/pwexpiry/example_validator.py:98
-msgid ""
-"Passwords must contain at least three of the following four character groups:"
-" Uppercase characters (A through Z), Lowercase characters (a through z),"
-" Numerals (0 through 9), Special characters such as !, $, #, %"
+msgid "Passwords must contain at least three of the following four character groups: Uppercase characters (A through Z), Lowercase characters (a through z), Numerals (0 through 9), Special characters such as !, $, #, %"
 msgstr ""
 
 #: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:48
 msgid "Please enter your email address."
-msgstr "Inserisci il tuo indirizzo email."
+msgstr ""
 
 #: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:53
 msgid "Please enter your login name."
-msgstr "Inserisci il tuo nome utente."
+msgstr ""
 
 #: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:58
 msgid "Please enter your password."
-msgstr "Inserisci la tua password."
+msgstr ""
 
 #: ./collective/pwexpiry/configure.zcml:37
-msgid ""
-"Profile intended only in Plone 4 (No need to manually run it, default install"
-" profile should do it)."
+msgid "Profile intended only in Plone 4 (No need to manually run it, default install profile should do it)."
 msgstr ""
 
 #: ./collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.py:126
@@ -118,12 +100,10 @@ msgstr ""
 
 #: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:22
 msgid "You must enable cookies before you can log in."
-msgstr "Devi abilitare i cookie per poter essere riconosciuto."
+msgstr ""
 
 #: ./collective/pwexpiry/example_validator.py:72
-msgid ""
-"Your password cannot contain your account name(Username), first name or last"
-" name."
+msgid "Your password cannot contain your account name(Username), first name or last name."
 msgstr ""
 
 #: ./collective/pwexpiry/pwexpiry_plugin.py:106
@@ -221,4 +201,3 @@ msgstr ""
 #: ./collective/pwexpiry/browser/emails/emails.py:92
 msgid "server_name_email_text"
 msgstr ""
-
