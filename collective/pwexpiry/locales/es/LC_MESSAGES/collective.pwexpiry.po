@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2018-11-16 14:09+0000\n"
+"POT-Creation-Date: 2018-11-20 14:25+0000\n"
 "PO-Revision-Date: 2018-11-15 18:28-0300\n"
 "Last-Translator: Franco Pellegrini <franco.pellegrini@enfoldsystems.com>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -21,24 +21,16 @@ msgstr ""
 msgid "Adds the feature of password expiration control."
 msgstr "Adiciona control de expiración de contraseñas."
 
-#: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:67
-msgid "Email address not known."
-msgstr ""
-
 #: ./collective/pwexpiry/pwdisable_plugin.py:64
 #: ./collective/pwexpiry/skins/pwexpiry/logged_in.cpy:26
-#: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:81
+#: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:82
 msgid "Login failed. Both email address and password are case sensitive, check that caps lock is not enabled. If you have entered your password correctly, your account might be locked. You can reset your password, or contact an administrator to unlock it, using the Contact form."
 msgstr ""
 
 #: ./collective/pwexpiry/pwdisable_plugin.py:73
 #: ./collective/pwexpiry/skins/pwexpiry/logged_in.cpy:34
-#: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:89
+#: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:90
 msgid "Login failed. Both login name and password are case sensitive, check that caps lock is not enabled. If you have entered your password correctly, your account might be locked. You can reset your password, or contact an administrator to unlock it, using the Contact form."
-msgstr ""
-
-#: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:72
-msgid "Login name not found."
 msgstr ""
 
 #: ./collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.py:134
@@ -53,10 +45,6 @@ msgstr "No existen usuarios bloqueados"
 msgid "Password expiration"
 msgstr "Expiración de contraseña"
 
-#: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:77
-msgid "Password incorrect."
-msgstr ""
-
 #: ./collective/pwexpiry/example_validator.py:41
 msgid "Passwords must be at least 8 characters in length."
 msgstr "Las contraseñas deben tener por lo menos 8 caracteres."
@@ -64,18 +52,6 @@ msgstr "Las contraseñas deben tener por lo menos 8 caracteres."
 #: ./collective/pwexpiry/example_validator.py:98
 msgid "Passwords must contain at least three of the following four character groups: Uppercase characters (A through Z), Lowercase characters (a through z), Numerals (0 through 9), Special characters such as !, $, #, %"
 msgstr "Las contraseñas deben contener al menos 3 de los siguientes 4 grupos de caracteres: letras mayúsculas (A-Z), letras minúsculas (a-z), números (0-9) y caracteres especiales como !, $, #, %."
-
-#: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:48
-msgid "Please enter your email address."
-msgstr ""
-
-#: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:53
-msgid "Please enter your login name."
-msgstr ""
-
-#: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:58
-msgid "Please enter your password."
-msgstr ""
 
 #: ./collective/pwexpiry/configure.zcml:37
 msgid "Profile intended only in Plone 4 (No need to manually run it, default install profile should do it)."
@@ -96,10 +72,6 @@ msgstr "Panel de expiración de contraseñas del usuario"
 #: ./collective/pwexpiry/example_validator.py:80
 msgid "You have to change your password."
 msgstr "Usted tiene que modificar su contraseña."
-
-#: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:22
-msgid "You must enable cookies before you can log in."
-msgstr ""
 
 #: ./collective/pwexpiry/example_validator.py:72
 msgid "Your password cannot contain your account name(Username), first name or last name."

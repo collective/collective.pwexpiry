@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-11-16 14:09+0000\n"
+"POT-Creation-Date: 2018-11-20 14:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,24 +18,16 @@ msgstr ""
 msgid "Adds the feature of password expiration control."
 msgstr ""
 
-#: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:67
-msgid "Email address not known."
-msgstr ""
-
 #: ./collective/pwexpiry/pwdisable_plugin.py:64
 #: ./collective/pwexpiry/skins/pwexpiry/logged_in.cpy:26
-#: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:81
+#: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:82
 msgid "Login failed. Both email address and password are case sensitive, check that caps lock is not enabled. If you have entered your password correctly, your account might be locked. You can reset your password, or contact an administrator to unlock it, using the Contact form."
 msgstr ""
 
 #: ./collective/pwexpiry/pwdisable_plugin.py:73
 #: ./collective/pwexpiry/skins/pwexpiry/logged_in.cpy:34
-#: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:89
+#: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:90
 msgid "Login failed. Both login name and password are case sensitive, check that caps lock is not enabled. If you have entered your password correctly, your account might be locked. You can reset your password, or contact an administrator to unlock it, using the Contact form."
-msgstr ""
-
-#: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:72
-msgid "Login name not found."
 msgstr ""
 
 #: ./collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.py:134
@@ -50,28 +42,12 @@ msgstr ""
 msgid "Password expiration"
 msgstr ""
 
-#: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:77
-msgid "Password incorrect."
-msgstr ""
-
 #: ./collective/pwexpiry/example_validator.py:41
 msgid "Passwords must be at least 8 characters in length."
 msgstr ""
 
 #: ./collective/pwexpiry/example_validator.py:98
 msgid "Passwords must contain at least three of the following four character groups: Uppercase characters (A through Z), Lowercase characters (a through z), Numerals (0 through 9), Special characters such as !, $, #, %"
-msgstr ""
-
-#: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:48
-msgid "Please enter your email address."
-msgstr ""
-
-#: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:53
-msgid "Please enter your login name."
-msgstr ""
-
-#: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:58
-msgid "Please enter your password."
 msgstr ""
 
 #: ./collective/pwexpiry/configure.zcml:37
@@ -92,10 +68,6 @@ msgstr ""
 
 #: ./collective/pwexpiry/example_validator.py:80
 msgid "You have to change your password."
-msgstr ""
-
-#: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:22
-msgid "You must enable cookies before you can log in."
 msgstr ""
 
 #: ./collective/pwexpiry/example_validator.py:72

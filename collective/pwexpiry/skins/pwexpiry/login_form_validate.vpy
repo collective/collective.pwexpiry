@@ -9,6 +9,7 @@
 ##title=Validate login
 
 from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone import PloneMessageFactory as PMF
 from collective.pwexpiry.config import _
 
 request = context.REQUEST
@@ -19,7 +20,7 @@ cookies_enabled = cookies_enabled == '1' or cookies_enabled == 1
 
 if js_enabled and not cookies_enabled:
     context.plone_utils.addPortalMessage(
-        _(u'You must enable cookies before you can log in.'), 'error')
+        PMF(u'You must enable cookies before you can log in.'), 'error')
     state.set(status='enable_cookies')
     return state
 
@@ -45,17 +46,17 @@ if mt.isAnonymousUser():
                 if email_login:
                     state.setError(
                             ac_name,
-                            _(u'Please enter your email address.'),
+                            PMF(u'Please enter your email address.'),
                             'email_address_required')
                 else:
                     state.setError(
                             ac_name,
-                            _(u'Please enter your login name.'),
+                            PMF(u'Please enter your login name.'),
                             'login_name_required')
             if password_empty:
                 state.setError(
                         ac_password,
-                        _(u'Please enter your password.'),
+                        PMF(u'Please enter your password.'),
                         'password_required')
             verify_login_name = context.portal_registry['plone.verify_login_name']
             if user_name and verify_login_name:
@@ -64,17 +65,17 @@ if mt.isAnonymousUser():
                     if email_login:
                         state.setError(
                                 ac_name,
-                                _(u'Email address not known.'),
+                                PMF(u'Email address not known.'),
                                 'email_address_not_known')
                     else:
                         state.setError(
                                 ac_name,
-                                _(u'Login name not found.'),
+                                PMF(u'Login name not found.'),
                                 'login_name_not_found')
                 elif not password_empty:
                     state.setError(
                             ac_password,
-                            _(u'Password incorrect.'),
+                            PMF(u'Password incorrect.'),
                             'password_incorrect')
         if email_login:
             context.plone_utils.addPortalMessage(
