@@ -39,9 +39,20 @@ setup(name='collective.pwexpiry',
           'collective.monkeypatcher',
       ],
       extras_require={
-          "test": [
-              "Plone",
-              "plone.app.testing",
+          'test': [
+              'cssselect',
+              'lxml',
+              'mock',
+              'plone.api >=1.8.5',
+              'plone.app.robotframework',
+              'plone.app.testing [robot]',
+              'plone.browserlayer',
+              'plone.cachepurging',
+              'plone.testing',
+              'robotsuite',
+              'testfixtures',
+              'transaction',
+              'tzlocal',
           ],
       },
       entry_points="""
