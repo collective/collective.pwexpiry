@@ -17,7 +17,9 @@ install:
 - bin/buildout
 before_script:
 - export DISPLAY=:99.0
+- export ROBOT_SELENIUM2LIBRARY_RUN_ON_FAILURE="Capture Page Screenshot"
 - sh -e /etc/init.d/xvfb start
+- firefox -v
 script:
 - bin/test
 after_script:
