@@ -15,78 +15,54 @@ ${wrong_pw_username_error_msg} =  Login failed. Both login name and password are
 
 Test Username Error Message With Wrong Password
     Setup PWexpiry Use Username Login
-    Input Text  id=__ac_name  test_user_1
-    Input Text  id=__ac_password  test_user_1
-    Click Button  Log in
+    Log in  test_user_1  test_user_1
     Page Should Contain  You are now logged in
     Page Should Not Contain  ${wrong_pw_username_error_msg}
     Log out
 
-    Input Text  id=__ac_name  test_user_1
-    Input Text  id=__ac_password  wrong_pw
-    Click Button  Log in
+    Log in  test_user_1  wrong_pw
     Page Should Not Contain  You are now logged in
     Page Should Contain  ${wrong_pw_username_error_msg}
 
-    Input Text  id=__ac_name  test_user_1
-    Input Text  id=__ac_password  wrong_pw
-    Click Button  Log in
+    Log in  test_user_1  wrong_pw
     Page Should Not Contain  You are now logged in
     Page Should Contain  ${wrong_pw_username_error_msg}
 
-    Input Text  id=__ac_name  test_user_1
-    Input Text  id=__ac_password  wrong_pw
-    Click Button  Log in
+    Log in  test_user_1  wrong_pw
     Page Should Not Contain  You are now logged in
     Page Should Contain  ${wrong_pw_username_error_msg}
 
-    Input Text  id=__ac_name  test_user_1
-    Input Text  id=__ac_password  wrong_pw
-    Click Button  Log in
+    Log in  test_user_1  wrong_pw
     Page Should Not Contain  You are now logged in
     Page Should Contain  ${wrong_pw_username_error_msg}
 
-    Input Text  id=__ac_name  test_user_1
-    Input Text  id=__ac_password  test_user_1
-    Click Button  Log in
+    Log in  test_user_1  test_user_1
     Page Should Not Contain  You are now logged in
     Page Should Contain  ${wrong_pw_username_error_msg}
 
 Test Email Error Message With Wrong Password
     Setup PWexpiry Use Email Login
-    Input Text  id=__ac_name  test_user_1@none.com
-    Input Text  id=__ac_password  test_user_1
-    Click Button  Log in
+    Log in  test_user_1@none.com  test_user_1
     Page Should Contain  You are now logged in
     Page Should Not Contain  ${wrong_pw_email_error_msg}
     Log out
 
-    Input Text  id=__ac_name  test_user_1@none.com
-    Input Text  id=__ac_password  wrong_pw
-    Click Button  Log in
+    Log in  test_user_1@none.com  wrong_pw
     Page Should Not Contain  You are now logged in
     Page Should Contain  ${wrong_pw_email_error_msg}
 
-    Input Text  id=__ac_name  test_user_1@none.com
-    Input Text  id=__ac_password  wrong_pw
-    Click Button  Log in
+    Log in  test_user_1@none.com  wrong_pw
     Page Should Not Contain  You are now logged in
     Page Should Contain  ${wrong_pw_email_error_msg}
 
-    Input Text  id=__ac_name  test_user_1@none.com
-    Input Text  id=__ac_password  wrong_pw
-    Click Button  Log in
+    Log in  test_user_1@none.com  wrong_pw
     Page Should Not Contain  You are now logged in
     Page Should Contain  ${wrong_pw_email_error_msg}
 
-    Input Text  id=__ac_name  test_user_1@none.com
-    Input Text  id=__ac_password  wrong_pw
-    Click Button  Log in
+    Log in  test_user_1@none.com  wrong_pw
     Page Should Not Contain  You are now logged in
     Page Should Contain  ${wrong_pw_email_error_msg}
 
-    Input Text  id=__ac_name  test_user_1@none.com
-    Input Text  id=__ac_password  test_user_1
-    Click Button  Log in
+    Log in  test_user_1@none.com  test_user_1
     Page Should Not Contain  You are now logged in
     Page Should Contain  ${wrong_pw_email_error_msg}

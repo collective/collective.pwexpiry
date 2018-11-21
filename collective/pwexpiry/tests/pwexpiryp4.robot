@@ -48,6 +48,7 @@ Setup PWexpiry Use Username Login
     Input Text  id=q  validity_period
     Click Button  Filter
     Click Link  collective pwexpiry validity_period
+    Wait Until Element Is Visible  id=form-widgets-value
     Input Text  id=form-widgets-value  0
     Click Button  id=form-buttons-save
     Go to Users and Groups
@@ -70,6 +71,7 @@ Setup PWexpiry Use Email Login
     Input Text  id=q  validity_period
     Click Button  Filter
     Click Link  collective pwexpiry validity_period
+    Wait Until Element Is Visible  id=form-widgets-value
     Input Text  id=form-widgets-value  0
     Click Button  id=form-buttons-save
     Go to Users and Groups

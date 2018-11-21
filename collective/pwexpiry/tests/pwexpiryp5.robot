@@ -5,8 +5,7 @@ Variables  plone/app/testing/interfaces.py
 
 *** Variables ***
 
-${PORT} =  55001
-${ZOPE_URL} =  http://localhost:${PORT}
+${ZOPE_URL} =  http://${ZOPE_HOST}:${ZOPE_PORT}
 ${PLONE_URL} =  ${ZOPE_URL}/plone
 ${BROWSER} =  Firefox
 
