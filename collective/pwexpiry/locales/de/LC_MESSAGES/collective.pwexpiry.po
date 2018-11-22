@@ -1,9 +1,10 @@
 # Harald Friessnegger <harald@webmeisterei.com>, 2016, 2018.
+# Franco Pellegrini <franco.pellegrini@enfoldsystems.com>, 2018.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2018-11-07 18:36+0000\n"
-"PO-Revision-Date: 2018-05-25 08:54+0100\n"
+"POT-Creation-Date: 2018-11-20 14:25+0000\n"
+"PO-Revision-Date: 2018-11-19 22:14+0100\n"
 "Last-Translator: Harald Frießnegger <harald@webmeisterei.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "MIME-Version: 1.0\n"
@@ -20,6 +21,18 @@ msgstr ""
 #: ./collective/pwexpiry/configure.zcml:29
 msgid "Adds the feature of password expiration control."
 msgstr "Ermöglicht es Passworte ablaufen zu lassen und Qualitätskriterien von Passworten zu prüfen."
+
+#: ./collective/pwexpiry/pwdisable_plugin.py:64
+#: ./collective/pwexpiry/skins/pwexpiry/logged_in.cpy:26
+#: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:82
+msgid "Login failed. Both email address and password are case sensitive, check that caps lock is not enabled. If you have entered your password correctly, your account might be locked. You can reset your password, or contact an administrator to unlock it, using the Contact form."
+msgstr "Anmeldung fehlgeschlagen. Sowohl bei der E-Mail-Adresse als auch beim Passwort wird Groß- und Kleinschreibung berücksichtigt. Stellen Sie sicher, dass die Feststelltaste nicht eingerastet ist.Wenn Sie ihr Passwort korrekt eingegeben haben könnte ihr Konto gesperrt sein. Sie können Ihr Passwort zurücksetzen oder einen Administrator über das Kontakt Formular bitten es zu entsperren."
+
+#: ./collective/pwexpiry/pwdisable_plugin.py:73
+#: ./collective/pwexpiry/skins/pwexpiry/logged_in.cpy:34
+#: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:90
+msgid "Login failed. Both login name and password are case sensitive, check that caps lock is not enabled. If you have entered your password correctly, your account might be locked. You can reset your password, or contact an administrator to unlock it, using the Contact form."
+msgstr "Anmeldung fehlgeschlagen. Sowohl bei Benutzername als auch beim Passwort wird Groß- und Kleinschreibung berücksichtigt. Stellen Sie sicher, dass die Feststelltaste nicht eingerastet ist.Wenn Sie ihr Passwort korrekt eingegeben haben könnte ihr Konto gesperrt sein. Sie können Ihr Passwort zurücksetzen oder einen Administrator über das Kontakt Formular bitten es zu entsperren."
 
 #: ./collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.py:134
 msgid "Never"
@@ -60,10 +73,6 @@ msgstr "Passwortablauf Einstellungen des Benutzers\t"
 #: ./collective/pwexpiry/example_validator.py:80
 msgid "You have to change your password."
 msgstr "Sie müssen Ihr Passwort ändern."
-
-#: ./collective/pwexpiry/pwdisable_plugin.py:58
-msgid "Your account has been locked due to too many invalid attempts to login with a wrong password. Your account will remain blocked for the next ${hrs} hours. You can reset your password, or contact an administrator to unlock it, using the Contact form."
-msgstr "Ihr Konto wurde aufgrund von zu vielen ungültigen Anmeldungen für die nächsten ${hrs} Stunden gesperrt. Sie können Ihr Passwort zurücksetzen oder einen Administrator über das Kontakt Formular bitten es zu entsperren."
 
 #: ./collective/pwexpiry/example_validator.py:72
 msgid "Your password cannot contain your account name(Username), first name or last name."
@@ -110,7 +119,6 @@ msgstr "Ihr Passwort läuft in ${days} Tagen ab"
 
 #. Default: "Hello ${fullname},\n\nThere are ${days} days left before your password expires!\n\nPlease ensure to reset your password before it's expired."
 #: ./collective/pwexpiry/browser/emails/emails.py:51
-#, fuzzy
 msgid "email_text"
 msgstr ""
 "Hallo ${username},\n"

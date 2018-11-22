@@ -1,12 +1,13 @@
+# Franco Pellegrini <franco.pellegrini@enfoldsystems.com>, 2018.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2018-11-07 18:36+0000\n"
-"PO-Revision-Date: 2018-11-07 16:39-0200\n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2018-11-20 14:25+0000\n"
+"PO-Revision-Date: 2018-11-15 18:28-0300\n"
+"Last-Translator: Franco Pellegrini <franco.pellegrini@enfoldsystems.com>\n"
+"Language-Team: English <kde-i18n-doc@kde.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Language-Code: en\n"
@@ -14,98 +15,106 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 "Language: es\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Lokalize 2.0\n"
 
-#: collective/pwexpiry/configure.zcml:29
+#: ./collective/pwexpiry/configure.zcml:29
 msgid "Adds the feature of password expiration control."
 msgstr "Adiciona control de expiración de contraseñas."
 
-#: collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.py:134
+#: ./collective/pwexpiry/pwdisable_plugin.py:64
+#: ./collective/pwexpiry/skins/pwexpiry/logged_in.cpy:26
+#: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:82
+msgid "Login failed. Both email address and password are case sensitive, check that caps lock is not enabled. If you have entered your password correctly, your account might be locked. You can reset your password, or contact an administrator to unlock it, using the Contact form."
+msgstr ""
+
+#: ./collective/pwexpiry/pwdisable_plugin.py:73
+#: ./collective/pwexpiry/skins/pwexpiry/logged_in.cpy:34
+#: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:90
+msgid "Login failed. Both login name and password are case sensitive, check that caps lock is not enabled. If you have entered your password correctly, your account might be locked. You can reset your password, or contact an administrator to unlock it, using the Contact form."
+msgstr ""
+
+#: ./collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.py:134
 msgid "Never"
 msgstr "Nunca"
 
-#: collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.py:130
+#: ./collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.py:130
 msgid "No users were unlocked"
 msgstr "No existen usuarios bloqueados"
 
-#: collective/pwexpiry/profiles/default/controlpanel.xml
+#: ./collective/pwexpiry/profiles/default/controlpanel.xml
 msgid "Password expiration"
 msgstr "Expiración de contraseña"
 
-#: collective/pwexpiry/example_validator.py:41
+#: ./collective/pwexpiry/example_validator.py:41
 msgid "Passwords must be at least 8 characters in length."
 msgstr "Las contraseñas deben tener por lo menos 8 caracteres."
 
-#: collective/pwexpiry/example_validator.py:98
+#: ./collective/pwexpiry/example_validator.py:98
 msgid "Passwords must contain at least three of the following four character groups: Uppercase characters (A through Z), Lowercase characters (a through z), Numerals (0 through 9), Special characters such as !, $, #, %"
 msgstr "Las contraseñas deben contener al menos 3 de los siguientes 4 grupos de caracteres: letras mayúsculas (A-Z), letras minúsculas (a-z), números (0-9) y caracteres especiales como !, $, #, %."
 
-#: collective/pwexpiry/configure.zcml:37
+#: ./collective/pwexpiry/configure.zcml:37
 msgid "Profile intended only in Plone 4 (No need to manually run it, default install profile should do it)."
 msgstr ""
 
-#: collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.py:126
+#: ./collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.py:126
 msgid "The following users were unlocked: %s, "
 msgstr "Los siguientes usuarios fueron desbloqueados: %s, "
 
-#: collective/pwexpiry/configure.zcml:45
+#: ./collective/pwexpiry/configure.zcml:45
 msgid "Uninstalls collective.pwexpiry."
 msgstr "Desinstala collective.pwexpiry."
 
-#: collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.pt:38
+#: ./collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.pt:38
 msgid "User's password expiration panel"
 msgstr "Panel de expiración de contraseñas del usuario"
 
-#: collective/pwexpiry/example_validator.py:80
+#: ./collective/pwexpiry/example_validator.py:80
 msgid "You have to change your password."
 msgstr "Usted tiene que modificar su contraseña."
 
-#: collective/pwexpiry/pwdisable_plugin.py:58
-msgid "Your account has been locked due to too many invalid attempts to login with a wrong password. Your account will remain blocked for the next ${hrs} hours. You can reset your password, or contact an administrator to unlock it, using the Contact form."
-msgstr "Su cuenta fue bloqueada debido a un número repetido de intentos de acceso con una contraseña inválida. Su cuenta continuará bloqueada por las próximas ${hrs} horas. Puede alterar su contraseña, o contactar un administrador para desbloquearla, utilizando el formulario de contacto."
-
-#: collective/pwexpiry/example_validator.py:72
+#: ./collective/pwexpiry/example_validator.py:72
 msgid "Your password cannot contain your account name(Username), first name or last name."
 msgstr "Su contraseña no puede contener su nombre de usuario, su nombre, ni su apellido."
 
-#: collective/pwexpiry/pwexpiry_plugin.py:106
+#: ./collective/pwexpiry/pwexpiry_plugin.py:106
 msgid "Your password has expired."
 msgstr "Su contraseña expiró."
 
 #. Default: "\n\nIn order to change your password, please visit ${server_url}/@@change-password"
-#: collective/pwexpiry/browser/emails/emails.py:63
+#: ./collective/pwexpiry/browser/emails/emails.py:63
 msgid "change_password_email_text"
 msgstr "Para alterar su contraseña por favor visite ${server_url}/@@change-password"
 
-#: collective/pwexpiry/configure.zcml:29
+#: ./collective/pwexpiry/configure.zcml:29
 msgid "collective.pwexpiry"
 msgstr ""
 
-#: collective/pwexpiry/configure.zcml:37
+#: ./collective/pwexpiry/configure.zcml:37
 msgid "collective.pwexpiry: Plone 4 only profile"
 msgstr ""
 
-#: collective/pwexpiry/configure.zcml:45
+#: ./collective/pwexpiry/configure.zcml:45
 msgid "collective.pwexpiry: uninstall"
 msgstr ""
 
 #. Default: "Show all search results"
-#: collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.pt:157
+#: ./collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.pt:157
 msgid "description_pas_show_all_search_results"
 msgstr "Mostrar todos los resultados de la búsqueda"
 
 #. Default: "View and manage user's password expiration properties"
-#: collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.pt:50
+#: ./collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.pt:50
 msgid "description_password_expiration"
 msgstr "Ver y gerenciar las propiedades de expiración de las contraseñas de los usuarios"
 
 #. Default: "${days} days left to password expiration"
-#: collective/pwexpiry/utils.py:35
+#: ./collective/pwexpiry/utils.py:35
 msgid "email_subject"
 msgstr "Quedan ${days} días para que su contraseña expire"
 
 #. Default: "Hello ${fullname},\n\nThere are ${days} days left before your password expires!\n\nPlease ensure to reset your password before it's expired."
-#: collective/pwexpiry/browser/emails/emails.py:51
+#: ./collective/pwexpiry/browser/emails/emails.py:51
 msgid "email_text"
 msgstr ""
 "Hola ${fullname},\n"
@@ -115,7 +124,7 @@ msgstr ""
 "Por favor asegúrese de cambiarla antes de que esto suceda."
 
 #. Default: "Hello ${fullname},\n\nYour password has expired.\n\nPlease ensure to reset your password before it's expired."
-#: collective/pwexpiry/browser/emails/emails.py:71
+#: ./collective/pwexpiry/browser/emails/emails.py:71
 msgid "email_text_expired"
 msgstr ""
 "Hola ${fullname},\n"
@@ -125,51 +134,51 @@ msgstr ""
 "Por favor asegúrese de cambiarla."
 
 #. Default: "The date of performing the last notification for the user"
-#: collective/pwexpiry/userdataschema.py:32
+#: ./collective/pwexpiry/userdataschema.py:32
 msgid "help_last_notification_date"
 msgstr "La fecha de la última notificación al usuario"
 
 #. Default: "The date of setting the password"
-#: collective/pwexpiry/userdataschema.py:22
+#: ./collective/pwexpiry/userdataschema.py:22
 msgid "help_password_date"
 msgstr "La fecha en que la contraseña fue alterada"
 
 #. Default: "This password has been used already."
-#: collective/pwexpiry/password_history_validator.py:51
+#: ./collective/pwexpiry/password_history_validator.py:51
 msgid "info_reused_pw"
 msgstr "Esta contraseña ya fue utilizada."
 
 #. Default: "Apply Changes"
-#: collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.pt:169
+#: ./collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.pt:169
 msgid "label_apply_changes"
 msgstr "Aplicar cambios"
 
 #. Default: "Last notification date"
-#: collective/pwexpiry/userdataschema.py:29
+#: ./collective/pwexpiry/userdataschema.py:29
 msgid "label_last_notification_date"
 msgstr "Fecha de la última notificación"
 
 #. Default: "Password date"
-#: collective/pwexpiry/userdataschema.py:21
+#: ./collective/pwexpiry/userdataschema.py:21
 msgid "label_password_date"
 msgstr "Fecha de la contraseña"
 
 #. Default: "Save whitelist"
-#: collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.pt:194
+#: ./collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.pt:194
 msgid "label_save_whitelist"
 msgstr "Guardar lista de ignorados"
 
 #. Default: "Users whitelisted"
-#: collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.pt:189
+#: ./collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.pt:189
 msgid "label_whitelist_users"
 msgstr "Usuarios ignorados"
 
 #. Default: "\n\nIn order to reset your password, please visit ${server_url}/mail_password_form?userid=${username}"
-#: collective/pwexpiry/browser/emails/emails.py:83
+#: ./collective/pwexpiry/browser/emails/emails.py:83
 msgid "reset_password_email_text"
 msgstr "Para alterar su contraseña visite ${server_url}/mail_password_form?userid=${username}"
 
 #. Default: "\n\nThis email was sent from ${server_name}"
-#: collective/pwexpiry/browser/emails/emails.py:92
+#: ./collective/pwexpiry/browser/emails/emails.py:92
 msgid "server_name_email_text"
 msgstr "Este mensaje fue enviado desde ${server_name}"

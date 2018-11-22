@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-11-07 18:36+0000\n"
+"POT-Creation-Date: 2018-11-20 14:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,18 @@ msgstr ""
 
 #: ./collective/pwexpiry/configure.zcml:29
 msgid "Adds the feature of password expiration control."
+msgstr ""
+
+#: ./collective/pwexpiry/pwdisable_plugin.py:64
+#: ./collective/pwexpiry/skins/pwexpiry/logged_in.cpy:26
+#: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:82
+msgid "Login failed. Both email address and password are case sensitive, check that caps lock is not enabled. If you have entered your password correctly, your account might be locked. You can reset your password, or contact an administrator to unlock it, using the Contact form."
+msgstr ""
+
+#: ./collective/pwexpiry/pwdisable_plugin.py:73
+#: ./collective/pwexpiry/skins/pwexpiry/logged_in.cpy:34
+#: ./collective/pwexpiry/skins/pwexpiry/login_form_validate.vpy:90
+msgid "Login failed. Both login name and password are case sensitive, check that caps lock is not enabled. If you have entered your password correctly, your account might be locked. You can reset your password, or contact an administrator to unlock it, using the Contact form."
 msgstr ""
 
 #: ./collective/pwexpiry/browser/preferences/pwexpirycontrolpanel.py:134
@@ -56,10 +68,6 @@ msgstr ""
 
 #: ./collective/pwexpiry/example_validator.py:80
 msgid "You have to change your password."
-msgstr ""
-
-#: ./collective/pwexpiry/pwdisable_plugin.py:58
-msgid "Your account has been locked due to too many invalid attempts to login with a wrong password. Your account will remain blocked for the next ${hrs} hours. You can reset your password, or contact an administrator to unlock it, using the Contact form."
 msgstr ""
 
 #: ./collective/pwexpiry/example_validator.py:72
