@@ -4,7 +4,9 @@ Changelog
 0.13.1 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Standrize error messages so it will be the same whether the user was
+  locked or the password is incorrect
+  [frapell]
 
 
 0.13.0 (2018-11-08)
