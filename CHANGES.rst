@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.13.1 (unreleased)
+0.14.0 (2018-12-14)
 -------------------
 
 - Standrize error messages so it will be the same whether the user was
