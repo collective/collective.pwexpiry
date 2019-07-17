@@ -39,6 +39,7 @@ setup(name='collective.pwexpiry',
           # -*- Extra requirements: -*-
           'plone.api',
           'collective.monkeypatcher',
+          'six',
       ],
       extras_require={
           'test': [

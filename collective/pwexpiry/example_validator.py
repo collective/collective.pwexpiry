@@ -1,3 +1,4 @@
+import six
 from .config import _
 from .interfaces import ICollectivePWExpiryLayer
 from AccessControl import AuthEncoding
@@ -65,8 +66,9 @@ class ADPasswordValidator(object):
         for name in data.get('fullname', u'').split(' ') + \
                 [data.get('username', ''), ]:
             if name:
-                if not isinstance(name, unicode):
-                    name = unicode(name.decode('utf-8'))
+                if six.PY2:
+                    if not isinstance(name, unicode):
+                        name = unicode(name.decode('utf-8'))
 
                 if name.lower() in password.lower():
                     return _(u'Your password cannot contain your account name'

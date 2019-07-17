@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import six
 from Acquisition import aq_inner
 from collective.pwexpiry.config import DATETIME_FORMATSTRING
 from collective.pwexpiry.events import UserUnlocked
@@ -40,7 +41,10 @@ class PwExpiryControlPanel(UsersGroupsControlPanelView):
             for userid in users_to_whitelist:
                 # XXX: Should we do some checks here?
                 if userid:
-                    filtered_users_to_whitelist.append(unicode(userid))
+                    if six.PY3:
+                        filtered_users_to_whitelist.append(userid)
+                    else:
+                        filtered_users_to_whitelist.append(unicode(userid))
 
             registry['collective.pwexpiry.whitelisted_users'] = set(filtered_users_to_whitelist)
 
