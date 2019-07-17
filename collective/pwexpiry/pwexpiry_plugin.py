@@ -4,7 +4,10 @@ from AccessControl import AuthEncoding, ClassSecurityInfo, Unauthorized
 from collective.pwexpiry.config import _
 from collective.pwexpiry.utils import days_since_event
 from DateTime import DateTime
-from Globals import InitializeClass
+try:
+    from Globals import InitializeClass
+except ImportError:
+    from AccessControl.class_init import InitializeClass
 from plone import api
 from plone.registry.interfaces import IRegistry
 from Products.PageTemplates.PageTemplateFile import PageTemplateFile
@@ -14,7 +17,7 @@ from Products.PluggableAuthService.interfaces.plugins import (IAuthenticationPlu
 from Products.PluggableAuthService.plugins.BasePlugin import BasePlugin
 from Products.statusmessages.interfaces import IStatusMessage
 from zope.component import getUtility
-from zope.interface import implements
+from zope.interface import implementer
 
 manage_addPwExpiryPluginForm = PageTemplateFile(
     'www/addPwExpiryPlugin',
@@ -37,13 +40,13 @@ def addPwExpiryPlugin(self, id, title='', REQUEST=None):
         )
 
 
+@implementer(IAuthenticationPlugin, IChallengePlugin, IUserManagement)
 class PwExpiryPlugin(BasePlugin):
     """
     Password expiry plugin
     """
     meta_type = 'Password Expiry Plugin'
     security = ClassSecurityInfo()
-    implements(IAuthenticationPlugin, IChallengePlugin, IUserManagement)
 
     def __init__(self, id, title=None):
         self._setId(id)

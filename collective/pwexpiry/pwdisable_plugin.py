@@ -2,14 +2,17 @@
 
 from AccessControl import ClassSecurityInfo
 from collective.pwexpiry.config import _
-from Globals import InitializeClass
+try:
+    from Globals import InitializeClass
+except ImportError:
+    from AccessControl.class_init import InitializeClass
 from plone import api
 from Products.PageTemplates.PageTemplateFile import PageTemplateFile
 from Products.PlonePAS.interfaces.plugins import IUserManagement
 from Products.PluggableAuthService.interfaces.plugins import IChallengePlugin
 from Products.PluggableAuthService.plugins.BasePlugin import BasePlugin
 from Products.statusmessages.interfaces import IStatusMessage
-from zope.interface import implements
+from zope.interface import implementer
 
 manage_addPwDisablePluginForm = PageTemplateFile(
     'www/addPwDisablePlugin',
@@ -33,13 +36,13 @@ def addPwDisablePlugin(self, id, title='', REQUEST=None):
         )
 
 
+@implementer(IChallengePlugin, IUserManagement)
 class PwDisablePlugin(BasePlugin):
     """
     Password disable plugin
     """
     meta_type = 'Password Disable Plugin'
     security = ClassSecurityInfo()
-    implements(IChallengePlugin, IUserManagement)
 
     def __init__(self, id, title=None):
         self._setId(id)

@@ -1,10 +1,12 @@
 Changelog
 =========
 
-0.14.1 (unreleased)
+
+0.15.0 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Add python 3 and Plone 5.2 support
+  [swampmonkey]
 
 
 0.14.0 (2018-12-14)

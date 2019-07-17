@@ -5,7 +5,10 @@ from collective.pwexpiry.pwdisable_plugin import addPwDisablePlugin
 from collective.pwexpiry.pwexpiry_plugin import addPwExpiryPlugin
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.interfaces import INonInstallable
-from Products.PlonePAS.Extensions.Install import activatePluginInterfaces
+try:
+    from Products.PlonePAS.Extensions.Install import activatePluginInterfaces
+except ImportError:
+    from Products.PlonePAS.setuphandlers import activatePluginInterfaces
 from Products.PluggableAuthService.interfaces.plugins import IChallengePlugin
 from zope.interface import implementer
 

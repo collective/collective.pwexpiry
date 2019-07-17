@@ -15,12 +15,14 @@ setup(name='collective.pwexpiry',
       classifiers=[
           "Programming Language :: Python",
           "Programming Language :: Python :: 2.7",
+          "Programming Language :: Python :: 3.7",
           "Topic :: Software Development :: Libraries :: Python Modules",
           "Topic :: Security",
           "Framework :: Plone",
           "Framework :: Plone :: 4.3",
           "Framework :: Plone :: 5.0",
           "Framework :: Plone :: 5.1",
+          "Framework :: Plone :: 5.2",
           "License :: OSI Approved :: Zope Public License",
       ],
       keywords='',
@@ -57,10 +59,11 @@ setup(name='collective.pwexpiry',
       },
       entry_points="""
       # -*- Entry points: -*-
-      [zopectl.command]
-      notify_and_expire = collective.pwexpiry.scripts.notify_and_expire:entrypoint
 
       [z3c.autoinclude.plugin]
       target = plone
+
+      [zopectl.command]
+      notify_and_expire = collective.pwexpiry.scripts.notify_and_expire:entrypoint
       """,
       )

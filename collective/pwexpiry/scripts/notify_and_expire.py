@@ -1,19 +1,17 @@
 #
+import argparse
 import logging
 import os
 import sys
 import transaction
 
 from DateTime import DateTime
-import Globals
-
 from AccessControl.SecurityManagement import newSecurityManager
 from AccessControl.User import system
 from collective.pwexpiry.interfaces import IExpirationCheck
 from collective.pwexpiry.utils import days_since_event
 from plone import api
 from plone.registry.interfaces import IRegistry
-from Products.CMFPlone.interfaces.siteroot import IPloneSiteRoot
 from Testing.makerequest import makerequest
 from zope.component import getAdapters, getUtility
 from zope.component.hooks import setSite
@@ -117,22 +115,23 @@ def notify_and_expire():
                     user.setMemberProperties(
                         {'last_notification_date': current_time}
                     )
-                except Exception, exc:
+                except Exception:
                     # Continue with the script even in case of problems
-                    logger.error(
+                    logger.exception(
                         'Error while performing notification: %s '
-                        'for user: %s: %s' % (notification_name, user_id, exc))
+                        'for user: %s' % (notification_name, user_id))
                     continue
 
 
 def entrypoint(app, args):
-
     # Logging configuration
-    logfile = 'pwexpiry.log'
-    logs_dir = os.path.join(os.path.split(Globals.data_dir)[0], 'log', logfile)
+    parser = argparse.ArgumentParser()
+    parser.add_argument('log_file')
+    parser.add_argument('portal_path')
+    args = parser.parse_args(args[2:])
     logger = logging.getLogger('collective.pwexpiry')
     logger.setLevel(logging.INFO)
-    fh = logging.FileHandler(logs_dir)
+    fh = logging.FileHandler(args.log_file)
     fh.setLevel(logging.INFO)
     formatter = logging.Formatter(
         '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
@@ -142,16 +141,10 @@ def entrypoint(app, args):
 
     app = makerequest(app)
     newSecurityManager(None, system)
-    # Read and validate input variables
-    if len(args) < 3:
-        raise ValueError(
-            'Missing portal_path parameter; Please specify your site\'s path.'
-        )
-    portal_path = sys.argv[-1]
 
     # Set site
     try:
-        site = app.restrictedTraverse(portal_path)
+        site = app.restrictedTraverse(args.portal_path)
     except Exception:
         raise ValueError(
             'Wrong portal_path parameter; Please specify an existing site\'s path.'
