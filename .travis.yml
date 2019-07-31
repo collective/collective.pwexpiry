@@ -16,6 +16,9 @@ env:
   - PLONE_VERSION=5.2.x
 matrix:
   fast_finish: true
+  include:
+    - python: 3.7
+      dist: xenial
   exclude:
     - python: 3.6
       env: PLONE_VERSION=4.3.x
