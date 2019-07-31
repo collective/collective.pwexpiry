@@ -1,6 +1,6 @@
 *** Settings ***
 
-Resource  pwexpiryp4.robot
+Resource  pwexpiryp4_keywords.robot
 Library  Remote  ${PLONE_URL}/RobotRemote
 
 Suite Setup  Open Test Browser

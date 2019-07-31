@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from collective.pwexpiry.config import PROJECTNAME
 from collective.pwexpiry.testing import INTEGRATION_TESTING
+from collective.pwexpiry.config import IS_PLONE_5_2
 from plone import api
 from plone.app.testing import logout
 from plone.registry.interfaces import IRegistry
@@ -20,7 +21,8 @@ class ControlPanelTestCase(unittest.TestCase):
     def test_controlpanel_has_view(self):
         request = self.layer['request']
         view = api.content.get_view(u'pwexpiry-controlpanel', self.portal, request)
-        view = view.__of__(self.portal)
+        if view.context is not self.portal:
+            view = view.__of__(self.portal)
         self.assertTrue(view())
 
     def test_controlpanel_view_is_protected(self):
@@ -34,10 +36,15 @@ class ControlPanelTestCase(unittest.TestCase):
         self.assertIn('pwexpirycontrolpanel', actions)
 
     def test_controlpanel_removed_on_uninstall(self):
-        qi = self.portal['portal_quickinstaller']
+        if IS_PLONE_5_2:
+            request = self.layer['request']
+            installer_view = api.content.get_view(u'installer', self.portal, request)
+            installer_view.uninstall_product(PROJECTNAME)
+        else:
+            qi = self.portal['portal_quickinstaller']
 
-        with api.env.adopt_roles(['Manager']):
-            qi.uninstallProducts(products=[PROJECTNAME])
+            with api.env.adopt_roles(['Manager']):
+                qi.uninstallProducts(products=[PROJECTNAME])
 
         actions = [a.id for a in self.controlpanel.listActions()]
         self.assertNotIn('pwexpirycontrolpanel', actions)
@@ -82,10 +89,15 @@ class RegistryTestCase(unittest.TestCase):
         self.assertEqual(self.registry.get(record), 0)
 
     def test_records_removed_on_uninstall(self):
-        qi = self.portal['portal_quickinstaller']
+        if IS_PLONE_5_2:
+            request = self.layer['request']
+            installer_view = api.content.get_view(u'installer', self.portal, request)
+            installer_view.uninstall_product(PROJECTNAME)
+        else:
+            qi = self.portal['portal_quickinstaller']
 
-        with api.env.adopt_roles(['Manager']):
-            qi.uninstallProducts(products=[PROJECTNAME])
+            with api.env.adopt_roles(['Manager']):
+                qi.uninstallProducts(products=[PROJECTNAME])
 
         records = [
             'collective.pwexpiry.validity_period',

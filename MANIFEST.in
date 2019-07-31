@@ -2,3 +2,4 @@ recursive-include collective *
 include *
 global-exclude *.pyc
 exclude .installed.cfg
+exclude .mr.developer.cfg

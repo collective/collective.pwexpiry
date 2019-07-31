@@ -44,6 +44,14 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
+  <genericsetup:registerProfile
+      name="old_skins"
+      title="collective.pwexpiry: old_skins"
+      directory="profiles/old_skins"
+      description="Adds needed templates to the portal_skins tool (No need to manually run it, default install profile should do it)."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
   <utility factory=".setuphandlers.HiddenProfiles" name="collective.pwexpiry" />
 
     <subscriber

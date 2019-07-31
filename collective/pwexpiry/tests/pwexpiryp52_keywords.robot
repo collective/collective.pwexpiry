@@ -38,6 +38,10 @@ Go to Configuration Registry
     Go to   ${PLONE_URL}/portal_registry
     Wait until location is  ${PLONE_URL}/portal_registry
 
+Plone52 Log out
+    Go to  ${PLONE_URL}/logout
+    Page Should Contain  You are now logged out.
+
 Setup PWexpiry Use Username Login
     Start Browser and Log In as Site Owner
     Go to Security Settings
@@ -62,7 +66,7 @@ Setup PWexpiry Use Username Login
     Input Text  id=form-widgets-password_ctl  test_user_1
     Press Key  id=form-widgets-password_ctl  \\13
     Wait Until Element Is Not Visible  css:div#plone-loader
-    Log out
+    Plone52 Log out
 
 Setup PWexpiry Use Email Login
     Start Browser and Log In as Site Owner
@@ -88,5 +92,5 @@ Setup PWexpiry Use Email Login
     Input Text  id=form-widgets-password_ctl  test_user_1
     Press Key  id=form-widgets-password_ctl  \\13
     Wait Until Element Is Not Visible  css:div#plone-loader
-    Log out
+    Plone52 Log out
 

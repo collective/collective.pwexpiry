@@ -2,16 +2,61 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:five="http://namespaces.zope.org/five"
     xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     i18n_domain="collective.pwexpiry">
 
-  <include package=".preferences" />
-  <include package=".emails" />
+    <include package=".preferences" />
+    <include package=".emails" />
 
-  <browser:resource
-      name="collective.pwexpiry.fix_login_popup.js"
-      file="js/fix_login_popup.js"
-      layer="..interfaces.ICollectivePWExpiryLayer"
-      />
+    <browser:resource
+        name="collective.pwexpiry.fix_login_popup.js"
+        file="js/fix_login_popup.js"
+        layer="..interfaces.ICollectivePWExpiryLayer"
+        />
+
+    <configure zcml:condition="have plone-52">
+
+        <!-- LOGIN: form with plone page around, can be rendered in modal -->
+        <browser:page
+            name="login"
+            for="plone.app.layout.navigation.interfaces.INavigationRoot"
+            permission="zope.Public"
+            class=".login.PWExpiryLoginForm"
+            template="templates/login.pt"
+            layer="..interfaces.ICollectivePWExpiryLayer"
+            />
+
+        <!-- LOGIN: fail safe, simplified and unstyled form -->
+        <browser:page
+            name="failsafe_login"
+            for="plone.app.layout.navigation.interfaces.INavigationRoot"
+            permission="zope.Public"
+            class=".login.PWExpiryFailsafeLoginForm"
+            template="templates/login_failsafe.pt"
+            layer="..interfaces.ICollectivePWExpiryLayer"
+            />
+
+        <!-- LOGIN: BBB name, same as 'login' do not use them to refer to the login -->
+        <browser:page
+            name="login_form"
+            for="plone.app.layout.navigation.interfaces.INavigationRoot"
+            permission="zope.Public"
+            class=".login.PWExpiryLoginForm"
+            template="templates/login.pt"
+            layer="..interfaces.ICollectivePWExpiryLayer"
+            />
+
+        <!-- LOGIN: BBB name, same as 'failsafe_login' do not use it any longer-->
+        <browser:page
+            name="failsafe_login_form"
+            for="plone.app.layout.navigation.interfaces.INavigationRoot"
+            permission="zope.Public"
+            class=".login.PWExpiryFailsafeLoginForm"
+            template="templates/login_failsafe.pt"
+            layer="..interfaces.ICollectivePWExpiryLayer"
+            />
+
+    </configure>
 
 </configure>

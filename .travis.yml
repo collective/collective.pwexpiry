@@ -1,35 +1,52 @@
 language: python
-python: 2.7
-sudo: false
+python:
+  - 2.7.15
+  - 3.6
+  - 3.7
 cache:
+  pip: true
   directories:
-  - eggs
+    - eggs
 addons:
   firefox: 46.0.1
 env:
-- PLONE_VERSION=4.3
-- PLONE_VERSION=5.0
-- PLONE_VERSION=5.1
-- PLONE_VERSION=5.2
+  - PLONE_VERSION=4.3.x
+  - PLONE_VERSION=5.0.x
+  - PLONE_VERSION=5.1.x
+  - PLONE_VERSION=5.2.x
 matrix:
   fast_finish: true
+  exclude:
+    - python: 3.6
+      env: PLONE_VERSION=4.3.x
+    - python: 3.6
+      env: PLONE_VERSION=5.0.x
+    - python: 3.6
+      env: PLONE_VERSION=5.1.x
+    - python: 3.7
+      env: PLONE_VERSION=4.3.x
+    - python: 3.7
+      env: PLONE_VERSION=5.0.x
+    - python: 3.7
+      env: PLONE_VERSION=5.1.x
+before_install:
+  - pip install -r requirements.txt
 install:
-- sed -ie "s#test-5.1#test-$PLONE_VERSION#" buildout.cfg
-- python bootstrap.py
-- bin/buildout annotate
-- bin/buildout
+  - sed -ie "s#plone-x.x.x.cfg#plone-$PLONE_VERSION.cfg#" travis.cfg
+  - buildout -N -t 3 -c travis.cfg
+  - wget https://github.com/mozilla/geckodriver/releases/download/v0.24.0/geckodriver-v0.24.0-linux64.tar.gz
+  - mkdir geckodriver
+  - tar xf geckodriver-v0.24.0-linux64.tar.gz -C geckodriver/
+  - export PATH=$(pwd)/geckodriver:$PATH
 before_script:
-- export DISPLAY=:99.0
-- export ROBOT_SELENIUM2LIBRARY_RUN_ON_FAILURE="Capture Page Screenshot"
-- sh -e /etc/init.d/xvfb start
-- firefox -v
+  - export DISPLAY=:99.0
+  - export ROBOT_SELENIUM2LIBRARY_RUN_ON_FAILURE="Capture Page Screenshot"
+  - sh -e /etc/init.d/xvfb start
+  - firefox -v
 script:
-- bin/test
-after_script:
-- pip install coverage
-- coverage run bin/test
-# Coveralls
-- pip install coveralls
-- coveralls
-notifications:
-  irc: irc.freenode.org#plone-testing
+  - bin/code-analysis
+  - bin/test
+  - bin/test-coverage
+after_success:
+  - pip install -q coveralls
+  - coveralls

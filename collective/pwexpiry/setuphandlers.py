@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from collective.pwexpiry.config import IS_PLONE_5
+from collective.pwexpiry.config import IS_PLONE_5_2
 from collective.pwexpiry.logger import logger
 from collective.pwexpiry.pwdisable_plugin import addPwDisablePlugin
 from collective.pwexpiry.pwexpiry_plugin import addPwExpiryPlugin
@@ -20,6 +21,7 @@ class HiddenProfiles(object):  # pragma: no cover
         """Do not show on Plone's list of installable profiles."""
         return [
             u'collective.pwexpiry:plone4',
+            u'collective.pwexpiry:old_skins',
             u'collective.pwexpiry:uninstall',
         ]
 
@@ -54,4 +56,8 @@ def import_various(context):
 
     if not IS_PLONE_5:
         profile = 'profile-collective.pwexpiry:plone4'
+        ps.runAllImportStepsFromProfile(profile)
+
+    if not IS_PLONE_5_2:
+        profile = 'profile-collective.pwexpiry:old_skins'
         ps.runAllImportStepsFromProfile(profile)

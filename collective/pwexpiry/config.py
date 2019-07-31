@@ -10,3 +10,4 @@ PROJECTNAME = 'collective.pwexpiry'
 DATETIME_FORMATSTRING = "%m/%d/%Y %H:%M"
 
 IS_PLONE_5 = api.env.plone_version().startswith('5')
+IS_PLONE_5_2 = api.env.plone_version().startswith('5.2')
