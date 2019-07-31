@@ -11,7 +11,12 @@ from Products.PluggableAuthService.plugins.ZODBUserManager import ZODBUserManage
 from zope.component import getAdapters
 from zope.event import notify
 
-import hashlib
+try:
+    from hashlib import sha1 as sha
+except ImportError:
+    from sha import sha
+
+import six
 
 
 original_testPasswordValidity = RegistrationTool.testPasswordValidity
@@ -118,7 +123,10 @@ def authenticateCredentials(self, credentials):
 
     if not is_authenticated:
         # Support previous naive behavior
-        digested = hashlib.sha1(password).hexdigest()
+        if isinstance(password, six.text_type):
+            password = password.encode('utf8')
+
+        digested = sha(password).hexdigest()
 
         if reference == digested:
             is_authenticated = True
