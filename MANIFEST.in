@@ -3,3 +3,5 @@ include *
 global-exclude *.pyc
 exclude .installed.cfg
 exclude .mr.developer.cfg
+exclude geckodriver-v*
+exclude travis.cfge
