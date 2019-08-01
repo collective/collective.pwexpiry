@@ -2,7 +2,10 @@
 *.pyc
 *.mo
 .installed.cfg
+.mr.developer.cfg
 pip-selfcheck.json
+.coverage
+htmlcov/
 bin/
 develop-eggs/
 include/

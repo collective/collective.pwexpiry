@@ -1,6 +1,6 @@
 *** Settings ***
 
-Resource  pwexpiryp5_keywords.robot
+Resource  pwexpiryp52_keywords.robot
 Library  Remote  ${PLONE_URL}/RobotRemote
 
 Suite Setup  Open Test Browser
@@ -18,7 +18,7 @@ Test Username Error Message With Wrong Password
     Log in  test_user_1  test_user_1
     Page Should Contain  You are now logged in
     Page Should Not Contain  ${wrong_pw_username_error_msg}
-    Log out
+    Plone52 Log out
 
     Log in  test_user_1  wrong_pw
     Page Should Not Contain  You are now logged in
@@ -45,7 +45,7 @@ Test Email Error Message With Wrong Password
     Log in  test_user_1@none.com  test_user_1
     Page Should Contain  You are now logged in
     Page Should Not Contain  ${wrong_pw_email_error_msg}
-    Log out
+    Plone52 Log out
 
     Log in  test_user_1@none.com  wrong_pw
     Page Should Not Contain  You are now logged in

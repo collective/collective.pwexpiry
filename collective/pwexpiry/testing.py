@@ -27,22 +27,26 @@ class PwExpiryLayer(PloneSandboxLayer):
         """
         # Load ZCML
         import collective.pwexpiry
+
         self.loadZCML(package=collective.pwexpiry)
-        self.loadZCML(package=collective.pwexpiry, name='overrides.zcml')
+        self.loadZCML(package=collective.pwexpiry, name="overrides.zcml")
 
         from OFS.Application import install_package
-        install_package(app, collective.pwexpiry, collective.pwexpiry.initialize)
+
+        install_package(
+            app, collective.pwexpiry, collective.pwexpiry.initialize
+        )
 
     def setUpPloneSite(self, portal):
         """
         Set up Plone
         """
         # import default profile
-        applyProfile(portal, 'collective.pwexpiry:default')
+        applyProfile(portal, "collective.pwexpiry:default")
 
         # Create test content
         # 1. Login as user with Manager privilages
-        setRoles(portal, TEST_USER_ID, ['Manager'])
+        setRoles(portal, TEST_USER_ID, ["Manager"])
         login(portal, TEST_USER_NAME)
 
     def tearDownZope(self, app):
@@ -52,14 +56,38 @@ class PwExpiryLayer(PloneSandboxLayer):
         pass
 
 
+class PwExpiryRobotLayer(PwExpiryLayer):
+    """
+    Testing layer for collective.pwexpiry robot tests
+    """
+
+    def setUpPloneSite(self, portal):
+        """
+        Set up Plone
+        """
+        # import default profile
+        applyProfile(portal, "collective.pwexpiry:default")
+        applyProfile(portal, "collective.pwexpiry:robot_testing")
+
+        # Create test content
+        # 1. Login as user with Manager privilages
+        setRoles(portal, TEST_USER_ID, ["Manager"])
+        login(portal, TEST_USER_NAME)
+
+
 FIXTURE = PwExpiryLayer()
+ROBOT_FIXTURE = PwExpiryRobotLayer()
+
 INTEGRATION_TESTING = IntegrationTesting(
-    bases=(FIXTURE,), name="PwExpiryLayer:Integration")
+    bases=(FIXTURE,), name="PwExpiryLayer:Integration"
+)
 FUNCTIONAL_TESTING = FunctionalTesting(
-    bases=(FIXTURE,), name="PwExpiryLayer:Functional")
+    bases=(FIXTURE,), name="PwExpiryLayer:Functional"
+)
 ROBOT_TESTING = FunctionalTesting(
-    bases=(FIXTURE, AUTOLOGIN_LIBRARY_FIXTURE, z2.ZSERVER_FIXTURE),
-    name='PwExpiryLayer:Robot')
+    bases=(ROBOT_FIXTURE, AUTOLOGIN_LIBRARY_FIXTURE, z2.ZSERVER_FIXTURE),
+    name="PwExpiryLayer:Robot",
+)
 
 
 class IntegrationTestCase(unittest.TestCase):

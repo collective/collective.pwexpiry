@@ -1,28 +1,30 @@
 # -*- coding: utf-8 -*-
 
-from collective.pwexpiry.interfaces import (IInvalidPasswordEntered,
-                                            IUserUnlocked,
-                                            IValidPasswordEntered)
+from collective.pwexpiry.interfaces import (
+    IInvalidPasswordEntered,
+    IUserUnlocked,
+    IValidPasswordEntered,
+)
 from zope.component.interfaces import ObjectEvent
-from zope.interface import implements
+from zope.interface import implementer
 
 
+@implementer(IValidPasswordEntered)
 class ValidPasswordEntered(ObjectEvent):
     """A user enetered a valid password
     """
-    implements(IValidPasswordEntered)
 
 
+@implementer(IInvalidPasswordEntered)
 class InvalidPasswordEntered(ObjectEvent):
     """A user enetered an invalid password
     """
-    implements(IInvalidPasswordEntered)
 
 
+@implementer(IUserUnlocked)
 class UserUnlocked(object):
     """An user has been unlocked from the control panel tool
     """
-    implements(IUserUnlocked)
 
     def __init__(self, user):
         self.user = user

@@ -1,0 +1,18 @@
+<registry>
+    <record name="collective.pwexpiry.validity_period">
+        <field type="plone.registry.field.Int">
+            <title>Number of days for password validity. (set to 0 to disable)</title>
+        </field>
+        <value>0</value>
+    </record>
+
+    <record name="plone.enable_user_pwd_choice" interface="Products.CMFPlone.interfaces.controlpanel.ISecuritySchema" field="enable_user_pwd_choice">
+      <field type="plone.registry.field.Bool">
+        <default>False</default>
+        <description xmlns:ns0="http://xml.zope.org/namespaces/i18n" ns0:domain="plone" ns0:translate="">If not selected, a URL will be generated and e-mailed. Users are instructed to follow the link to reach a page where they can change their password and complete the registration process; this also verifies that they have entered a valid email address.</description>
+        <required>False</required>
+        <title xmlns:ns0="http://xml.zope.org/namespaces/i18n" ns0:domain="plone" ns0:translate="">Let users select their own passwords</title>
+      </field>
+      <value>True</value>
+    </record>
+</registry>

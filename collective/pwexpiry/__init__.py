@@ -1,15 +1,16 @@
 from AccessControl.Permissions import add_user_folders
 from AccessControl import allow_module
-from Products.PluggableAuthService.PluggableAuthService import \
-    registerMultiPlugin
-import pwexpiry_plugin
-import pwdisable_plugin
+from Products.PluggableAuthService.PluggableAuthService import (
+    registerMultiPlugin,
+)
+from . import pwexpiry_plugin
+from . import pwdisable_plugin
 
 
 def initialize(context):
     """Initializer called when used as a Zope 2 product."""
 
-    allow_module('collective.pwexpiry.config')
+    allow_module("collective.pwexpiry.config")
 
     registerMultiPlugin(pwexpiry_plugin.PwExpiryPlugin.meta_type)
     context.registerClass(
@@ -17,9 +18,9 @@ def initialize(context):
         permission=add_user_folders,
         constructors=(
             pwexpiry_plugin.manage_addPwExpiryPluginForm,
-            pwexpiry_plugin.addPwExpiryPlugin
+            pwexpiry_plugin.addPwExpiryPlugin,
         ),
-        visibility=None
+        visibility=None,
     )
 
     registerMultiPlugin(pwdisable_plugin.PwDisablePlugin.meta_type)
@@ -28,7 +29,7 @@ def initialize(context):
         permission=add_user_folders,
         constructors=(
             pwdisable_plugin.manage_addPwDisablePluginForm,
-            pwdisable_plugin.addPwDisablePlugin
+            pwdisable_plugin.addPwDisablePlugin,
         ),
-        visibility=None
+        visibility=None,
     )
