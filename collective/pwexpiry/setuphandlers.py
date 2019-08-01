@@ -23,6 +23,7 @@ class HiddenProfiles(object):  # pragma: no cover
             u"collective.pwexpiry:plone4",
             u"collective.pwexpiry:old_skins",
             u"collective.pwexpiry:uninstall",
+            u"collective.pwexpiry:robot_testing",
         ]
 
 

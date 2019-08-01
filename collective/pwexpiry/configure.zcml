@@ -52,6 +52,14 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
+  <genericsetup:registerProfile
+      name="robot_testing"
+      title="collective.pwexpiry: robot_testing"
+      directory="profiles/robot_testing"
+      description="Profile used for robot tests (Do not import)."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
   <utility factory=".setuphandlers.HiddenProfiles" name="collective.pwexpiry" />
 
     <subscriber

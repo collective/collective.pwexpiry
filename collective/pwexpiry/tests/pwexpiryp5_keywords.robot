@@ -40,18 +40,6 @@ Go to Configuration Registry
 
 Setup PWexpiry Use Username Login
     Start Browser and Log In as Site Owner
-    Go to Security Settings
-    Select Checkbox  id=form-widgets-enable_user_pwd_choice-0
-    Click Button  id=form-buttons-save
-    Go to Configuration Registry
-    Input Text  id=q  validity_period
-    Press Key  id=q  \\13
-    Wait Until Element Is Not Visible  css:div#plone-loader
-    Click Link  collective pwexpiry validity_period
-    Wait Until Element Is Not Visible  css:div#plone-loader
-    Input Text  id=form-widgets-value  0
-    Press Key  id=form-widgets-value  \\13
-    Wait Until Element Is Not Visible  css:div#plone-loader
     Go to Users and Groups
     Click Button  id=add-new-user
     Wait Until Element Is Not Visible  css:div#plone-loader
@@ -67,18 +55,8 @@ Setup PWexpiry Use Username Login
 Setup PWexpiry Use Email Login
     Start Browser and Log In as Site Owner
     Go to Security Settings
-    Select Checkbox  id=form-widgets-enable_user_pwd_choice-0
     Select Checkbox  id=form-widgets-use_email_as_login-0
     Click Button  id=form-buttons-save
-    Go to Configuration Registry
-    Input Text  id=q  validity_period
-    Press Key  id=q  \\13
-    Wait Until Element Is Not Visible  css:div#plone-loader
-    Click Link  collective pwexpiry validity_period
-    Wait Until Element Is Not Visible  css:div#plone-loader
-    Input Text  id=form-widgets-value  0
-    Press Key  id=form-widgets-value  \\13
-    Wait Until Element Is Not Visible  css:div#plone-loader
     Go to Users and Groups
     Click Button  id=add-new-user
     Wait Until Element Is Not Visible  css:div#plone-loader

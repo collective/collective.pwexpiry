@@ -41,16 +41,6 @@ Go to Configuration Registry
 
 Setup PWexpiry Use Username Login
     Start Browser and Log In as Site Owner
-    Go to Security Settings
-    Select Checkbox  id=form.enable_user_pwd_choice
-    Click Button  id=form.actions.save
-    Go to Configuration Registry
-    Input Text  id=q  validity_period
-    Click Button  Filter
-    Click Link  collective pwexpiry validity_period
-    Wait Until Element Is Visible  id=form-widgets-value
-    Input Text  id=form-widgets-value  0
-    Click Button  id=form-buttons-save
     Go to Users and Groups
     Click Button  name=form.button.AddUser
     Input Text  id=form.fullname  Test User 1
@@ -64,16 +54,8 @@ Setup PWexpiry Use Username Login
 Setup PWexpiry Use Email Login
     Start Browser and Log In as Site Owner
     Go to Security Settings
-    Select Checkbox  id=form.enable_user_pwd_choice
     Select Checkbox  id=form.use_email_as_login
     Click Button  id=form.actions.save
-    Go to Configuration Registry
-    Input Text  id=q  validity_period
-    Click Button  Filter
-    Click Link  collective pwexpiry validity_period
-    Wait Until Element Is Visible  id=form-widgets-value
-    Input Text  id=form-widgets-value  0
-    Click Button  id=form-buttons-save
     Go to Users and Groups
     Click Button  name=form.button.AddUser
     Input Text  id=form.fullname  Test User 1
