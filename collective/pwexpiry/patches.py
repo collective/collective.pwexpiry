@@ -7,7 +7,9 @@ from collective.pwexpiry.interfaces import ICustomPasswordValidator
 from collective.pwexpiry.logger import logger
 from plone import api
 from Products.CMFPlone.RegistrationTool import RegistrationTool
-from Products.PluggableAuthService.plugins.ZODBUserManager import ZODBUserManager  # noqa: E501
+from Products.PluggableAuthService.plugins.ZODBUserManager import (
+    ZODBUserManager,
+)  # noqa: E501
 from zope.component import getAdapters
 from zope.event import notify
 
@@ -58,29 +60,34 @@ if not IS_PLONE_5:
         """Patching the standard Plone's validate_registration method to
         add validating the password given in the registration process against
         the testPasswordValidity method.
-        (This will be added to Plone 4.3 according to https://dev.plone.org/ticket/10959)
+        (This will be added to Plone 4.3 according to
+        https://dev.plone.org/ticket/10959)
         """
         original = original_validate_registration(self, action, data)
-        pw_error = self.widgets['password'].error
+        pw_error = self.widgets["password"].error
         if isinstance(pw_error, str):
             return original
         elif callable(pw_error):
-            registration = getToolByName(self.context, 'portal_registration')
-            password = data.get('password')
-            confirm = data.get('password_ctl')
+            registration = getToolByName(self.context, "portal_registration")
+            password = data.get("password")
+            confirm = data.get("password_ctl")
             error = registration.testPasswordValidity(password, confirm, data)
             if error:
                 original.append(
-                    WidgetInputError('password', u'label_password', error)
+                    WidgetInputError("password", u"label_password", error)
                 )
-                self.widgets['password'].error = error
+                self.widgets["password"].error = error
         return original
 
     BaseRegistrationForm.validate_registration = extended_validate_registration
     logger.info(
-        'Patching plone.app.users.browser.register.BaseRegistrationForm.validate_registration')  # noqa: E501
+        "Patching plone.app.users.browser.register.BaseRegistrationForm."
+        "validate_registration"
+    )  # noqa: E501
 
-ZODBUserManager.original_authenticateCredentials = ZODBUserManager.authenticateCredentials
+ZODBUserManager.original_authenticateCredentials = (
+    ZODBUserManager.authenticateCredentials
+)
 
 
 def authenticateCredentials(self, credentials):
@@ -89,8 +96,8 @@ def authenticateCredentials(self, credentials):
     o We expect the credentials to be those returned by
       ILoginPasswordExtractionPlugin.
     """
-    login = credentials.get('login')
-    password = credentials.get('password')
+    login = credentials.get("login")
+    password = credentials.get("password")
 
     if login is None or password is None:
         return None
@@ -124,7 +131,7 @@ def authenticateCredentials(self, credentials):
     if not is_authenticated:
         # Support previous naive behavior
         if isinstance(password, six.text_type):
-            password = password.encode('utf8')
+            password = password.encode("utf8")
 
         digested = sha(password).hexdigest()
 
@@ -134,7 +141,7 @@ def authenticateCredentials(self, credentials):
     if is_authenticated:
         try:
             user = api.user.get(username=login)
-        except:
+        except Exception:
             return userid, login
 
         event = ValidPasswordEntered(user)
@@ -143,7 +150,7 @@ def authenticateCredentials(self, credentials):
     else:
         try:
             user = api.user.get(username=login)
-        except:
+        except Exception:
             return None
 
         event = InvalidPasswordEntered(user)
@@ -152,5 +159,7 @@ def authenticateCredentials(self, credentials):
 
 
 ZODBUserManager.authenticateCredentials = authenticateCredentials
-logger.info("Patching Products.PluggableAuthService.plugins.ZODBUserManager."
-            "ZODBUserManager.authenticateCredentials")
+logger.info(
+    "Patching Products.PluggableAuthService.plugins.ZODBUserManager."
+    "ZODBUserManager.authenticateCredentials"
+)

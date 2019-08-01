@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 
-from collective.pwexpiry.interfaces import (IInvalidPasswordEntered,
-                                            IUserUnlocked,
-                                            IValidPasswordEntered)
+from collective.pwexpiry.interfaces import (
+    IInvalidPasswordEntered,
+    IUserUnlocked,
+    IValidPasswordEntered,
+)
 from zope.component.interfaces import ObjectEvent
 from zope.interface import implementer
 

@@ -14,13 +14,16 @@ from zope.component import getUtility
 from zope.event import notify
 
 try:
-    from Products.CMFPlone.controlpanel.browser.usergroups import UsersGroupsControlPanelView  # noqa: E501
+    from Products.CMFPlone.controlpanel.browser.usergroups import (
+        UsersGroupsControlPanelView,
+    )  # noqa: E501
 except ImportError:  # Plone 4.3
-    from plone.app.controlpanel.usergroups import UsersOverviewControlPanel as UsersGroupsControlPanelView  # noqa: E501
+    from plone.app.controlpanel.usergroups import (
+        UsersOverviewControlPanel as UsersGroupsControlPanelView,
+    )  # noqa: E501
 
 
 class PwExpiryControlPanel(UsersGroupsControlPanelView):
-
     def getWhitelisted(self):
         if self.whitelisted:
             return "\r\n".join(self.whitelisted)
@@ -29,13 +32,17 @@ class PwExpiryControlPanel(UsersGroupsControlPanelView):
 
         form = self.request.form
         registry = getUtility(IRegistry)
-        self.whitelisted = registry.get('collective.pwexpiry.whitelisted_users')
+        self.whitelisted = registry.get(
+            "collective.pwexpiry.whitelisted_users"
+        )
 
-        submitted = form.get('form.submitted', False)
-        whitelist_submitted = form.get('form.whitelist_submitted', False)
+        submitted = form.get("form.submitted", False)
+        whitelist_submitted = form.get("form.whitelist_submitted", False)
 
         if whitelist_submitted:
-            users_to_whitelist = form.get('form.whitelisted_users', "").split('\r\n')
+            users_to_whitelist = form.get("form.whitelisted_users", "").split(
+                "\r\n"
+            )
             self.whitelisted = filtered_users_to_whitelist = list()
 
             for userid in users_to_whitelist:
@@ -44,13 +51,17 @@ class PwExpiryControlPanel(UsersGroupsControlPanelView):
                     if six.PY3:
                         filtered_users_to_whitelist.append(userid)
                     else:
-                        filtered_users_to_whitelist.append(unicode(userid))
+                        filtered_users_to_whitelist.append(
+                            unicode(userid)  # noqa: F821
+                        )
 
-            registry['collective.pwexpiry.whitelisted_users'] = set(filtered_users_to_whitelist)
+            registry["collective.pwexpiry.whitelisted_users"] = set(
+                filtered_users_to_whitelist
+            )
 
-        search = form.get('form.button.Search', None) is not None
-        findAll = form.get('form.button.FindAll', None) is not None
-        self.searchString = not findAll and form.get('searchstring', '') or ''
+        search = form.get("form.button.Search", None) is not None
+        findAll = form.get("form.button.FindAll", None) is not None
+        self.searchString = not findAll and form.get("searchstring", "") or ""
         self.searchResults = []
         self.newSearch = False
 
@@ -58,47 +69,54 @@ class PwExpiryControlPanel(UsersGroupsControlPanelView):
             self.newSearch = True
 
         if submitted:
-            if form.get('form.button.Modify', None) is not None:
-                self.manageUser(form.get('users', None),)
+            if form.get("form.button.Modify", None) is not None:
+                self.manageUser(form.get("users", None))
 
-        if not(self.many_users) or bool(self.searchString):
+        if not (self.many_users) or bool(self.searchString):
             self.searchResults = self.doSearch(self.searchString)
         return self.index()
 
     def doSearch(self, searchString):
-        mtool = getToolByName(self, 'portal_membership')
-        searchView = getMultiAdapter((aq_inner(self.context), self.request),
-            name='pas_search')
+        mtool = getToolByName(self, "portal_membership")
+        searchView = getMultiAdapter(
+            (aq_inner(self.context), self.request), name="pas_search"
+        )
 
         if searchString:
             explicit_users = list()
             for user in searchView.searchUsers(account_locked=True):
                 added = False
-                for field in ['login', 'fullname', 'email']:
+                for field in ["login", "fullname", "email"]:
                     if not added:
-                        if searchString in user.get(field, '').lower():
+                        if searchString in user.get(field, "").lower():
                             explicit_users.append(user)
                             added = True
         else:
             explicit_users = searchView.searchUsers(account_locked=True)
 
-        explicit_users = searchView.merge(explicit_users, 'userid')
+        explicit_users = searchView.merge(explicit_users, "userid")
 
         results = []
         for user_info in explicit_users:
-            userId = user_info['id']
+            userId = user_info["id"]
             user = mtool.getMemberById(userId)
             if user is None:
                 continue
-            user_info['password_date'] = \
-                user.getProperty('password_date', '2000/01/01')
-            user_info['last_notification_date'] = \
-                user.getProperty('last_notification_date', '2000/01/01')
-            user_info['fullname'] = user.getProperty('fullname', '')
+            user_info["password_date"] = user.getProperty(
+                "password_date", "2000/01/01"
+            )
+            user_info["last_notification_date"] = user.getProperty(
+                "last_notification_date", "2000/01/01"
+            )
+            user_info["fullname"] = user.getProperty("fullname", "")
             results.append(user_info)
 
-        results.sort(key=lambda x: x is not None and x['fullname'] is not None and \
-            normalizeString(x['fullname']) or '')
+        results.sort(
+            key=lambda x: x is not None
+            and x["fullname"] is not None
+            and normalizeString(x["fullname"])
+            or ""
+        )
         return results
 
     def manageUser(self, users=None):
@@ -108,34 +126,38 @@ class PwExpiryControlPanel(UsersGroupsControlPanelView):
 
         if users:
             context = aq_inner(self.context)
-            mtool = getToolByName(context, 'portal_membership')
-            utils = getToolByName(context, 'plone_utils')
+            mtool = getToolByName(context, "portal_membership")
+            utils = getToolByName(context, "plone_utils")
 
             unlocked = list()
             for user in users:
-                if user.get('unlock'):
+                if user.get("unlock"):
                     member = mtool.getMemberById(user.id)
 
                     member.setMemberProperties(
-                        {'account_locked_date': DateTime('2000/01/01'),
-                         'account_locked': False,
-                         'password_tries': 0}
+                        {
+                            "account_locked_date": DateTime("2000/01/01"),
+                            "account_locked": False,
+                            "password_tries": 0,
+                        }
                     )
-                    unlocked.append(user['id'])
+                    unlocked.append(user["id"])
 
                     notify(UserUnlocked(member))
 
             if unlocked:
                 utils.addPortalMessage(
-                    _(u'The following users were unlocked: %s'
-                        % ', '.join(unlocked))
+                    _(
+                        u"The following users were unlocked: %s"
+                        % ", ".join(unlocked)
+                    )
                 )
             else:
-                utils.addPortalMessage(_(u'No users were unlocked'))
+                utils.addPortalMessage(_(u"No users were unlocked"))
 
     def formatDate(self, date):
-        if date == DateTime('2000/01/01'):
-            result = _(u'Never')
+        if date == DateTime("2000/01/01"):
+            result = _(u"Never")
         else:
             result = date.strftime(DATETIME_FORMATSTRING)
         return result
