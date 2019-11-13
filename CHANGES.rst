@@ -5,7 +5,8 @@ Changelog
 0.15.1 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Do not assume that dates in user's properties are already as DateTime
+  [frapell]
 
 
 0.15.0 (2019-08-01)

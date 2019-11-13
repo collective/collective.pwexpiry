@@ -4,6 +4,7 @@ from Acquisition import aq_inner
 from collective.pwexpiry.config import DATETIME_FORMATSTRING
 from collective.pwexpiry.events import UserUnlocked
 from DateTime import DateTime
+from DateTime.interfaces import SyntaxError
 from plone.protect import CheckAuthenticator
 from plone.registry.interfaces import IRegistry
 from Products.CMFCore.utils import getToolByName
@@ -24,6 +25,8 @@ except ImportError:  # Plone 4.3
 
 
 class PwExpiryControlPanel(UsersGroupsControlPanelView):
+    whitelisted = None
+
     def getWhitelisted(self):
         if self.whitelisted:
             return "\r\n".join(self.whitelisted)
@@ -156,8 +159,20 @@ class PwExpiryControlPanel(UsersGroupsControlPanelView):
                 utils.addPortalMessage(_(u"No users were unlocked"))
 
     def formatDate(self, date):
-        if date == DateTime("2000/01/01"):
-            result = _(u"Never")
-        else:
-            result = date.strftime(DATETIME_FORMATSTRING)
+        result = ""
+
+        if isinstance(date, str):
+            try:
+                date = DateTime(date)
+            except SyntaxError:
+                date = DateTime("2000/01/01")
+
+        if isinstance(date, DateTime):
+            # XXX: Do it like this to avoid issues with timezones
+            str_date = f"{date.year()}/{date.month()}/{date.day()}"
+            if str_date == "2000/01/01":
+                result = _(u"Never")
+            else:
+                result = date.strftime(DATETIME_FORMATSTRING)
+
         return result
