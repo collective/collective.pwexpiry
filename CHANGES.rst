@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-0.15.1 (unreleased)
+0.15.1 (2019-12-10)
 -------------------
 
 - Do not assume that dates in user's properties are already as DateTime
