@@ -169,9 +169,9 @@ you only need to provide the absolute path to your Plone instance as only argume
 Here's an example of how the script can be executed from the command line::
 
     $ cd ${buildoout:directory}
-    $ ./bin/instance notify_and_expire /Plone
+    $ ./bin/instance notify_and_expire /opt/plone/buildout/notify_and_expire.log /Plone
 
-This assuming your Plone site id is ``Plone`` and lives at the Zope root.
+This assuming your Plone site id is ``Plone`` and lives at the Zope root, and that you want to save the log in a ``notify_and_expire.log`` file in ``/opt/plone/buildout``
 
 
 Provide SERVER_URL and SERVER_NAME environment variables
