@@ -5,7 +5,8 @@ Changelog
 0.15.2 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Update README
+  [frapell]
 
 
 0.15.1 (2019-12-10)
