@@ -24,6 +24,9 @@ class HiddenProfiles(object):  # pragma: no cover
             u"collective.pwexpiry:old_skins",
             u"collective.pwexpiry:uninstall",
             u"collective.pwexpiry:robot_testing",
+            u"collective.pwexpiry.upgrades:0001_to_0002",
+            u"collective.pwexpiry.upgrades:0002_to_0003",
+            u"collective.pwexpiry.upgrades:0003_to_0004",
         ]
 
 

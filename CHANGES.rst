@@ -5,6 +5,9 @@ Changelog
 0.15.2 (unreleased)
 -------------------
 
+- Hide profiles not intended to be shown in the add-ons control panel
+  [frapell]
+
 - Update README
   [frapell]
 
