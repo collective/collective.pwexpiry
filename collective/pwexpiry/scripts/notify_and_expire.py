@@ -18,6 +18,23 @@ from zope.component.hooks import setSite
 from zope.globalrequest import setRequest
 
 
+def test_notifications(notification_name, test_user, test_days):
+    print("Testing notifications...")
+    portal = api.portal.get()
+    # Search for registered notifications and execute them
+    notifications = getAdapters((portal,), IExpirationCheck)
+    user = portal.portal_membership.getMemberById(test_user)
+    if not user:
+        print("There is no user with user_id: " + test_user)
+        return None
+
+    print("Looking for notifications")
+    for name, notification in notifications:
+        if name == notification_name:
+            print("Testing notification: " + name)
+            notification.notification_action(user, test_days)
+
+
 def notify_and_expire():
     """
     For each registered user check all the conditions and execute
@@ -136,6 +153,16 @@ def entrypoint(app, args):
     parser = argparse.ArgumentParser()
     parser.add_argument("log_file")
     parser.add_argument("portal_path")
+    parser.add_argument("--test-notification",
+                        help=("Use this to force sending a notification. Need "
+                              "to also use --test-user and --test-days. Use "
+                              "this argument to specify the notification name."))
+    parser.add_argument("--test-user",
+                        help=("Specify the userid to test the notification against."))
+    parser.add_argument("--test-days", default=0, type=int,
+                        help=("If the notification specified in --test-notification "
+                              "is a notification before a password expired, use "
+                              "this argument to specify the number of days."))
     args = parser.parse_args(args[2:])
     logger = logging.getLogger("collective.pwexpiry")
     logger.setLevel(logging.INFO)
@@ -169,10 +196,17 @@ def entrypoint(app, args):
         site.REQUEST["SERVER_URL"] = os.getenv("SERVER_URL")
 
     setRequest(site.REQUEST)
-    notify_and_expire()
-    # commit transaction
-    transaction.commit()
-    app._p_jar.sync()
+
+    notification_name = args.test_notification
+    test_user = args.test_user
+    test_days = args.test_days
+    if notification_name:
+        test_notifications(notification_name, test_user, test_days)
+    else:
+        notify_and_expire()
+        # commit transaction
+        transaction.commit()
+        app._p_jar.sync()
 
 
 if __name__ == "__main__":

@@ -5,6 +5,9 @@ Changelog
 0.15.2 (unreleased)
 -------------------
 
+- Add ability for the notify_and_expire script to test notifications
+  [frapell]
+
 - Hide profiles not intended to be shown in the add-ons control panel
   [frapell]
 
