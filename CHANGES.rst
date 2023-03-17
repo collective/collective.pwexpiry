@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-0.15.2 (unreleased)
+0.15.2 (2023-03-17)
 -------------------
 
 - Add ability for the notify_and_expire script to test notifications
