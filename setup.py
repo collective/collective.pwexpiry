@@ -67,4 +67,7 @@ setup(name='collective.pwexpiry',
       [zopectl.command]
       notify_and_expire = collective.pwexpiry.scripts.notify_and_expire:entrypoint
       """,
+      scripts=[
+          'collective/pwexpiry/scripts/notify_and_expire.py',
+      ]
       )
