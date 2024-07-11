@@ -27,24 +27,24 @@ class PWExpiryLoginForm(LoginForm):
             if self.use_email_as_login():
                 status_msg.addStatusMessage(
                     _(
-                        u"Login failed. Both email address and password are "
-                        u"case sensitive, check that caps lock is not "
-                        u"enabled. If you have entered your password "
-                        u"correctly, your account might be locked. You can "
-                        u"reset your password, or contact an administrator "
-                        u"to unlock it, using the Contact form."
+                        "Login failed. Both email address and password are "
+                        "case sensitive, check that caps lock is not "
+                        "enabled. If you have entered your password "
+                        "correctly, your account might be locked. You can "
+                        "reset your password, or contact an administrator "
+                        "to unlock it, using the Contact form."
                     ),
                     type="error",
                 )
             else:
                 status_msg.addStatusMessage(
                     _(
-                        u"Login failed. Both login name and password are "
-                        u"case sensitive, check that caps lock is not "
-                        u"enabled. If you have entered your password "
-                        u"correctly, your account might be locked. You can "
-                        u"reset your password, or contact an administrator "
-                        u"to unlock it, using the Contact form."
+                        "Login failed. Both login name and password are "
+                        "case sensitive, check that caps lock is not "
+                        "enabled. If you have entered your password "
+                        "correctly, your account might be locked. You can "
+                        "reset your password, or contact an administrator "
+                        "to unlock it, using the Contact form."
                     ),
                     type="error",
                 )
@@ -53,8 +53,8 @@ class PWExpiryLoginForm(LoginForm):
         is_initial_login = self._post_login()
         status_msg.addStatusMessage(
             PMF_(
-                u"you_are_now_logged_in",
-                default=u"Welcome! You are now logged in.",
+                "you_are_now_logged_in",
+                default="Welcome! You are now logged in.",
             ),
             "info",
         )

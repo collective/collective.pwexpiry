@@ -2,10 +2,11 @@ Changelog
 =========
 
 
-0.15.3 (unreleased)
--------------------
+1.0.0 (unreleased)
+------------------
 
-- Nothing changed yet.
+- Add support for Plone 6 and drop support for python 2 and Plone 4.3-5.1.
+  [enfold_josh]
 
 
 0.15.2 (2023-03-17)

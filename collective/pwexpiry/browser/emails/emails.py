@@ -49,7 +49,7 @@ class NotificationEmail(BrowserView):
             msg = translate(
                 _(
                     "email_text",
-                    default=u"""Hello ${fullname},
+                    default="""Hello ${fullname},
 
 There are ${days} days left before your password expires!
 
@@ -63,8 +63,8 @@ Please ensure to reset your password before it's expired.""",
                 _(
                     "change_password_email_text",
                     default=(
-                        u"""\n\nIn order to change your password, please """
-                        u"""visit ${server_url}/@@change-password"""
+                        """\n\nIn order to change your password, please """
+                        """visit ${server_url}/@@change-password"""
                     ),
                     mapping=msg_mapping,
                 ),
@@ -74,7 +74,7 @@ Please ensure to reset your password before it's expired.""",
             msg = translate(
                 _(
                     "email_text_expired",
-                    default=u"""Hello ${fullname},
+                    default="""Hello ${fullname},
 
 Your password has expired.
 
@@ -88,9 +88,9 @@ Please ensure to reset your password before it's expired.""",
                 _(
                     "reset_password_email_text",
                     default=(
-                        u"""\n\nIn order to reset your password, please """
-                        u"""visit ${server_url}/mail_password_form?"""
-                        u"""userid=${username}"""
+                        """\n\nIn order to reset your password, please """
+                        """visit ${server_url}/mail_password_form?"""
+                        """userid=${username}"""
                     ),
                     mapping=msg_mapping,
                 ),
@@ -101,7 +101,7 @@ Please ensure to reset your password before it's expired.""",
             msg += translate(
                 _(
                     "server_name_email_text",
-                    default=u"""\n\nThis email was sent from ${server_name}""",
+                    default="""\n\nThis email was sent from ${server_name}""",
                     mapping=msg_mapping,
                 ),
                 target_language=language,

@@ -34,7 +34,7 @@ def send_notification_email(
     subject = translate(
         _(
             "email_subject",
-            default=u"${days} days left to password expiration",
+            default="${days} days left to password expiration",
             mapping={"days": days_to_expire},
         ),
         target_language=language,

@@ -1,4 +1,3 @@
-import six
 from .config import _
 from .interfaces import ICollectivePWExpiryLayer
 from AccessControl import AuthEncoding
@@ -38,7 +37,7 @@ class ADPasswordValidator(object):
         # Checking if minimal length of the entered password
         # is greater than 8 chars
         if len(password) < 8:
-            return _(u"Passwords must be at least 8 characters in length.")
+            return _("Passwords must be at least 8 characters in length.")
 
         # password is compared to unicode values
         password = safe_unicode(password)
@@ -62,18 +61,14 @@ class ADPasswordValidator(object):
 
         # Checking if the entered password doesn't contain
         # the user's username or any parts of his fullname
-        for name in data.get("fullname", u"").split(" ") + [
+        for name in data.get("fullname", "").split(" ") + [
             data.get("username", "")
         ]:
             if name:
-                if six.PY2:
-                    if not isinstance(name, unicode):  # noqa: F821
-                        name = unicode(name.decode("utf-8"))  # noqa: F821
-
                 if name.lower() in password.lower():
                     return _(
-                        u"Your password cannot contain your account name"
-                        u"(Username), first name or last name."
+                        "Your password cannot contain your account name"
+                        "(Username), first name or last name."
                     )
 
         # Checking if the entered password is different than already set
@@ -82,7 +77,7 @@ class ADPasswordValidator(object):
             if AuthEncoding.pw_validate(
                 data.get("prevhash"), password.encode("utf-8")
             ):
-                return _(u"You have to change your password.")
+                return _("You have to change your password.")
 
         # Checking it the entered password fits to the password policy scheme:
         # it must contain at least 3 from the 4 parts:
@@ -101,12 +96,12 @@ class ADPasswordValidator(object):
             matches += 1
         if matches < 3:
             return _(
-                u"Passwords must contain at least three of the following "
-                u"four character groups: "
-                u"Uppercase characters (A through Z), "
-                u"Lowercase characters (a through z), "
-                u"Numerals (0 through 9), "
-                u"Special characters such as !, $, #, %"
+                "Passwords must contain at least three of the following "
+                "four character groups: "
+                "Uppercase characters (A through Z), "
+                "Lowercase characters (a through z), "
+                "Numerals (0 through 9), "
+                "Special characters such as !, $, #, %"
             )
 
         return None

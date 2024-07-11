@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
+try:
+    from zope.component.interfaces import IObjectEvent
+except ImportError:
+    from zope.interface.interfaces import IObjectEvent
 
-from zope.component.interfaces import IObjectEvent
 from zope.interface import Attribute, Interface
 
 

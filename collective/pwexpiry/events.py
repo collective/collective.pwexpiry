@@ -5,7 +5,12 @@ from collective.pwexpiry.interfaces import (
     IUserUnlocked,
     IValidPasswordEntered,
 )
-from zope.component.interfaces import ObjectEvent
+
+try:
+    from zope.component.interfaces import ObjectEvent
+except ImportError:
+    from zope.interface.interfaces import ObjectEvent
+
 from zope.interface import implementer
 
 

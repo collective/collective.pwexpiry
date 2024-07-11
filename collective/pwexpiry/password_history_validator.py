@@ -48,8 +48,8 @@ class PasswordHistoryValidator(object):
         for old_pw in pw_history[-max_history_pws:]:
             if AuthEncoding.pw_validate(old_pw, str(password)):
                 return _(
-                    u"info_reused_pw",
-                    default=u"This password has been used already.",
+                    "info_reused_pw",
+                    default="This password has been used already.",
                 )
 
         # All fine

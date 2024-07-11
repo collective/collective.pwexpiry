@@ -5,7 +5,7 @@ import os
 def read(*rnames):
     return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
 
-version = '0.15.3.dev0'
+version = '1.0.0.dev0'
 
 setup(name='collective.pwexpiry',
       version=version,
@@ -14,15 +14,15 @@ setup(name='collective.pwexpiry',
       long_description=read("README.rst") + "\n" + read("CHANGES.rst"),
       classifiers=[
           "Programming Language :: Python",
-          "Programming Language :: Python :: 2.7",
           "Programming Language :: Python :: 3.7",
+          "Programming Language :: Python :: 3.8",
+          "Programming Language :: Python :: 3.9",
+          "Programming Language :: Python :: 3.10",
           "Topic :: Software Development :: Libraries :: Python Modules",
           "Topic :: Security",
           "Framework :: Plone",
-          "Framework :: Plone :: 4.3",
-          "Framework :: Plone :: 5.0",
-          "Framework :: Plone :: 5.1",
           "Framework :: Plone :: 5.2",
+          "Framework :: Plone :: 6.0",
           "License :: OSI Approved :: Zope Public License",
       ],
       keywords='',
@@ -39,7 +39,6 @@ setup(name='collective.pwexpiry',
           # -*- Extra requirements: -*-
           'plone.api',
           'collective.monkeypatcher',
-          'six',
       ],
       extras_require={
           'test': [

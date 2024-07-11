@@ -5,13 +5,17 @@
 .mr.developer.cfg
 pip-selfcheck.json
 .coverage
+pyvenv.cfg
 htmlcov/
 bin/
 develop-eggs/
 include/
 lib/
+lib64/
 parts/
 var/
 .idea/
 local/
 share/
+downloads/
+eggs/

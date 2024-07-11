@@ -235,5 +235,3 @@ License
 =======
 
 This package is licensed under the Zope Public License.
-
-.. _`Plone 4.2`: http://pypi.python.org/pypi/Plone/4.2
