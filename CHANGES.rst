@@ -8,6 +8,9 @@ Changelog
 - Add support for Plone 6 and drop support for python 2 and Plone 4.3-5.1.
   [enfold_josh]
 
+- Modify travis config to reflect changes in supported python and plone versions.
+  [enfold_josh]
+
 
 0.15.2 (2023-03-17)
 -------------------
