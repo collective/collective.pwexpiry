@@ -11,6 +11,12 @@ Changelog
 - Modify travis config to reflect changes in supported python and plone versions.
   [enfold_josh]
 
+- update to new namespaces
+  [MrTango]
+
+- update to use plone.autoinclude.pluging
+  [MrTango]
+
 
 0.15.2 (2023-03-17)
 -------------------
