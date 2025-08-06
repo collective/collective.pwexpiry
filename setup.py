@@ -1,4 +1,4 @@
-from setuptools import setup, find_packages
+from setuptools import setup, find_namespace_packages
 import os
 
 
@@ -14,8 +14,6 @@ setup(name='collective.pwexpiry',
       long_description=read("README.rst") + "\n" + read("CHANGES.rst"),
       classifiers=[
           "Programming Language :: Python",
-          "Programming Language :: Python :: 3.7",
-          "Programming Language :: Python :: 3.8",
           "Programming Language :: Python :: 3.9",
           "Programming Language :: Python :: 3.10",
           "Programming Language :: Python :: 3.11",
@@ -32,7 +30,7 @@ setup(name='collective.pwexpiry',
       author_email='info@enfoldsystems.com',
       url='http://www.enfoldsystems.com',
       license='ZPL',
-      packages=find_packages(exclude=['ez_setup']),
+      packages=find_namespace_packages(exclude=['ez_setup']),
       namespace_packages=['collective'],
       include_package_data=True,
       zip_safe=False,
@@ -62,7 +60,7 @@ setup(name='collective.pwexpiry',
       entry_points="""
       # -*- Entry points: -*-
 
-      [z3c.autoinclude.plugin]
+      [plone.autoinclude.plugin]
       target = plone
 
       [zopectl.command]

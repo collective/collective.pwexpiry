@@ -3,7 +3,6 @@ try:
     from zope.component.interfaces import IObjectEvent
 except ImportError:
     from zope.interface.interfaces import IObjectEvent
-
 from zope.interface import Attribute, Interface
 
 
