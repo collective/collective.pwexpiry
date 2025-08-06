@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-import six
 from Acquisition import aq_inner
 from collective.pwexpiry.config import DATETIME_FORMATSTRING
 from collective.pwexpiry.events import UserUnlocked
@@ -9,19 +8,13 @@ from plone.protect import CheckAuthenticator
 from plone.registry.interfaces import IRegistry
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone import PloneMessageFactory as _
+from Products.CMFPlone.controlpanel.browser.usergroups import (
+    UsersGroupsControlPanelView,
+)  # noqa: E501
 from Products.CMFPlone.utils import normalizeString
 from zope.component import getMultiAdapter
 from zope.component import getUtility
 from zope.event import notify
-
-try:
-    from Products.CMFPlone.controlpanel.browser.usergroups import (
-        UsersGroupsControlPanelView,
-    )  # noqa: E501
-except ImportError:  # Plone 4.3
-    from plone.app.controlpanel.usergroups import (
-        UsersOverviewControlPanel as UsersGroupsControlPanelView,
-    )  # noqa: E501
 
 
 class PwExpiryControlPanel(UsersGroupsControlPanelView):
@@ -51,12 +44,7 @@ class PwExpiryControlPanel(UsersGroupsControlPanelView):
             for userid in users_to_whitelist:
                 # XXX: Should we do some checks here?
                 if userid:
-                    if six.PY3:
-                        filtered_users_to_whitelist.append(userid)
-                    else:
-                        filtered_users_to_whitelist.append(
-                            unicode(userid)  # noqa: F821
-                        )
+                    filtered_users_to_whitelist.append(userid)
 
             registry["collective.pwexpiry.whitelisted_users"] = set(
                 filtered_users_to_whitelist
@@ -151,12 +139,12 @@ class PwExpiryControlPanel(UsersGroupsControlPanelView):
             if unlocked:
                 utils.addPortalMessage(
                     _(
-                        u"The following users were unlocked: %s"
+                        "The following users were unlocked: %s"
                         % ", ".join(unlocked)
                     )
                 )
             else:
-                utils.addPortalMessage(_(u"No users were unlocked"))
+                utils.addPortalMessage(_("No users were unlocked"))
 
     def formatDate(self, date):
         result = ""
@@ -171,7 +159,7 @@ class PwExpiryControlPanel(UsersGroupsControlPanelView):
             # XXX: Do it like this to avoid issues with timezones
             str_date = f"{date.year()}/{date.month()}/{date.day()}"
             if str_date == "2000/01/01":
-                result = _(u"Never")
+                result = _("Never")
             else:
                 result = date.strftime(DATETIME_FORMATSTRING)
 

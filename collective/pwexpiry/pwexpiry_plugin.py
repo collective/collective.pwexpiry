@@ -5,10 +5,7 @@ from collective.pwexpiry.config import _
 from collective.pwexpiry.utils import days_since_event
 from DateTime import DateTime
 
-try:
-    from Globals import InitializeClass
-except ImportError:
-    from AccessControl.class_init import InitializeClass
+from AccessControl.class_init import InitializeClass
 from plone import api
 from plone.registry.interfaces import IRegistry
 from Products.PageTemplates.PageTemplateFile import PageTemplateFile
@@ -110,7 +107,7 @@ class PwExpiryPlugin(BasePlugin):
         if user_expired:
             portal_url = api.portal.get_tool(name="portal_url")()
             IStatusMessage(request).add(
-                _(u"Your password has expired."), type="error"
+                _("Your password has expired."), type="error"
             )
             response.redirect(
                 "%s/mail_password_form?userid=%s" % (portal_url, user_expired),

@@ -3,10 +3,7 @@
 from AccessControl import ClassSecurityInfo
 from collective.pwexpiry.config import _
 
-try:
-    from Globals import InitializeClass
-except ImportError:
-    from AccessControl.class_init import InitializeClass
+from AccessControl.class_init import InitializeClass
 from plone import api
 from Products.PageTemplates.PageTemplateFile import PageTemplateFile
 from Products.PlonePAS.interfaces.plugins import IUserManagement
@@ -68,24 +65,24 @@ class PwDisablePlugin(BasePlugin):
             if email_login:
                 IStatusMessage(self.REQUEST).add(
                     _(
-                        u"Login failed. Both email address and password are "
-                        u"case sensitive, check that caps lock is not "
-                        u"enabled. If you have entered your password "
-                        u"correctly, your account might be locked. You can "
-                        u"reset your password, or contact an administrator "
-                        u"to unlock it, using the Contact form."
+                        "Login failed. Both email address and password are "
+                        "case sensitive, check that caps lock is not "
+                        "enabled. If you have entered your password "
+                        "correctly, your account might be locked. You can "
+                        "reset your password, or contact an administrator "
+                        "to unlock it, using the Contact form."
                     ),
                     type="error",
                 )
             else:
                 IStatusMessage(self.REQUEST).add(
                     _(
-                        u"Login failed. Both login name and password are "
-                        u"case sensitive, check that caps lock is not "
-                        u"enabled. If you have entered your password "
-                        u"correctly, your account might be locked. You can "
-                        u"reset your password, or contact an administrator "
-                        u"to unlock it, using the Contact form."
+                        "Login failed. Both login name and password are "
+                        "case sensitive, check that caps lock is not "
+                        "enabled. If you have entered your password "
+                        "correctly, your account might be locked. You can "
+                        "reset your password, or contact an administrator "
+                        "to unlock it, using the Contact form."
                     ),
                     type="error",
                 )

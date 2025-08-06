@@ -29,26 +29,10 @@
       />
 
   <genericsetup:registerProfile
-      name="plone4"
-      title="collective.pwexpiry: Plone 4 only profile"
-      directory="profiles/plone4"
-      description='Profile intended only in Plone 4 (No need to manually run it, default install profile should do it).'
-      provides="Products.GenericSetup.interfaces.EXTENSION"
-      />
-
-  <genericsetup:registerProfile
       name="uninstall"
       title="collective.pwexpiry: uninstall"
       directory="profiles/uninstall"
       description="Uninstalls collective.pwexpiry."
-      provides="Products.GenericSetup.interfaces.EXTENSION"
-      />
-
-  <genericsetup:registerProfile
-      name="old_skins"
-      title="collective.pwexpiry: old_skins"
-      directory="profiles/old_skins"
-      description="Adds needed templates to the portal_skins tool (No need to manually run it, default install profile should do it)."
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 

@@ -18,21 +18,21 @@ class IEnhancedUserDataSchema(IUserDataSchema):
     """
 
     password_date = schema.Date(
-        title=_(u"label_password_date", default=u"Password date"),
+        title=_("label_password_date", default="Password date"),
         description=_(
-            u"help_password_date", default=u"The date of setting the password"
+            "help_password_date", default="The date of setting the password"
         ),
         required=False,
     )
 
     last_notification_date = schema.Date(
         title=_(
-            u"label_last_notification_date", default=u"Last notification date"
+            "label_last_notification_date", default="Last notification date"
         ),
         description=_(
-            u"help_last_notification_date",
+            "help_last_notification_date",
             default=(
-                u"The date of performing the last notification for the user"
+                "The date of performing the last notification for the user"
             ),
         ),
         required=False,
