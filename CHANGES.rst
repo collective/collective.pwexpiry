@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0.0 (unreleased)
+1.0.0 (2025-08-06)
 ------------------
 
 - Add support for Plone 6 and drop support for python 2 and Plone 4.3-5.1.
