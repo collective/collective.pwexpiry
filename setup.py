@@ -30,8 +30,6 @@ setup(name='collective.pwexpiry',
       author_email='info@enfoldsystems.com',
       url='http://www.enfoldsystems.com',
       license='ZPL',
-      packages=find_namespace_packages(exclude=['ez_setup']),
-      namespace_packages=['collective'],
       include_package_data=True,
       zip_safe=False,
       install_requires=[
